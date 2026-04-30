@@ -19,7 +19,7 @@ const itemVariants = {
     y: 0,
     transition: {
       duration: 0.8,
-      ease: [0.22, 1, 0.36, 1],
+      ease: [0.22, 1, 0.36, 1] as const,
     },
   },
 };
@@ -104,7 +104,7 @@ function ServiceCard({ service }: { service: typeof services[0] }) {
               transparent 80%
             )
           `,
-        }}
+        } as any}
       />
       <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 relative z-10 ${service.color}`}>
         {service.icon}

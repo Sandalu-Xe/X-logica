@@ -20,7 +20,7 @@ const itemVariants = {
     y: 0,
     transition: {
       duration: 0.8,
-      ease: [0.22, 1, 0.36, 1],
+      ease: [0.22, 1, 0.36, 1] as const,
     },
   },
 };
@@ -100,7 +100,7 @@ function CaseStudyCard({ project }: { project: typeof cases[0] }) {
         rotateX,
         rotateY,
         transformStyle: "preserve-3d",
-      }}
+      } as any}
       className="group cursor-pointer perspective-1000"
     >
       <div

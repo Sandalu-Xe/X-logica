@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { motion, useSpring } from 'motion/react';
 
 export default function CustomCursor() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
 
   const cursorX = useSpring(0, { stiffness: 500, damping: 28 });
@@ -45,7 +44,7 @@ export default function CustomCursor() {
         y: cursorY,
         scale: isHovering ? 1.5 : 1,
         backgroundColor: isHovering ? 'rgba(37, 99, 235, 0.1)' : 'transparent',
-      }}
+      } as any}
       transition={{ scale: { type: 'spring', stiffness: 300, damping: 20 } }}
     />
   );

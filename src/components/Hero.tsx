@@ -21,7 +21,7 @@ const itemVariants = {
     y: 0,
     transition: {
       duration: 0.8,
-      ease: [0.22, 1, 0.36, 1],
+      ease: [0.22, 1, 0.36, 1] as const,
     },
   },
 };
@@ -34,7 +34,7 @@ const wordVariants = {
     transition: {
       delay: 0.5 + i * 0.1,
       duration: 0.8,
-      ease: [0.22, 1, 0.36, 1],
+      ease: [0.22, 1, 0.36, 1] as const,
     },
   }),
 };
@@ -146,14 +146,14 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 60, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1.2, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 1.2, delay: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           style={{
             rotateX,
             rotateY,
             transformStyle: "preserve-3d",
-          }}
+          } as any}
           className="mt-20 relative perspective-1000"
         >
           <div className="relative mx-auto max-w-5xl rounded-2xl overflow-hidden border border-gray-200 shadow-2xl bg-white"
@@ -175,7 +175,7 @@ export default function Hero() {
           <motion.div 
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            style={{ transform: "translateZ(100px)" }}
+            style={{ transform: "translateZ(100px)" } as any}
             className="absolute -top-10 -right-10 hidden lg:block bg-white p-6 rounded-2xl shadow-xl border border-gray-100 max-w-[200px]"
           >
             <div className="flex items-center gap-3 mb-2">
@@ -192,7 +192,7 @@ export default function Hero() {
           <motion.div 
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            style={{ transform: "translateZ(100px)" }}
+            style={{ transform: "translateZ(100px)" } as any}
             className="absolute -bottom-10 -left-10 hidden lg:block bg-white p-6 rounded-2xl shadow-xl border border-gray-100 max-w-[200px]"
           >
             <div className="flex items-center gap-3">
