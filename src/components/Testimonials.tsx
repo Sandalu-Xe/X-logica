@@ -3,21 +3,21 @@ import { Quote } from 'lucide-react';
 
 const testimonials = [
   {
-    quote: "Nexus transformed our legacy systems into a modern, cloud-native powerhouse. Their attention to detail and technical expertise is unmatched.",
+    quote: "Xlogica transformed our legacy systems into a modern, cloud-native powerhouse. Their attention to detail and technical expertise is unmatched.",
     author: "Sarah Jenkins",
     role: "CTO",
     company: "Acme Global",
     avatar: "https://i.pravatar.cc/150?u=sarah",
   },
   {
-    quote: "The product design team at Nexus is world-class. They didn't just build what we asked for—they built what our users actually needed.",
+    quote: "The product design team at Xlogica is world-class. They didn't just build what we asked for—they built what our users actually needed.",
     author: "Michael Chen",
     role: "Product Director",
     company: "Vortex Tech",
     avatar: "https://i.pravatar.cc/150?u=michael",
   },
   {
-    quote: "Working with Nexus was a seamless experience. They delivered our AI-driven analytics platform ahead of schedule and under budget.",
+    quote: "Working with Xlogica was a seamless experience. They delivered our AI-driven analytics platform ahead of schedule and under budget.",
     author: "Elena Rodriguez",
     role: "CEO",
     company: "Lumina AI",
@@ -67,40 +67,41 @@ export default function Testimonials() {
           </motion.p>
         </motion.div>
 
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
-        >
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              className="p-10 bg-premium-white border border-gray-100 rounded-3xl relative group hover:shadow-2xl hover:shadow-black/5 transition-all duration-500"
-            >
-              <Quote className="absolute top-8 right-8 w-10 h-10 text-accent-blue/10 group-hover:text-accent-blue/20 transition-colors" />
-              
-              <p className="text-lg text-gray-700 italic leading-relaxed mb-10 relative z-10">
-                "{testimonial.quote}"
-              </p>
-              
-              <div className="flex items-center gap-4">
-                <img 
-                  src={testimonial.avatar} 
-                  alt={testimonial.author} 
-                  className="w-12 h-12 rounded-full border-2 border-white shadow-md"
-                  referrerPolicy="no-referrer"
-                />
-                <div>
-                  <div className="font-bold text-premium-black">{testimonial.author}</div>
-                  <div className="text-sm text-gray-500">{testimonial.role}, {testimonial.company}</div>
+        <div className="relative w-full overflow-hidden flex" style={{ WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)", maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}>
+          <motion.div 
+            className="flex gap-8 w-max items-stretch"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ ease: "linear", duration: 30, repeat: Infinity }}
+          >
+            {[...testimonials, ...testimonials, ...testimonials, ...testimonials].map((testimonial, index) => (
+              <div
+                key={index}
+                className="w-[320px] md:w-[400px] shrink-0 p-8 md:p-10 bg-premium-white border border-gray-100 rounded-3xl relative group hover:shadow-2xl hover:shadow-black/5 transition-all duration-500 flex flex-col justify-between"
+              >
+                <Quote className="absolute top-8 right-8 w-10 h-10 text-accent-blue/10 group-hover:text-accent-blue/20 transition-colors" />
+                
+                <p className="text-lg text-gray-700 italic leading-relaxed mb-10 relative z-10">
+                  "{testimonial.quote}"
+                </p>
+                
+                <div className="flex items-center gap-4 mt-auto">
+                  <img 
+                    src={testimonial.avatar} 
+                    alt={testimonial.author} 
+                    className="w-12 h-12 rounded-full border-2 border-white shadow-md"
+                    referrerPolicy="no-referrer"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div>
+                    <div className="font-bold text-premium-black">{testimonial.author}</div>
+                    <div className="text-sm text-gray-500">{testimonial.role}, {testimonial.company}</div>
+                  </div>
                 </div>
               </div>
-            </motion.div>
-          ))}
-        </motion.div>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </section>
   );
