@@ -40,7 +40,7 @@ const wordVariants = {
 };
 
 export default function Hero() {
-  const headline = "We Build Software That Scales Your Business";
+  const headline = "Premium Software & AI Solutions";
   const words = headline.split(" ");
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -99,7 +99,7 @@ export default function Hero() {
             variants={itemVariants}
             className="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-accent-blue uppercase bg-accent-blue/5 rounded-full border border-accent-blue/10"
           >
-            Next-Gen Software Development
+            Software & AI Solutions
           </motion.span>
           <motion.h1 
             className="text-5xl md:text-7xl font-bold tracking-tight text-premium-black mb-8 leading-[1.1]"
@@ -121,8 +121,7 @@ export default function Hero() {
             variants={itemVariants}
             className="text-lg md:text-xl text-gray-500 mb-10 leading-relaxed max-w-2xl mx-auto"
           >
-            X-LOGICA empowers forward-thinking companies with premium custom software, 
-            cloud-native solutions, and AI-driven products that drive real growth.
+            X-Logica Software & AI Solutions empowers businesses with premium website development, robust web applications, intuitive UI/UX design, and intelligent AI solutions like custom chatbots.
           </motion.p>
           
           <motion.div 

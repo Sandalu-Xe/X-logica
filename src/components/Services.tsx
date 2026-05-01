@@ -1,30 +1,30 @@
 import React from 'react';
 import { motion, useMotionValue, useMotionTemplate } from 'motion/react';
-import { Code, Cloud, Cpu, Layout, ArrowRight } from 'lucide-react';
+import { Globe, Code, Cpu, Layout, ArrowRight } from 'lucide-react';
 
 const services = [
   {
-    icon: <Code className="w-6 h-6" />,
-    title: 'Custom Software Development',
-    description: 'Tailored solutions built with modern technologies to solve your unique business challenges.',
+    icon: <Globe className="w-6 h-6" />,
+    title: 'Premium Website Development',
+    description: 'Stunning, high-performance websites tailored to elevate your brand presence and drive conversions.',
     color: 'bg-blue-50 text-blue-600',
   },
   {
-    icon: <Cloud className="w-6 h-6" />,
-    title: 'Cloud Solutions',
-    description: 'Scale with confidence using our cloud-native architecture and infrastructure management.',
+    icon: <Code className="w-6 h-6" />,
+    title: 'Web Application Development',
+    description: 'Robust, scalable, and secure web applications built to streamline your business operations.',
     color: 'bg-purple-50 text-purple-600',
   },
   {
     icon: <Cpu className="w-6 h-6" />,
-    title: 'AI & Machine Learning',
-    description: 'Leverage the power of data with intelligent algorithms and predictive analytics.',
+    title: 'AI Solutions & Chatbots',
+    description: 'Intelligent AI-driven products, including custom chatbots, to automate tasks and enhance customer experience.',
     color: 'bg-green-50 text-green-600',
   },
   {
     icon: <Layout className="w-6 h-6" />,
-    title: 'Product Design & UX',
-    description: 'Create delightful user experiences that drive engagement and customer loyalty.',
+    title: 'UI/UX Design Services',
+    description: 'Intuitive and engaging user interfaces designed to provide seamless and memorable user experiences.',
     color: 'bg-orange-50 text-orange-600',
   },
 ];

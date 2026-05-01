@@ -29,13 +29,13 @@ const values = [
   {
     icon: <Target className="w-7 h-7" />,
     title: 'Mission',
-    description: 'To empower businesses worldwide with intelligent, scalable software solutions that drive measurable growth and innovation.',
+    description: 'To empower businesses worldwide with intelligent, scalable web and AI solutions that drive measurable growth and innovation.',
     color: 'bg-blue-50 text-blue-600',
   },
   {
     icon: <Eye className="w-7 h-7" />,
     title: 'Vision',
-    description: 'To be the global standard for premium software development, setting benchmarks in quality, reliability, and client satisfaction.',
+    description: 'To be the global standard for premium website development, web applications, and AI solutions, setting benchmarks in quality, reliability, and client satisfaction.',
     color: 'bg-purple-50 text-purple-600',
   },
   {
@@ -82,21 +82,21 @@ const stats = [
 
 const testimonials = [
   {
-    quote: "Nexus transformed our legacy systems into a modern, cloud-native powerhouse. Their attention to detail and technical expertise is unmatched.",
+    quote: "X-Logica transformed our legacy systems into a modern, cloud-native powerhouse. Their attention to detail and technical expertise is unmatched.",
     author: "Sarah Jenkins",
     role: "CTO",
     company: "Acme Global",
     avatar: "https://i.pravatar.cc/150?u=sarah",
   },
   {
-    quote: "The product design team at Nexus is world-class. They didn't just build what we asked for—they built what our users actually needed.",
+    quote: "The UI/UX design team at X-Logica is world-class. They didn't just build what we asked for—they built what our users actually needed.",
     author: "Michael Chen",
     role: "Product Director",
     company: "Vortex Tech",
     avatar: "https://i.pravatar.cc/150?u=michael",
   },
   {
-    quote: "Working with Nexus was a seamless experience. They delivered our AI-driven analytics platform ahead of schedule and under budget.",
+    quote: "Working with X-Logica was a seamless experience. They delivered our AI-driven analytics platform ahead of schedule and under budget.",
     author: "Elena Rodriguez",
     role: "CEO",
     company: "Lumina AI",
@@ -166,14 +166,14 @@ export default function AboutPage() {
               className="text-5xl md:text-7xl font-bold tracking-tight text-premium-black mb-8 leading-[1.1]"
             >
               Building the{' '}
-              <span className="text-accent-blue">Future</span> of Software
+              <span className="text-accent-blue">Future</span> of Web & AI Solutions
             </motion.h1>
             <motion.p
               variants={itemVariants}
               className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto"
             >
               We're a team of passionate engineers, designers, and strategists dedicated to crafting
-              exceptional software solutions that help businesses thrive in the digital age.
+              exceptional web, UI/UX, and AI solutions that help businesses thrive in the digital age.
             </motion.p>
           </motion.div>
         </div>

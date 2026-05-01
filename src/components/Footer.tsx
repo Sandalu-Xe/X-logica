@@ -11,10 +11,10 @@ const footerLinks = {
     { name: 'Press', to: '/blog' },
   ],
   Services: [
-    { name: 'Custom Software', to: '/solutions' },
-    { name: 'Cloud Solutions', to: '/solutions' },
-    { name: 'AI & ML', to: '/solutions' },
-    { name: 'Product Design', to: '/solutions' },
+    { name: 'Premium Websites', to: '/solutions' },
+    { name: 'Web Applications', to: '/solutions' },
+    { name: 'AI & Chatbots', to: '/solutions' },
+    { name: 'UI/UX Design', to: '/solutions' },
   ],
   Support: [
     { name: 'Help Center', to: '/about' },
@@ -40,7 +40,7 @@ export default function Footer() {
               <Logo light />
             </Link>
             <p className="text-gray-400 text-lg leading-relaxed max-w-sm mb-10">
-              Empowering forward-thinking companies with premium software solutions that drive real growth and innovation.
+              Empowering businesses with premium website development, web applications, UI/UX design, and AI solutions like custom chatbots.
             </p>
             <div className="flex items-center gap-4">
               {[Twitter, Linkedin, Github, Instagram].map((Icon, index) => (
@@ -83,7 +83,7 @@ export default function Footer() {
           className="pt-12 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6"
         >
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} Nexus Software Solutions Inc. All rights reserved.
+            © {new Date().getFullYear()} X Logica Software & AI Solutions. All rights reserved.
           </p>
           <div className="flex items-center gap-8 text-sm text-gray-500">
             <Link to="/" className="hover:text-white transition-colors">Privacy Policy</Link>

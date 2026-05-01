@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useMotionValue, useMotionTemplate } from 'motion/react';
-import { Code, Cloud, Cpu, Layout, ArrowRight, Search, PenTool, Rocket } from 'lucide-react';
+import { Globe, Code, Cpu, Layout, ArrowRight, Search, PenTool, Rocket } from 'lucide-react';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -26,27 +26,27 @@ const itemVariants = {
 
 const services = [
   {
-    icon: <Code className="w-6 h-6" />,
-    title: 'Custom Software Development',
-    description: 'Tailored solutions built with modern technologies to solve your unique business challenges. From MVPs to enterprise platforms.',
+    icon: <Globe className="w-6 h-6" />,
+    title: 'Premium Website Development',
+    description: 'Stunning, high-performance websites tailored to elevate your brand presence and drive conversions.',
     color: 'bg-blue-50 text-blue-600',
   },
   {
-    icon: <Cloud className="w-6 h-6" />,
-    title: 'Cloud Solutions',
-    description: 'Scale with confidence using our cloud-native architecture, infrastructure management, and migration services.',
+    icon: <Code className="w-6 h-6" />,
+    title: 'Web Application Development',
+    description: 'Robust, scalable, and secure web applications built to streamline your business operations.',
     color: 'bg-purple-50 text-purple-600',
   },
   {
     icon: <Cpu className="w-6 h-6" />,
-    title: 'AI & Machine Learning',
-    description: 'Leverage the power of data with intelligent algorithms, predictive analytics, and natural language processing.',
+    title: 'AI Solutions & Chatbots',
+    description: 'Intelligent AI-driven products, including custom chatbots, to automate tasks and enhance customer experience.',
     color: 'bg-green-50 text-green-600',
   },
   {
     icon: <Layout className="w-6 h-6" />,
-    title: 'Product Design & UX',
-    description: 'Create delightful user experiences that drive engagement, customer loyalty, and lasting brand impressions.',
+    title: 'UI/UX Design Services',
+    description: 'Intuitive and engaging user interfaces designed to provide seamless and memorable user experiences.',
     color: 'bg-orange-50 text-orange-600',
   },
 ];
@@ -129,7 +129,7 @@ export default function SolutionsPage() {
           <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-accent-blue/5 rounded-full blur-[120px]" />
           <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-accent-violet/5 rounded-full blur-[120px]" />
           <div className="absolute top-0 left-0 w-full h-full opacity-[0.03]"
-               style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+            style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
