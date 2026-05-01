@@ -4,16 +4,18 @@ import { ArrowRight } from 'lucide-react';
 
 const cases = [
   {
-    title: 'Acme Global: Cloud Migration',
-    description: 'Modernizing legacy infrastructure for a global enterprise with zero downtime.',
-    tags: ['Cloud', 'AWS', 'DevOps'],
-    image: 'https://picsum.photos/seed/case1/800/600',
+    title: 'Cylon Spice: E-Commerce Platform',
+    description: 'A premium web platform showcasing high-quality spices with a seamless user experience and modern UI.',
+    tags: ['Web App', 'E-Commerce', 'UI/UX'],
+    image: 'https://tktueigbfdpshjztxtvl.supabase.co/storage/v1/object/sign/Sandalu%20Album/CylonSpice.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTQwNmI4NC03NTAyLTQ4YmItYTlkNy1jOTlhNzQxYjFiOTYiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTYW5kYWx1IEFsYnVtL0N5bG9uU3BpY2UuanBlZyIsImlhdCI6MTc3NzYzMTI0MywiZXhwIjoyMDkyOTkxMjQzfQ.txks7F3LSD3PY--PibsAF-UZbVpUGOZZqpZBxfpGrSA',
+    link: 'https://daham-ceylon-spice.vercel.app/#/',
   },
   {
     title: 'Vortex Tech: AI Dashboard',
     description: 'Building an intelligent analytics platform for real-time data visualization.',
     tags: ['AI', 'React', 'Python'],
-    image: 'https://picsum.photos/seed/case2/800/600',
+    image: 'https://tktueigbfdpshjztxtvl.supabase.co/storage/v1/object/sign/Sandalu%20Album/projectsimg/Spero.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTQwNmI4NC03NTAyLTQ4YmItYTlkNy1jOTlhNzQxYjFiOTYiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTYW5kYWx1IEFsYnVtL3Byb2plY3RzaW1nL1NwZXJvLmpwZWciLCJpYXQiOjE3Nzc2MzE3MTUsImV4cCI6MjA5Mjk5MTcxNX0.Utn3RE6nSHbINFj-D2et3mDX91HNMSt1_Evs9Tej9ds',
+    link: 'https://daham-ceylon-spice.vercel.app/#/',
   },
   {
     title: 'Lumina AI: Product Design',
@@ -55,7 +57,7 @@ function CaseStudyCard({ project, index }: { project: any; index: number; key?: 
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["7deg", "-7deg"]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-7deg", "7deg"]);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
@@ -73,7 +75,10 @@ function CaseStudyCard({ project, index }: { project: any; index: number; key?: 
   };
 
   return (
-    <motion.div
+    <motion.a
+      href={project.link || '#'}
+      target={project.link ? "_blank" : "_self"}
+      rel={project.link ? "noopener noreferrer" : ""}
       variants={itemVariants}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -81,16 +86,17 @@ function CaseStudyCard({ project, index }: { project: any; index: number; key?: 
         rotateX,
         rotateY,
         transformStyle: "preserve-3d",
+        display: "block",
       } as any}
       className="group cursor-pointer perspective-1000"
     >
-      <div 
+      <div
         className="relative rounded-[32px] overflow-hidden mb-8 aspect-[4/3] shadow-xl shadow-black/5 border border-gray-100"
         style={{ transform: "translateZ(20px)" }}
       >
-        <img 
-          src={project.image} 
-          alt={project.title} 
+        <img
+          src={project.image}
+          alt={project.title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           referrerPolicy="no-referrer"
         />
@@ -100,7 +106,7 @@ function CaseStudyCard({ project, index }: { project: any; index: number; key?: 
           </span>
         </div>
       </div>
-      
+
       <div className="flex gap-2 mb-4" style={{ transform: "translateZ(30px)" }}>
         {project.tags.map((tag: string) => (
           <span key={tag} className="text-[10px] font-bold tracking-widest uppercase text-accent-blue bg-accent-blue/5 px-3 py-1 rounded-full border border-accent-blue/10">
@@ -108,14 +114,14 @@ function CaseStudyCard({ project, index }: { project: any; index: number; key?: 
           </span>
         ))}
       </div>
-      
+
       <h3 className="text-2xl font-bold text-premium-black mb-4 group-hover:text-accent-blue transition-colors" style={{ transform: "translateZ(40px)" }}>
         {project.title}
       </h3>
       <p className="text-gray-500 text-sm leading-relaxed" style={{ transform: "translateZ(50px)" }}>
         {project.description}
       </p>
-    </motion.div>
+    </motion.a>
   );
 }
 
@@ -123,7 +129,7 @@ export default function CaseStudies() {
   return (
     <section id="blog" className="py-24 md:py-32 bg-premium-white">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -141,7 +147,7 @@ export default function CaseStudies() {
           </motion.button>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}

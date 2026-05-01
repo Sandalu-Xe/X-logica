@@ -27,22 +27,25 @@ const itemVariants = {
 
 const cases = [
   {
-    title: 'Acme Global: Cloud Migration',
-    description: 'Modernizing legacy infrastructure for a global enterprise with zero downtime. We migrated 200+ services to AWS in under 6 months.',
-    tags: ['Cloud', 'AWS', 'DevOps'],
-    image: 'https://picsum.photos/seed/case1/800/600',
+    title: 'Cylon Spice: E-Commerce Platform',
+    description: 'A premium web platform showcasing high-quality spices with a seamless user experience and modern UI.',
+    tags: ['Web App', 'E-Commerce', 'UI/UX'],
+    image: 'https://tktueigbfdpshjztxtvl.supabase.co/storage/v1/object/sign/Sandalu%20Album/CylonSpice.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTQwNmI4NC03NTAyLTQ4YmItYTlkNy1jOTlhNzQxYjFiOTYiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTYW5kYWx1IEFsYnVtL0N5bG9uU3BpY2UuanBlZyIsImlhdCI6MTc3NzYzMTI0MywiZXhwIjoyMDkyOTkxMjQzfQ.txks7F3LSD3PY--PibsAF-UZbVpUGOZZqpZBxfpGrSA',
+    link: 'https://daham-ceylon-spice.vercel.app/#/',
   },
   {
-    title: 'Vortex Tech: AI Dashboard',
+    title: 'Cementi Solution Product Selling ',
     description: 'Building an intelligent analytics platform for real-time data visualization serving 50K+ daily active users.',
     tags: ['AI', 'React', 'Python'],
-    image: 'https://picsum.photos/seed/case2/800/600',
+    image: 'https://tktueigbfdpshjztxtvl.supabase.co/storage/v1/object/sign/Sandalu%20Album/projectsimg/Spero.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTQwNmI4NC03NTAyLTQ4YmItYTlkNy1jOTlhNzQxYjFiOTYiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTYW5kYWx1IEFsYnVtL3Byb2plY3RzaW1nL1NwZXJvLmpwZWciLCJpYXQiOjE3Nzc2MzE3MTUsImV4cCI6MjA5Mjk5MTcxNX0.Utn3RE6nSHbINFj-D2et3mDX91HNMSt1_Evs9Tej9ds',
+    link: 'https://spero-project-nine.vercel.app/#/',
   },
   {
     title: 'Lumina AI: Product Design',
     description: 'Crafting a delightful user experience for a next-gen AI-driven product that increased user retention by 85%.',
     tags: ['UX/UI', 'Figma', 'Product'],
-    image: 'https://picsum.photos/seed/case3/800/600',
+    image: 'https://tktueigbfdpshjztxtvl.supabase.co/storage/v1/object/sign/Sandalu%20Album/projectsimg/Silveray.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTQwNmI4NC03NTAyLTQ4YmItYTlkNy1jOTlhNzQxYjFiOTYiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTYW5kYWx1IEFsYnVtL3Byb2plY3RzaW1nL1NpbHZlcmF5LmpwZWciLCJpYXQiOjE3Nzc2MzIyNjksImV4cCI6MjA5Mjk5MjI2OX0.F-HPxn0bTfCAKj9kEj-dTSWpYavdrhvz2Qnyj7-nk20',
+    link: 'https://silverray.lk/',
   },
   {
     title: 'CoreFin: Fintech Platform',
@@ -74,7 +77,7 @@ function CaseStudyCard({ project }: { project: typeof cases[0] }) {
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["7deg", "-7deg"]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-7deg", "7deg"]);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
@@ -92,7 +95,10 @@ function CaseStudyCard({ project }: { project: typeof cases[0] }) {
   };
 
   return (
-    <motion.div
+    <motion.a
+      href={project.link || '#'}
+      target={project.link ? "_blank" : "_self"}
+      rel={project.link ? "noopener noreferrer" : ""}
       variants={itemVariants}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -100,6 +106,7 @@ function CaseStudyCard({ project }: { project: typeof cases[0] }) {
         rotateX,
         rotateY,
         transformStyle: "preserve-3d",
+        display: "block",
       } as any}
       className="group cursor-pointer perspective-1000"
     >
@@ -134,7 +141,7 @@ function CaseStudyCard({ project }: { project: typeof cases[0] }) {
       <p className="text-gray-500 text-sm leading-relaxed" style={{ transform: "translateZ(50px)" }}>
         {project.description}
       </p>
-    </motion.div>
+    </motion.a>
   );
 }
 
@@ -147,7 +154,7 @@ export default function BlogPage() {
           <div className="absolute top-[-10%] right-[10%] w-[40%] h-[40%] bg-accent-blue/5 rounded-full blur-[120px]" />
           <div className="absolute bottom-[-10%] left-[10%] w-[35%] h-[35%] bg-accent-violet/5 rounded-full blur-[120px]" />
           <div className="absolute top-0 left-0 w-full h-full opacity-[0.03]"
-               style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+            style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
