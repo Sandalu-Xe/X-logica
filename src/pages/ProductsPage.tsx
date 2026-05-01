@@ -36,7 +36,7 @@ const features = [
 const products = [
   {
     icon: <Layers className="w-7 h-7" />,
-    title: 'X-Logica Insights',
+    title: 'Xlogica Insights',
     description: 'A unified platform for managing your entire digital ecosystem with real-time analytics and powerful reporting.',
     color: 'bg-blue-50 text-blue-600',
     tag: 'Flagship',
@@ -154,11 +154,11 @@ export default function ProductsPage() {
             >
               <span className="text-xs font-bold tracking-widest text-accent-violet uppercase mb-6 block">Featured Product</span>
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-premium-black mb-8 leading-tight">
-                X-Logica Insights: <br /> Insight at Your Fingertips
+                Xlogica Insights: <br /> Insight at Your Fingertips
               </h2>
               <p className="text-lg text-gray-500 mb-10 leading-relaxed">
                 Our flagship product provides a unified platform for managing your entire digital ecosystem.
-                Built with performance and security at its core, X-Logica Insights helps you make data-driven decisions faster.
+                Built with performance and security at its core, Xlogica Insights helps you make data-driven decisions faster.
               </p>
 
               <ul className="space-y-4 mb-10">
@@ -197,7 +197,7 @@ export default function ProductsPage() {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-100 bg-white p-2">
                 <img
                   src="https://picsum.photos/seed/product/1000/1200"
-                  alt="X-Logica Insights Interface"
+                  alt="Xlogica Insights Interface"
                   className="w-full h-auto rounded-2xl"
                   referrerPolicy="no-referrer"
                 />

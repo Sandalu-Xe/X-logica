@@ -119,6 +119,8 @@ function CaseStudyCard({ project }: { project: typeof cases[0] }) {
           alt={project.title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           referrerPolicy="no-referrer"
+          loading="lazy"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-10">
           <span className="text-white font-bold flex items-center gap-2">

@@ -120,7 +120,7 @@ export default function CareersPage() {
             variants={containerVariants}
             className="text-center mb-16"
           >
-            <motion.span variants={itemVariants} className="text-xs font-bold tracking-widest text-accent-blue uppercase mb-4 block">Why X-LOGICA</motion.span>
+            <motion.span variants={itemVariants} className="text-xs font-bold tracking-widest text-accent-blue uppercase mb-4 block">Why Xlogica</motion.span>
             <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold tracking-tight text-premium-black mb-6">
               Perks & Benefits
             </motion.h2>
@@ -219,7 +219,7 @@ export default function CareersPage() {
                   Ready to Build <br /> Something Great?
                 </h2>
                 <p className="text-lg text-gray-400 mb-10 leading-relaxed max-w-md">
-                  Let's discuss your next project and how X-Logica can help you scale your business with premium web & AI solutions.
+                  Let's discuss your next project and how Xlogica can help you scale your business with premium web & AI solutions.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center gap-4">

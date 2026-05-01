@@ -8,7 +8,7 @@ export default function Logo({ className = "", light = false }: LogoProps) {
     <div className={`flex items-center ${className}`}>
       <img
         src="/xlogica-logo.png"
-        alt="X-LOGICA"
+        alt="Xlogica"
         className={`h-10 w-auto object-contain ${light ? 'brightness-0 invert' : ''}`}
       />
     </div>

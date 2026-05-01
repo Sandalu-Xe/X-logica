@@ -83,7 +83,7 @@ export default function Footer() {
           className="pt-12 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6"
         >
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} X Logica Software & AI Solutions. All rights reserved.
+            © {new Date().getFullYear()} Xlogica Software & AI Solutions. All rights reserved.
           </p>
           <div className="flex items-center gap-8 text-sm text-gray-500">
             <Link to="/" className="hover:text-white transition-colors">Privacy Policy</Link>

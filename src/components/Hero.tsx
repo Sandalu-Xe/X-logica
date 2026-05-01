@@ -121,7 +121,7 @@ export default function Hero() {
             variants={itemVariants}
             className="text-lg md:text-xl text-gray-500 mb-10 leading-relaxed max-w-2xl mx-auto"
           >
-            X-Logica Software & AI Solutions empowers businesses with premium website development, robust web applications, intuitive UI/UX design, and intelligent AI solutions like custom chatbots.
+            Xlogica Software & AI Solutions empowers businesses with premium website development, robust web applications, intuitive UI/UX design, and intelligent AI solutions like custom chatbots.
           </motion.p>
           
           <motion.div 
@@ -164,7 +164,7 @@ export default function Hero() {
             </div>
             <img 
               src="https://picsum.photos/seed/dashboard/1200/800" 
-              alt="X-LOGICA Dashboard" 
+              alt="Xlogica Dashboard" 
               className="w-full h-auto"
               referrerPolicy="no-referrer"
             />

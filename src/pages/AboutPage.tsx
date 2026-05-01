@@ -82,21 +82,21 @@ const stats = [
 
 const testimonials = [
   {
-    quote: "X-Logica transformed our legacy systems into a modern, cloud-native powerhouse. Their attention to detail and technical expertise is unmatched.",
+    quote: "Xlogica transformed our legacy systems into a modern, cloud-native powerhouse. Their attention to detail and technical expertise is unmatched.",
     author: "Sarah Jenkins",
     role: "CTO",
     company: "Acme Global",
     avatar: "https://i.pravatar.cc/150?u=sarah",
   },
   {
-    quote: "The UI/UX design team at X-Logica is world-class. They didn't just build what we asked for—they built what our users actually needed.",
+    quote: "The UI/UX design team at Xlogica is world-class. They didn't just build what we asked for—they built what our users actually needed.",
     author: "Michael Chen",
     role: "Product Director",
     company: "Vortex Tech",
     avatar: "https://i.pravatar.cc/150?u=michael",
   },
   {
-    quote: "Working with X-Logica was a seamless experience. They delivered our AI-driven analytics platform ahead of schedule and under budget.",
+    quote: "Working with Xlogica was a seamless experience. They delivered our AI-driven analytics platform ahead of schedule and under budget.",
     author: "Elena Rodriguez",
     role: "CEO",
     company: "Lumina AI",
@@ -159,7 +159,7 @@ export default function AboutPage() {
               variants={itemVariants}
               className="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-accent-blue uppercase bg-accent-blue/5 rounded-full border border-accent-blue/10"
             >
-              About X-LOGICA
+              About Xlogica
             </motion.span>
             <motion.h1
               variants={itemVariants}

@@ -21,7 +21,7 @@ export default function CTA() {
                 Ready to Build <br /> Something Great?
               </h2>
               <p className="text-lg text-gray-400 mb-10 leading-relaxed max-w-md">
-                Let's discuss your next project and how X-Logica can help you scale your business with premium web & AI solutions.
+                Let's discuss your next project and how Xlogica can help you scale your business with premium web & AI solutions.
               </p>
               
               <div className="flex flex-col sm:flex-row items-center gap-4">
