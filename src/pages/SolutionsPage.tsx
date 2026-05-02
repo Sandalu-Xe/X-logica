@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useMotionValue, useMotionTemplate } from 'motion/react';
-import { Globe, Code, Cpu, Layout, ArrowRight, Search, PenTool, Rocket } from 'lucide-react';
+import { Globe, Code, Cpu, Layout, ArrowRight, Search, PenTool, Rocket, Smartphone } from 'lucide-react';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -48,6 +48,12 @@ const services = [
     title: 'UI/UX Design Services',
     description: 'Intuitive and engaging user interfaces designed to provide seamless and memorable user experiences.',
     color: 'bg-orange-50 text-orange-600',
+  },
+  {
+    icon: <Smartphone className="w-6 h-6" />,
+    title: 'Mobile App Development',
+    description: 'High-performance, cross-platform mobile applications built seamlessly with Flutter and React Native.',
+    color: 'bg-teal-50 text-teal-600',
   },
 ];
 
@@ -169,7 +175,7 @@ export default function SolutionsPage() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: false, margin: "-100px" }}
             variants={containerVariants}
             className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
           >
@@ -187,7 +193,7 @@ export default function SolutionsPage() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: false, margin: "-100px" }}
             variants={containerVariants}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
           >
@@ -204,7 +210,7 @@ export default function SolutionsPage() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: false, margin: "-100px" }}
             variants={containerVariants}
             className="text-center mb-20"
           >
@@ -221,7 +227,7 @@ export default function SolutionsPage() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: false, margin: "-100px" }}
             variants={containerVariants}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative"
           >

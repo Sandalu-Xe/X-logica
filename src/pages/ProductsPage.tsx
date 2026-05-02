@@ -113,7 +113,7 @@ export default function ProductsPage() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: false, margin: "-100px" }}
             variants={containerVariants}
             className="grid grid-cols-1 md:grid-cols-2 gap-8"
           >
@@ -150,7 +150,7 @@ export default function ProductsPage() {
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: false, margin: "-100px" }}
             >
               <span className="text-xs font-bold tracking-widest text-accent-violet uppercase mb-6 block">Featured Product</span>
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-premium-black mb-8 leading-tight">
@@ -168,7 +168,7 @@ export default function ProductsPage() {
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     className="flex items-center gap-3 text-gray-700 font-medium"
                   >
                     <div className="w-6 h-6 rounded-full bg-accent-blue/10 flex items-center justify-center text-accent-blue">
@@ -190,7 +190,7 @@ export default function ProductsPage() {
               initial={{ opacity: 0, scale: 0.9, x: 40 }}
               whileInView={{ opacity: 1, scale: 1, x: 0 }}
               transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: false, margin: "-100px" }}
               className="relative"
             >
               <div className="absolute -inset-4 bg-accent-blue/5 rounded-[40px] blur-3xl -z-10" />
@@ -205,7 +205,7 @@ export default function ProductsPage() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   className="absolute bottom-8 -right-8 bg-white p-6 rounded-2xl shadow-2xl border border-gray-100 max-w-[240px] hidden md:block"
                 >
                   <div className="text-sm font-bold text-premium-black mb-2">Total Revenue</div>

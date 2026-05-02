@@ -134,7 +134,7 @@ export default function CaseStudies() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: false, margin: "-100px" }}
           variants={containerVariants}
           className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6"
         >
@@ -152,7 +152,7 @@ export default function CaseStudies() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: false, margin: "-100px" }}
           variants={containerVariants}
           className="grid grid-cols-1 md:grid-cols-3 gap-10"
         >

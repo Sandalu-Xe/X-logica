@@ -116,7 +116,7 @@ export default function CareersPage() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: false, margin: "-100px" }}
             variants={containerVariants}
             className="text-center mb-16"
           >
@@ -129,7 +129,7 @@ export default function CareersPage() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: false, margin: "-100px" }}
             variants={containerVariants}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
           >
@@ -154,7 +154,7 @@ export default function CareersPage() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: false, margin: "-100px" }}
             variants={containerVariants}
             className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
           >
@@ -172,7 +172,7 @@ export default function CareersPage() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: false, margin: "-100px" }}
             variants={containerVariants}
             className="space-y-4"
           >
@@ -213,7 +213,7 @@ export default function CareersPage() {
                 initial={{ opacity: 0, x: -40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
               >
                 <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-8 leading-tight">
                   Ready to Build <br /> Something Great?
@@ -236,7 +236,7 @@ export default function CareersPage() {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 className="bg-white/5 backdrop-blur-md border border-white/10 p-10 rounded-[32px]"
               >
                 <form className="space-y-6">

@@ -32,7 +32,7 @@ export default function Footer() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16 mb-20"
         >
           <div className="lg:col-span-2">
@@ -79,7 +79,7 @@ export default function Footer() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.4 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="pt-12 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6"
         >
           <p className="text-gray-500 text-sm">

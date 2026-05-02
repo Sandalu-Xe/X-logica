@@ -17,7 +17,7 @@ export default function TrustedBy() {
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="text-center text-sm font-bold tracking-widest text-gray-400 uppercase mb-12"
         >
           Trusted by leading companies worldwide
@@ -27,7 +27,7 @@ export default function TrustedBy() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="flex overflow-hidden relative"
         >
           <motion.div

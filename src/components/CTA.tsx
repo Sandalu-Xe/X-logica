@@ -15,7 +15,7 @@ export default function CTA() {
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
             >
               <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-8 leading-tight">
                 Ready to Build <br /> Something Great?
@@ -38,7 +38,7 @@ export default function CTA() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="bg-white/5 backdrop-blur-md border border-white/10 p-10 rounded-[32px]"
             >
               <form className="space-y-6">
