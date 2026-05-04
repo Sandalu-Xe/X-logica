@@ -3,7 +3,6 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import CustomCursor from '../components/CustomCursor';
 import Preloader from '../components/Preloader';
 
 export default function MainLayout() {
@@ -23,8 +22,7 @@ export default function MainLayout() {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen bg-white selection:bg-accent-blue/10 selection:text-accent-blue md:cursor-none overflow-x-hidden w-full relative">
-      <CustomCursor />
+    <div className="min-h-screen bg-white selection:bg-accent-blue/10 selection:text-accent-blue overflow-x-hidden w-full relative">
       <AnimatePresence mode="wait">
         {isLoading && <Preloader key="preloader" />}
       </AnimatePresence>
