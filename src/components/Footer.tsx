@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Twitter, Linkedin, Github, Instagram, ArrowRight } from 'lucide-react';
+import { Twitter, Linkedin, Github, Instagram, ArrowRight, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
 
@@ -25,6 +26,8 @@ const footerLinks = {
 };
 
 export default function Footer() {
+  const [openSection, setOpenSection] = useState<string | null>(null);
+
   return (
     <footer className="bg-premium-black text-white pt-24 pb-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
@@ -33,9 +36,9 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           viewport={{ once: false }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16 mb-20"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-0 md:gap-16 mb-20"
         >
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 mb-12 md:mb-0">
             <Link to="/" className="flex items-center gap-2 mb-8">
               <Logo light />
             </Link>
@@ -56,21 +59,32 @@ export default function Footer() {
           </div>
 
           {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title}>
-              <h4 className="text-sm font-bold tracking-widest uppercase text-gray-400 mb-8">{title}</h4>
-              <ul className="space-y-4">
-                {links.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      to={link.to}
-                      className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 group"
-                    >
-                      {link.name}
-                      <ArrowRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+            <div key={title} className="border-b border-white/10 md:border-none py-5 md:py-0">
+              <div 
+                onClick={() => setOpenSection(openSection === title ? null : title)}
+                className="flex items-center justify-between cursor-pointer md:cursor-default"
+              >
+                <h4 className="text-sm font-bold tracking-widest uppercase text-gray-400 mb-0 md:mb-8">{title}</h4>
+                <ChevronDown 
+                  size={16} 
+                  className={`text-gray-400 md:hidden transition-transform duration-300 ${openSection === title ? 'rotate-180' : ''}`} 
+                />
+              </div>
+              <div className={`overflow-hidden transition-all duration-300 md:!max-h-none md:!opacity-100 md:!mt-0 ${openSection === title ? 'max-h-[400px] opacity-100 mt-6' : 'max-h-0 opacity-0'}`}>
+                <ul className="space-y-4">
+                  {links.map((link) => (
+                    <li key={link.name}>
+                      <Link
+                        to={link.to}
+                        className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 group"
+                      >
+                        {link.name}
+                        <ArrowRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </motion.div>
