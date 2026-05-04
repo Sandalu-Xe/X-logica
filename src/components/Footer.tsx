@@ -9,11 +9,11 @@ const footerLinks = {
     { name: 'About Us', to: '/about' },
     { name: 'Careers', to: '/careers' },
     { name: 'Our Works', to: '/blog' },
-    { name: 'Press', to: '/blog' },
   ],
   Services: [
     { name: 'Premium Websites', to: '/solutions' },
     { name: 'Web Applications', to: '/solutions' },
+    { name: 'Mobile Application Developments', to: '/solutions' },
     { name: 'AI & Chatbots', to: '/solutions' },
     { name: 'UI/UX Design', to: '/solutions' },
   ],
@@ -96,8 +96,10 @@ export default function Footer() {
           viewport={{ once: false }}
           className="pt-12 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6"
         >
-          <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} Xlogica Software & AI Solutions. All rights reserved.
+          <p className="text-gray-500 text-sm leading-relaxed">
+            © {new Date().getFullYear()} Xlogica Software & AI Solutions. All rights reserved. <br className="md:hidden" />
+            <span className="hidden md:inline"> | </span>
+            Websites design & developed by Sandalu
           </p>
           <div className="flex items-center gap-8 text-sm text-gray-500">
             <Link to="/" className="hover:text-white transition-colors">Privacy Policy</Link>
