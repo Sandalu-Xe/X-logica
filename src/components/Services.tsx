@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion, useMotionValue, useMotionTemplate } from 'motion/react';
 import { Globe, Code, Cpu, Layout, ArrowRight, Smartphone } from 'lucide-react';
 
@@ -58,15 +58,6 @@ const itemVariants = {
 };
 
 function ServiceCard({ service, index }: { service: any; index: number; key?: React.Key }) {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -82,20 +73,18 @@ function ServiceCard({ service, index }: { service: any; index: number; key?: Re
       onMouseMove={handleMouseMove}
       className="group p-8 bg-white border border-gray-100 rounded-2xl hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden"
     >
-      {!isMobile && (
-        <motion.div
-          className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition duration-300 group-hover:opacity-100"
-          style={{
-            background: useMotionTemplate`
-              radial-gradient(
-                650px circle at ${mouseX}px ${mouseY}px,
-                rgba(37, 99, 235, 0.06),
-                transparent 80%
-              )
-            `,
-          } as any}
-        />
-      )}
+      <motion.div
+        className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition duration-300 group-hover:opacity-100"
+        style={{
+          background: useMotionTemplate`
+            radial-gradient(
+              650px circle at ${mouseX}px ${mouseY}px,
+              rgba(37, 99, 235, 0.06),
+              transparent 80%
+            )
+          `,
+        } as any}
+      />
       <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 relative z-10 ${service.color}`}>
         {service.icon}
       </div>
@@ -117,7 +106,7 @@ export default function Services() {
         <motion.div 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: false, margin: "-100px" }}
           variants={containerVariants}
           className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
         >
@@ -135,7 +124,7 @@ export default function Services() {
         <motion.div 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: false, margin: "-100px" }}
           variants={containerVariants}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >

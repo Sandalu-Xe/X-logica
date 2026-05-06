@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Quote } from 'lucide-react';
 
@@ -49,26 +48,13 @@ const itemVariants = {
 };
 
 export default function Testimonials() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  const displayedTestimonials = isMobile 
-    ? [...testimonials, ...testimonials] 
-    : [...testimonials, ...testimonials, ...testimonials, ...testimonials];
-
   return (
     <section className="py-24 md:py-32 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: false, margin: "-100px" }}
           variants={containerVariants}
           className="text-center mb-20"
         >
@@ -87,7 +73,7 @@ export default function Testimonials() {
             animate={{ x: ["0%", "-50%"] }}
             transition={{ ease: "linear", duration: 30, repeat: Infinity }}
           >
-            {displayedTestimonials.map((testimonial, index) => (
+            {[...testimonials, ...testimonials, ...testimonials, ...testimonials].map((testimonial, index) => (
               <div
                 key={index}
                 className="w-[320px] md:w-[400px] shrink-0 p-8 md:p-10 bg-premium-white border border-gray-100 rounded-3xl relative group hover:shadow-2xl hover:shadow-black/5 transition-all duration-500 flex flex-col justify-between"
