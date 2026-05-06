@@ -12,8 +12,8 @@ const letterVariants = {
     y: 0,
     filter: 'blur(0px)',
     transition: {
-      delay: 0.8 + i * 0.04,
-      duration: 0.5,
+      delay: 0.3 + i * 0.02,
+      duration: 0.4,
       ease: [0.22, 1, 0.36, 1] as const,
     },
   }),
@@ -110,7 +110,7 @@ export default function Preloader() {
           <motion.div
             initial={{ opacity: 0, scaleX: 0 }}
             animate={{ opacity: 1, scaleX: 1 }}
-            transition={{ duration: 0.8, delay: 1.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
             className="mt-3 h-[1px] w-32"
             style={{
               background: 'linear-gradient(90deg, transparent, rgba(59,130,246,0.4), rgba(139,92,246,0.4), transparent)',

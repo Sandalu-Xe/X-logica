@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, useScroll } from 'motion/react';
 import { ArrowRight, Play } from 'lucide-react';
 import Magnetic from './Magnetic';
@@ -40,6 +40,15 @@ const wordVariants = {
 };
 
 export default function Hero() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const headline = "Premium Software & AI Solutions";
   const words = headline.split(" ");
   const x = useMotionValue(0);
@@ -52,8 +61,8 @@ export default function Hero() {
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
 
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
-  const y2 = useTransform(scrollY, [0, 500], [0, -150]);
+  const y1 = useTransform(scrollY, [0, 500], [0, isMobile ? 0 : 200]);
+  const y2 = useTransform(scrollY, [0, 500], [0, isMobile ? 0 : -150]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -149,9 +158,9 @@ export default function Hero() {
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           style={{
-            rotateX,
-            rotateY,
-            transformStyle: "preserve-3d",
+            rotateX: isMobile ? 0 : rotateX,
+            rotateY: isMobile ? 0 : rotateY,
+            transformStyle: isMobile ? "flat" : "preserve-3d",
           } as any}
           className="mt-20 relative perspective-1000"
         >
