@@ -69,11 +69,11 @@ export default function Testimonials() {
 
         <div className="relative w-full overflow-hidden flex" style={{ WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)", maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}>
           <motion.div 
-            className="flex gap-8 w-max items-stretch"
+            className="flex gap-8 w-max items-stretch will-change-transform"
             animate={{ x: ["0%", "-50%"] }}
-            transition={{ ease: "linear", duration: 30, repeat: Infinity }}
+            transition={{ ease: "linear", duration: 40, repeat: Infinity }}
           >
-            {[...testimonials, ...testimonials, ...testimonials, ...testimonials].map((testimonial, index) => (
+            {[...testimonials, ...testimonials].map((testimonial, index) => (
               <div
                 key={index}
                 className="w-[320px] md:w-[400px] shrink-0 p-8 md:p-10 bg-premium-white border border-gray-100 rounded-3xl relative group hover:shadow-2xl hover:shadow-black/5 transition-all duration-500 flex flex-col justify-between"

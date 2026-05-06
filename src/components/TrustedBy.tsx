@@ -17,39 +17,35 @@ export default function TrustedBy() {
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           className="text-center text-sm font-bold tracking-widest text-gray-400 uppercase mb-12"
         >
           Trusted by leading companies worldwide
         </motion.p>
         
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          viewport={{ once: false }}
-          className="flex overflow-hidden relative"
-        >
+        <div className="flex overflow-hidden relative">
           <motion.div
-            animate={{ x: [0, -1000] }}
+            animate={{ x: ["0%", "-50%"] }}
             transition={{
-              duration: 20,
+              duration: 25,
               repeat: Infinity,
               ease: "linear",
             }}
-            className="flex items-center gap-16 md:gap-24 whitespace-nowrap"
+            className="flex items-center gap-16 md:gap-24 whitespace-nowrap will-change-transform"
           >
-            {[...logos, ...logos, ...logos].map((logo, index) => (
+            {[...logos, ...logos].map((logo, index) => (
               <img
                 key={index}
                 src={logo.src}
                 alt={logo.name}
                 className="h-8 md:h-10 w-auto opacity-40 hover:opacity-100 transition-opacity grayscale"
                 referrerPolicy="no-referrer"
+                loading="lazy"
+                decoding="async"
               />
             ))}
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

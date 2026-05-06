@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
+import { useMobile } from '../hooks/useMobile';
 
 const cases = [
   {
@@ -50,6 +51,7 @@ const itemVariants = {
 function CaseStudyCard({ project, index }: { project: any; index: number; key?: React.Key }) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
+  const isMobile = useMobile();
 
   const mouseXSpring = useSpring(x);
   const mouseYSpring = useSpring(y);
@@ -58,6 +60,7 @@ function CaseStudyCard({ project, index }: { project: any; index: number; key?: 
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-7deg", "7deg"]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (isMobile) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
@@ -82,17 +85,17 @@ function CaseStudyCard({ project, index }: { project: any; index: number; key?: 
       variants={itemVariants}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{
+      style={!isMobile ? {
         rotateX,
         rotateY,
         transformStyle: "preserve-3d",
         display: "block",
-      } as any}
+      } : { display: "block" } as any}
       className="group cursor-pointer perspective-1000"
     >
       <div
-        className="relative rounded-[32px] overflow-hidden mb-8 aspect-[4/3] shadow-xl shadow-black/5 border border-gray-100"
-        style={{ transform: "translateZ(20px)" }}
+        className="relative rounded-[32px] overflow-hidden mb-8 aspect-[4/3] shadow-xl shadow-black/5 border border-gray-100 will-change-transform"
+        style={!isMobile ? { transform: "translateZ(20px)" } : {}}
       >
         <img
           src={project.image}
@@ -109,7 +112,7 @@ function CaseStudyCard({ project, index }: { project: any; index: number; key?: 
         </div>
       </div>
 
-      <div className="flex gap-2 mb-4" style={{ transform: "translateZ(30px)" }}>
+      <div className="flex gap-2 mb-4" style={!isMobile ? { transform: "translateZ(30px)" } : {}}>
         {project.tags.map((tag: string) => (
           <span key={tag} className="text-[10px] font-bold tracking-widest uppercase text-accent-blue bg-accent-blue/5 px-3 py-1 rounded-full border border-accent-blue/10">
             {tag}
@@ -117,10 +120,10 @@ function CaseStudyCard({ project, index }: { project: any; index: number; key?: 
         ))}
       </div>
 
-      <h3 className="text-2xl font-bold text-premium-black mb-4 group-hover:text-accent-blue transition-colors" style={{ transform: "translateZ(40px)" }}>
+      <h3 className="text-2xl font-bold text-premium-black mb-4 group-hover:text-accent-blue transition-colors" style={!isMobile ? { transform: "translateZ(40px)" } : {}}>
         {project.title}
       </h3>
-      <p className="text-gray-500 text-sm leading-relaxed" style={{ transform: "translateZ(50px)" }}>
+      <p className="text-gray-500 text-sm leading-relaxed" style={!isMobile ? { transform: "translateZ(50px)" } : {}}>
         {project.description}
       </p>
     </motion.a>
@@ -134,7 +137,7 @@ export default function CaseStudies() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
           className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6"
         >
@@ -152,7 +155,7 @@ export default function CaseStudies() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
           className="grid grid-cols-1 md:grid-cols-3 gap-10"
         >

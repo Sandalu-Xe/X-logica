@@ -2,20 +2,21 @@ import React from 'react';
 import { motion, useMotionValue, useSpring, useTransform, useScroll } from 'motion/react';
 import { ArrowRight, Play } from 'lucide-react';
 import Magnetic from './Magnetic';
+import { useMobile } from '../hooks/useMobile';
 
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.3,
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
@@ -32,7 +33,7 @@ const wordVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      delay: 0.5 + i * 0.1,
+      delay: 0.4 + i * 0.08,
       duration: 0.8,
       ease: [0.22, 1, 0.36, 1] as const,
     },
@@ -44,6 +45,7 @@ export default function Hero() {
   const words = headline.split(" ");
   const x = useMotionValue(0);
   const y = useMotionValue(0);
+  const isMobile = useMobile();
 
   const mouseXSpring = useSpring(x);
   const mouseYSpring = useSpring(y);
@@ -56,6 +58,7 @@ export default function Hero() {
   const y2 = useTransform(scrollY, [0, 500], [0, -150]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (isMobile) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
@@ -73,18 +76,18 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative pt-40 pb-24 md:pt-56 md:pb-32 overflow-hidden bg-white">
+    <section className="relative pt-32 pb-20 md:pt-56 md:pb-32 overflow-hidden bg-white">
       {/* Background Elements */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
         <motion.div 
-          style={{ y: y1 }}
-          className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-accent-blue/5 rounded-full blur-[120px]" 
+          style={{ y: isMobile ? 0 : y1 }}
+          className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-accent-blue/5 rounded-full blur-[120px] will-change-transform" 
         />
         <motion.div 
-          style={{ y: y2 }}
-          className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-accent-violet/5 rounded-full blur-[120px]" 
+          style={{ y: isMobile ? 0 : y2 }}
+          className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-accent-violet/5 rounded-full blur-[120px] will-change-transform" 
         />
-        <div className="absolute top-0 left-0 w-full h-full opacity-[0.03]" 
+        <div className="absolute top-0 left-0 w-full h-full opacity-[0.02]" 
              style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
       </div>
 
@@ -102,7 +105,7 @@ export default function Hero() {
             Software & AI Solutions
           </motion.span>
           <motion.h1 
-            className="text-5xl md:text-7xl font-bold tracking-tight text-premium-black mb-8 leading-[1.1]"
+            className="text-4xl md:text-7xl font-bold tracking-tight text-premium-black mb-8 leading-[1.1]"
           >
             {words.map((word, i) => (
               <motion.span
@@ -119,7 +122,7 @@ export default function Hero() {
           </motion.h1>
           <motion.p 
             variants={itemVariants}
-            className="text-lg md:text-xl text-gray-500 mb-10 leading-relaxed max-w-2xl mx-auto"
+            className="text-base md:text-xl text-gray-500 mb-10 leading-relaxed max-w-2xl mx-auto"
           >
             Xlogica Software & AI Solutions empowers businesses with premium website development, robust web applications, intuitive UI/UX design, and intelligent AI solutions like custom chatbots.
           </motion.p>
@@ -143,20 +146,20 @@ export default function Hero() {
 
         {/* Hero Image / Dashboard Mockup with 3D Tilt */}
         <motion.div
-          initial={{ opacity: 0, y: 60, scale: 0.95 }}
+          initial={{ opacity: 0, y: 40, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1.2, delay: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
+          transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
-          style={{
+          style={!isMobile ? {
             rotateX,
             rotateY,
             transformStyle: "preserve-3d",
-          } as any}
-          className="mt-20 relative perspective-1000"
+          } : {} as any}
+          className="mt-16 md:mt-24 relative perspective-1000"
         >
-          <div className="relative mx-auto max-w-5xl rounded-2xl overflow-hidden border border-gray-200 shadow-2xl bg-white"
-               style={{ transform: "translateZ(50px)" }}>
+          <div className="relative mx-auto max-w-5xl rounded-2xl overflow-hidden border border-gray-200 shadow-2xl bg-white will-change-transform"
+               style={!isMobile ? { transform: "translateZ(50px)" } : {}}>
             <div className="flex items-center gap-2 px-4 py-3 bg-gray-50 border-b border-gray-200">
               <div className="w-3 h-3 rounded-full bg-red-400" />
               <div className="w-3 h-3 rounded-full bg-yellow-400" />
@@ -167,43 +170,49 @@ export default function Hero() {
               alt="Xlogica Dashboard" 
               className="w-full h-auto"
               referrerPolicy="no-referrer"
+              loading="eager"
+              decoding="async"
             />
           </div>
           
           {/* Floating Elements with higher translateZ */}
-          <motion.div 
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            style={{ transform: "translateZ(100px)" } as any}
-            className="absolute -top-10 -right-10 hidden lg:block bg-white p-6 rounded-2xl shadow-xl border border-gray-100 max-w-[200px]"
-          >
-            <div className="flex items-center gap-3 mb-2">
-              <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
-                <ArrowRight size={20} className="-rotate-45" />
-              </div>
-              <div>
-                <div className="text-xs text-gray-400 font-medium tracking-wider uppercase">Growth</div>
-                <div className="text-lg font-bold text-premium-black">+124%</div>
-              </div>
-            </div>
-          </motion.div>
+          {!isMobile && (
+            <>
+              <motion.div 
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                style={{ transform: "translateZ(100px)" } as any}
+                className="absolute -top-10 -right-10 hidden lg:block bg-white p-6 rounded-2xl shadow-xl border border-gray-100 max-w-[200px]"
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                    <ArrowRight size={20} className="-rotate-45" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-400 font-medium tracking-wider uppercase">Growth</div>
+                    <div className="text-lg font-bold text-premium-black">+124%</div>
+                  </div>
+                </div>
+              </motion.div>
 
-          <motion.div 
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            style={{ transform: "translateZ(100px)" } as any}
-            className="absolute -bottom-10 -left-10 hidden lg:block bg-white p-6 rounded-2xl shadow-xl border border-gray-100 max-w-[200px]"
-          >
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-accent-blue/10 flex items-center justify-center text-accent-blue">
-                <div className="w-5 h-5 bg-accent-blue rounded-sm rotate-45" />
-              </div>
-              <div>
-                <div className="text-xs text-gray-400 font-medium tracking-wider uppercase">Active Users</div>
-                <div className="text-lg font-bold text-premium-black">12.5k</div>
-              </div>
-            </div>
-          </motion.div>
+              <motion.div 
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                style={{ transform: "translateZ(100px)" } as any}
+                className="absolute -bottom-10 -left-10 hidden lg:block bg-white p-6 rounded-2xl shadow-xl border border-gray-100 max-w-[200px]"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-accent-blue/10 flex items-center justify-center text-accent-blue">
+                    <div className="w-5 h-5 bg-accent-blue rounded-sm rotate-45" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-400 font-medium tracking-wider uppercase">Active Users</div>
+                    <div className="text-lg font-bold text-premium-black">12.5k</div>
+                  </div>
+                </div>
+              </motion.div>
+            </>
+          )}
         </motion.div>
       </div>
     </section>

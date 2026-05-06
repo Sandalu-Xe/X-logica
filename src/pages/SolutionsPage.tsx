@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, useMotionValue, useMotionTemplate } from 'motion/react';
 import { Globe, Code, Cpu, Layout, ArrowRight, Search, PenTool, Rocket, Smartphone } from 'lucide-react';
+import { useMobile } from '../hooks/useMobile';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -13,7 +14,7 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
@@ -87,8 +88,10 @@ const steps = [
 function ServiceCard({ service }: { service: typeof services[0] }) {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+  const isMobile = useMobile();
 
   function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
+    if (isMobile) return;
     const { left, top } = currentTarget.getBoundingClientRect();
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
@@ -100,18 +103,20 @@ function ServiceCard({ service }: { service: typeof services[0] }) {
       onMouseMove={handleMouseMove}
       className="group p-8 bg-white border border-gray-100 rounded-2xl hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden"
     >
-      <motion.div
-        className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition duration-300 group-hover:opacity-100"
-        style={{
-          background: useMotionTemplate`
-            radial-gradient(
-              650px circle at ${mouseX}px ${mouseY}px,
-              rgba(37, 99, 235, 0.06),
-              transparent 80%
-            )
-          `,
-        } as any}
-      />
+      {!isMobile && (
+        <motion.div
+          className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition duration-300 group-hover:opacity-100"
+          style={{
+            background: useMotionTemplate`
+              radial-gradient(
+                650px circle at ${mouseX}px ${mouseY}px,
+                rgba(37, 99, 235, 0.06),
+                transparent 80%
+              )
+            `,
+          } as any}
+        />
+      )}
       <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 relative z-10 ${service.color}`}>
         {service.icon}
       </div>
@@ -127,14 +132,16 @@ function ServiceCard({ service }: { service: typeof services[0] }) {
 }
 
 export default function SolutionsPage() {
+  const isMobile = useMobile();
+
   return (
     <>
       {/* Page Hero */}
-      <section className="relative pt-40 pb-20 md:pt-52 md:pb-28 overflow-hidden bg-white">
+      <section className="relative pt-32 pb-20 md:pt-52 md:pb-28 overflow-hidden bg-white">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
-          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-accent-blue/5 rounded-full blur-[120px]" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-accent-violet/5 rounded-full blur-[120px]" />
-          <div className="absolute top-0 left-0 w-full h-full opacity-[0.03]"
+          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-accent-blue/5 rounded-full blur-[120px] will-change-transform" />
+          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-accent-violet/5 rounded-full blur-[120px] will-change-transform" />
+          <div className="absolute top-0 left-0 w-full h-full opacity-[0.02]"
             style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
         </div>
 
@@ -153,14 +160,14 @@ export default function SolutionsPage() {
             </motion.span>
             <motion.h1
               variants={itemVariants}
-              className="text-5xl md:text-7xl font-bold tracking-tight text-premium-black mb-8 leading-[1.1]"
+              className="text-4xl md:text-7xl font-bold tracking-tight text-premium-black mb-8 leading-[1.1]"
             >
               Comprehensive{' '}
               <span className="text-accent-blue">Solutions</span> for Digital Transformation
             </motion.h1>
             <motion.p
               variants={itemVariants}
-              className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl"
+              className="text-base md:text-xl text-gray-500 leading-relaxed max-w-2xl"
             >
               We combine technical excellence with business strategy to deliver products
               that make a real impact on your bottom line.
@@ -175,13 +182,13 @@ export default function SolutionsPage() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
             className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
           >
             <div className="max-w-2xl">
               <motion.span variants={itemVariants} className="text-xs font-bold tracking-widest text-accent-blue uppercase mb-4 block">Our Expertise</motion.span>
-              <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold tracking-tight text-premium-black">
+              <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-bold tracking-tight text-premium-black">
                 What We Do Best
               </motion.h2>
             </div>
@@ -193,7 +200,7 @@ export default function SolutionsPage() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
           >
@@ -210,12 +217,12 @@ export default function SolutionsPage() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
             className="text-center mb-20"
           >
             <motion.span variants={itemVariants} className="text-xs font-bold tracking-widest text-accent-blue uppercase mb-4 block">How We Work</motion.span>
-            <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold tracking-tight text-premium-black mb-6">
+            <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-bold tracking-tight text-premium-black mb-6">
               Our Proven Process for Success
             </motion.h2>
             <motion.p variants={itemVariants} className="text-gray-500 max-w-2xl mx-auto leading-relaxed">
@@ -227,7 +234,7 @@ export default function SolutionsPage() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative"
           >
