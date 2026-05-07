@@ -1,4 +1,7 @@
-import 'dotenv/config'; // ← must be first — loads .env into process.env
+import 'dotenv/config';
+import { setDefaultResultOrder } from 'dns'; // ← force IPv4 DNS resolution globally
+setDefaultResultOrder('ipv4first');           // prevents ENETUNREACH on IPv6 networks
+
 import express from 'express';
 import cors from 'cors';
 import multer from 'multer';
@@ -46,22 +49,26 @@ const upload = multer({
   },
 });
 
-// ─── Nodemailer transporter ──────────────────────────────────────────────────
-function createTransporter() {
-  const user = process.env.GMAIL_USER;
-  const pass = process.env.GMAIL_APP_PASSWORD;
+// ─── Nodemailer transporter (Singleton with Pooling) ────────────────────────
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  pool: true, // reuse connections
+  maxConnections: 5,
+  maxMessages: 100,
+  auth: {
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_APP_PASSWORD,
+  },
+});
 
-  if (!user || !pass) {
-    throw new Error(
-      'Missing GMAIL_USER or GMAIL_APP_PASSWORD environment variables.'
-    );
+// Verify connection on startup
+transporter.verify((error) => {
+  if (error) {
+    console.error('❌ SMTP Connection Error:', error);
+  } else {
+    console.log('📧 SMTP Server is ready to take messages');
   }
-
-  return nodemailer.createTransport({
-    service: 'gmail',
-    auth: { user, pass },
-  });
-}
+});
 
 // ─── Health check ─────────────────────────────────────────────────────────────
 app.get('/', (_req, res) => {
@@ -72,7 +79,6 @@ app.get('/', (_req, res) => {
 app.post('/api/apply', upload.single('cv'), async (req, res) => {
   try {
     const { name, email, phone, portfolio, message, position } = req.body;
-    const transporter = createTransporter();
 
     const mailOptions: nodemailer.SendMailOptions = {
       from: `"X-Logica Careers" <${process.env.GMAIL_USER}>`,
@@ -138,7 +144,6 @@ app.post('/api/apply', upload.single('cv'), async (req, res) => {
 app.post('/api/contact', async (req, res) => {
   try {
     const { name, email, message } = req.body;
-    const transporter = createTransporter();
 
     const mailOptions: nodemailer.SendMailOptions = {
       from: `"X-Logica Website" <${process.env.GMAIL_USER}>`,
