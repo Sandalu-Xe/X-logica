@@ -68,10 +68,9 @@ export default function FeaturedProduct() {
             <div className="absolute -inset-4 bg-accent-blue/5 rounded-[40px] blur-3xl -z-10" />
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-100 bg-white p-2">
               <img 
-                src="https://picsum.photos/seed/product/1000/1200" 
+                src="/images/dashboard-mockup.png" 
                 alt="Nexus Dashboard Interface" 
                 className="w-full h-auto rounded-2xl"
-                referrerPolicy="no-referrer"
               />
               
               {/* Overlay Card */}
@@ -80,11 +79,11 @@ export default function FeaturedProduct() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
                 viewport={{ once: false }}
-                className="absolute bottom-8 -right-8 bg-white p-6 rounded-2xl shadow-2xl border border-gray-100 max-w-[240px] hidden md:block"
+                className="absolute bottom-6 right-6 lg:-right-6 bg-white/95 backdrop-blur-lg p-5 md:p-6 rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-white/60 min-w-[220px] md:min-w-[240px] z-10 hidden sm:block"
               >
-                <div className="text-sm font-bold text-premium-black mb-2">Total Revenue</div>
-                <div className="text-2xl font-bold text-accent-blue mb-4">$1,240,500</div>
-                <div className="flex items-center gap-2 text-xs text-green-600 font-bold">
+                <div className="text-sm font-bold text-gray-500 mb-2 uppercase tracking-wider">Total Revenue</div>
+                <div className="text-3xl font-bold text-premium-black mb-4">$1,240,500</div>
+                <div className="flex items-center gap-2 text-sm text-green-600 font-bold bg-green-50 w-fit px-3 py-1 rounded-full">
                   <ArrowRight size={14} className="-rotate-45" /> +15.4% this month
                 </div>
               </motion.div>
