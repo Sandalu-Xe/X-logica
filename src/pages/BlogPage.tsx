@@ -27,23 +27,23 @@ const itemVariants = {
 
 const cases = [
   {
-    title: 'Cylon Spice: E-Commerce Platform',
-    description: 'A premium web platform showcasing high-quality spices with a seamless user experience and modern UI.',
-    tags: ['Web App', 'E-Commerce', 'UI/UX'],
+    title: 'Dhaham Ceylone Spice website',
+    description: 'Developed a responsive full-stack platform for "Daham Ceylon Spice" using React, TypeScript, and Express. The project features a dynamic product API, sophisticated animations with Framer Motion, and a custom design system tailored for a premium international export brand. Optimized asset delivery and implemented a cross-page dark/light mode functionality.',
+    tags: ['React', 'TypeScript', 'Express'],
     image: 'https://tktueigbfdpshjztxtvl.supabase.co/storage/v1/object/sign/Sandalu%20Album/CylonSpice.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTQwNmI4NC03NTAyLTQ4YmItYTlkNy1jOTlhNzQxYjFiOTYiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTYW5kYWx1IEFsYnVtL0N5bG9uU3BpY2UuanBlZyIsImlhdCI6MTc3NzYzMTI0MywiZXhwIjoyMDkyOTkxMjQzfQ.txks7F3LSD3PY--PibsAF-UZbVpUGOZZqpZBxfpGrSA',
     link: 'https://daham-ceylon-spice.vercel.app/#/',
   },
   {
-    title: 'Cementi Solution Product Selling ',
-    description: 'Building an intelligent analytics platform for real-time data visualization serving 50K+ daily active users.',
-    tags: ['AI', 'React', 'Python'],
+    title: 'Spero Cementi Website',
+    description: 'Delivered a luxury-grade interface featuring a custom viewport-adaptive animation system and a persistent theme engine. Focused on high-fidelity user experiences and clean software solutions, leveraging AI-augmented development to ensure rapid, high-performance execution.',
+    tags: ['React', 'Animations', 'UI/UX'],
     image: 'https://tktueigbfdpshjztxtvl.supabase.co/storage/v1/object/sign/Sandalu%20Album/projectsimg/Spero.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTQwNmI4NC03NTAyLTQ4YmItYTlkNy1jOTlhNzQxYjFiOTYiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTYW5kYWx1IEFsYnVtL3Byb2plY3RzaW1nL1NwZXJvLmpwZWciLCJpYXQiOjE3Nzc2MzE3MTUsImV4cCI6MjA5Mjk5MTcxNX0.Utn3RE6nSHbINFj-D2et3mDX91HNMSt1_Evs9Tej9ds',
     link: 'https://spero-project-nine.vercel.app/#/',
   },
   {
-    title: 'Lumina AI: Product Design',
-    description: 'Crafting a delightful user experience for a next-gen AI-driven product that increased user retention by 85%.',
-    tags: ['UX/UI', 'Figma', 'Product'],
+    title: 'Silver ray hotel managemnt sysytem website(client)',
+    description: 'Architected a dual-platform ecosystem featuring a high-performance Next.js client website and a robust PHP administrative dashboard. Implemented a clean MVC (Model-View-Controller) architecture to ensure modular code maintainability and efficient data handling via MySQL. Developed a centralized backend to manage real-time room availability, guest bookings, and administrative operations with seamless data synchronization.',
+    tags: ['Next.js', 'PHP', 'MySQL'],
     image: 'https://tktueigbfdpshjztxtvl.supabase.co/storage/v1/object/sign/Sandalu%20Album/projectsimg/Silveray.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTQwNmI4NC03NTAyLTQ4YmItYTlkNy1jOTlhNzQxYjFiOTYiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTYW5kYWx1IEFsYnVtL3Byb2plY3RzaW1nL1NpbHZlcmF5LmpwZWciLCJpYXQiOjE3Nzc2MzIyNjksImV4cCI6MjA5Mjk5MjI2OX0.F-HPxn0bTfCAKj9kEj-dTSWpYavdrhvz2Qnyj7-nk20',
     link: 'https://silverray.lk/',
   },
