@@ -28,21 +28,21 @@ const itemVariants = {
 const cases = [
   {
     title: 'Dhaham Ceylone Spice website',
-    description: 'Developed a responsive full-stack platform for "Daham Ceylon Spice" using React, TypeScript, and Express. The project features a dynamic product API, sophisticated animations with Framer Motion, and a custom design system tailored for a premium international export brand. Optimized asset delivery and implemented a cross-page dark/light mode functionality.',
+    description: 'A responsive full-stack platform featuring a dynamic product API, sophisticated Framer Motion animations, and custom dark/light mode for a premium export brand.',
     tags: ['React', 'TypeScript', 'Express'],
     image: 'https://tktueigbfdpshjztxtvl.supabase.co/storage/v1/object/sign/Sandalu%20Album/CylonSpice.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTQwNmI4NC03NTAyLTQ4YmItYTlkNy1jOTlhNzQxYjFiOTYiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTYW5kYWx1IEFsYnVtL0N5bG9uU3BpY2UuanBlZyIsImlhdCI6MTc3NzYzMTI0MywiZXhwIjoyMDkyOTkxMjQzfQ.txks7F3LSD3PY--PibsAF-UZbVpUGOZZqpZBxfpGrSA',
     link: 'https://daham-ceylon-spice.vercel.app/#/',
   },
   {
     title: 'Spero Cementi Website',
-    description: 'Delivered a luxury-grade interface featuring a custom viewport-adaptive animation system and a persistent theme engine. Focused on high-fidelity user experiences and clean software solutions, leveraging AI-augmented development to ensure rapid, high-performance execution.',
+    description: 'A luxury-grade interface with a viewport-adaptive animation system and persistent theme engine, designed for high-fidelity user experiences.',
     tags: ['React', 'Animations', 'UI/UX'],
     image: 'https://tktueigbfdpshjztxtvl.supabase.co/storage/v1/object/sign/Sandalu%20Album/projectsimg/Spero.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTQwNmI4NC03NTAyLTQ4YmItYTlkNy1jOTlhNzQxYjFiOTYiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTYW5kYWx1IEFsYnVtL3Byb2plY3RzaW1nL1NwZXJvLmpwZWciLCJpYXQiOjE3Nzc2MzE3MTUsImV4cCI6MjA5Mjk5MTcxNX0.Utn3RE6nSHbINFj-D2et3mDX91HNMSt1_Evs9Tej9ds',
     link: 'https://spero-project-nine.vercel.app/#/',
   },
   {
     title: 'Silver ray hotel managemnt sysytem website(client)',
-    description: 'Architected a dual-platform ecosystem featuring a high-performance Next.js client website and a robust PHP administrative dashboard. Implemented a clean MVC (Model-View-Controller) architecture to ensure modular code maintainability and efficient data handling via MySQL. Developed a centralized backend to manage real-time room availability, guest bookings, and administrative operations with seamless data synchronization.',
+    description: 'A dual-platform ecosystem featuring a Next.js client website and a PHP/MySQL administrative dashboard for managing real-time room availability and guest bookings.',
     tags: ['Next.js', 'PHP', 'MySQL'],
     image: 'https://tktueigbfdpshjztxtvl.supabase.co/storage/v1/object/sign/Sandalu%20Album/projectsimg/Silveray.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTQwNmI4NC03NTAyLTQ4YmItYTlkNy1jOTlhNzQxYjFiOTYiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTYW5kYWx1IEFsYnVtL3Byb2plY3RzaW1nL1NpbHZlcmF5LmpwZWciLCJpYXQiOjE3Nzc2MzIyNjksImV4cCI6MjA5Mjk5MjI2OX0.F-HPxn0bTfCAKj9kEj-dTSWpYavdrhvz2Qnyj7-nk20',
     link: 'https://silverray.lk/',
