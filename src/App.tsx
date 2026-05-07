@@ -9,8 +9,9 @@ import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
 import SolutionsPage from './pages/SolutionsPage';
 import AboutPage from './pages/AboutPage';
-import BlogPage from './pages/BlogPage';
+import ProjectsPage from './pages/ProjectsPage';
 import CareersPage from './pages/CareersPage';
+import ApplyPage from './pages/ApplyPage';
 
 export default function App() {
   return (
@@ -21,8 +22,9 @@ export default function App() {
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/solutions" element={<SolutionsPage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/careers" element={<CareersPage />} />
+          <Route path="/apply/:role" element={<ApplyPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

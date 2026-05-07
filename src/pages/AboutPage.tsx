@@ -1,30 +1,12 @@
-import { motion, useInView } from 'motion/react';
+import { motion } from 'motion/react';
 import { useRef, useState, useEffect } from 'react';
-import { Search, PenTool, Code, Rocket, Target, Eye, Heart } from 'lucide-react';
+import { Target, Eye, Heart } from 'lucide-react';
 import Testimonials from '../components/Testimonials';
+import PageHero from '../components/PageHero';
+import { processSteps } from '../data/process';
+import { containerVariants, itemVariants, EASE } from '../lib/animations';
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.2,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: [0.22, 1, 0.36, 1] as const,
-    },
-  },
-};
+// --- Data ---
 
 const values = [
   {
@@ -47,33 +29,6 @@ const values = [
   },
 ];
 
-const steps = [
-  {
-    icon: <Search className="w-8 h-8" />,
-    title: 'Discovery',
-    description: 'We dive deep into your business goals, user needs, and market landscape to define the perfect strategy.',
-    color: 'bg-blue-50 text-blue-600',
-  },
-  {
-    icon: <PenTool className="w-8 h-8" />,
-    title: 'Design',
-    description: 'Our designers craft intuitive, high-fidelity interfaces that prioritize user experience and brand identity.',
-    color: 'bg-purple-50 text-purple-600',
-  },
-  {
-    icon: <Code className="w-8 h-8" />,
-    title: 'Development',
-    description: 'Using agile methodologies, our engineers build robust, scalable code that brings your vision to life.',
-    color: 'bg-green-50 text-green-600',
-  },
-  {
-    icon: <Rocket className="w-8 h-8" />,
-    title: 'Launch',
-    description: 'We ensure a smooth deployment and provide ongoing support to help your product grow and evolve.',
-    color: 'bg-orange-50 text-orange-600',
-  },
-];
-
 const stats = [
   { label: 'Projects Completed', value: 500, suffix: '+' },
   { label: 'Client Satisfaction', value: 98, suffix: '%' },
@@ -81,33 +36,30 @@ const stats = [
   { label: 'Years Experience', value: 10, suffix: '+' },
 ];
 
-
+// --- Sub-components ---
 
 function CountUp({ value, suffix }: { value: number; suffix: string }) {
   const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: false });
+  const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    if (isInView) {
-      let start = 0;
-      const end = value;
-      const duration = 2000;
-      const increment = end / (duration / 16);
-
-      const timer = setInterval(() => {
-        start += increment;
-        if (start >= end) {
-          setCount(end);
-          clearInterval(timer);
-        } else {
-          setCount(Math.floor(start));
-        }
-      }, 16);
-
-      return () => clearInterval(timer);
-    }
-  }, [isInView, value]);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        let start = 0;
+        const increment = value / (2000 / 16);
+        const timer = setInterval(() => {
+          start += increment;
+          if (start >= value) { setCount(value); clearInterval(timer); }
+          else setCount(Math.floor(start));
+        }, 16);
+        return () => clearInterval(timer);
+      },
+      { threshold: 0.5 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [value]);
 
   return (
     <span ref={ref} className="text-4xl md:text-5xl font-bold tracking-tight text-premium-black">
@@ -116,64 +68,25 @@ function CountUp({ value, suffix }: { value: number; suffix: string }) {
   );
 }
 
+// --- Page ---
+
 export default function AboutPage() {
   return (
     <>
-      {/* Page Hero */}
-      <section className="relative pt-40 pb-20 md:pt-52 md:pb-28 overflow-hidden bg-white">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
-          <div className="absolute top-[-10%] left-[20%] w-[50%] h-[50%] bg-accent-blue/5 rounded-full blur-[120px]" />
-          <div className="absolute top-0 left-0 w-full h-full opacity-[0.03]"
-               style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-        </div>
-
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <motion.div
-            className="max-w-3xl mx-auto text-center"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <motion.span
-              variants={itemVariants}
-              className="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-accent-blue uppercase bg-accent-blue/5 rounded-full border border-accent-blue/10"
-            >
-              About Xlogica
-            </motion.span>
-            <motion.h1
-              variants={itemVariants}
-              className="text-5xl md:text-7xl font-bold tracking-tight text-premium-black mb-8 leading-[1.1]"
-            >
-              Building the{' '}
-              <span className="text-accent-blue">Future</span> of Web & AI Solutions
-            </motion.h1>
-            <motion.p
-              variants={itemVariants}
-              className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto"
-            >
-              We're a team of passionate engineers, designers, and strategists dedicated to crafting
-              exceptional web, UI/UX, and AI solutions that help businesses thrive in the digital age.
-            </motion.p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        badge="About Xlogica"
+        centered
+        title={<>Building the <span className="text-accent-blue">Future</span> of Web & AI Solutions</>}
+        description="We're a team of passionate engineers, designers, and strategists dedicated to crafting exceptional web, UI/UX, and AI solutions that help businesses thrive in the digital age."
+        blobs={[{ position: 'top-[-10%] left-[20%] w-[50%] h-[50%]', color: 'bg-accent-blue/5' }]}
+      />
 
       {/* Mission, Vision, Values */}
       <section className="py-24 md:py-32 bg-premium-white">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, margin: "-100px" }}
-            variants={containerVariants}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-          >
-            {values.map((val, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="p-10 bg-white border border-gray-100 rounded-3xl hover:shadow-2xl hover:shadow-black/5 transition-all duration-500 group"
-              >
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, margin: '-100px' }} variants={containerVariants} className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {values.map((val, i) => (
+              <motion.div key={i} variants={itemVariants} className="p-10 bg-white border border-gray-100 rounded-3xl hover:shadow-2xl hover:shadow-black/5 transition-all duration-500 group">
                 <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-8 ${val.color} group-hover:scale-110 transition-transform duration-300`}>
                   {val.icon}
                 </div>
@@ -188,41 +101,22 @@ export default function AboutPage() {
       {/* Process Section */}
       <section className="py-24 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, margin: "-100px" }}
-            variants={containerVariants}
-            className="text-center mb-20"
-          >
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, margin: '-100px' }} variants={containerVariants} className="text-center mb-20">
             <motion.span variants={itemVariants} className="text-xs font-bold tracking-widest text-accent-blue uppercase mb-4 block">How We Work</motion.span>
-            <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold tracking-tight text-premium-black mb-6">
-              Our Proven Process for Success
-            </motion.h2>
+            <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold tracking-tight text-premium-black mb-6">Our Proven Process for Success</motion.h2>
             <motion.p variants={itemVariants} className="text-gray-500 max-w-2xl mx-auto leading-relaxed">
-              We follow a structured, collaborative approach to ensure every project is delivered on time,
-              within budget, and beyond expectations.
+              We follow a structured, collaborative approach to ensure every project is delivered on time, within budget, and beyond expectations.
             </motion.p>
           </motion.div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, margin: "-100px" }}
-            variants={containerVariants}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative"
-          >
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, margin: '-100px' }} variants={containerVariants} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative">
             <div className="absolute top-1/4 left-0 right-0 h-0.5 bg-gray-200 hidden lg:block -z-10" />
-            {steps.map((step, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="flex flex-col items-center text-center group"
-              >
+            {processSteps.map((step, i) => (
+              <motion.div key={i} variants={itemVariants} className="flex flex-col items-center text-center group">
                 <div className={`w-20 h-20 rounded-3xl flex items-center justify-center mb-8 relative z-10 transition-transform duration-300 group-hover:scale-110 shadow-lg shadow-black/5 ${step.color}`}>
                   {step.icon}
                   <div className="absolute -top-2 -right-2 w-8 h-8 bg-white rounded-full border border-gray-100 flex items-center justify-center text-sm font-bold text-premium-black shadow-sm">
-                    {index + 1}
+                    {i + 1}
                   </div>
                 </div>
                 <h3 className="text-xl font-bold text-premium-black mb-4">{step.title}</h3>
@@ -237,26 +131,23 @@ export default function AboutPage() {
       <section className="py-20 md:py-24 bg-premium-white border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 md:gap-20">
-            {stats.map((stat, index) => (
+            {stats.map((stat, i) => (
               <motion.div
-                key={index}
+                key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: EASE }}
                 viewport={{ once: false }}
                 className="flex flex-col items-center text-center"
               >
                 <CountUp value={stat.value} suffix={stat.suffix} />
-                <p className="text-sm font-bold tracking-widest text-gray-400 uppercase mt-4">
-                  {stat.label}
-                </p>
+                <p className="text-sm font-bold tracking-widest text-gray-400 uppercase mt-4">{stat.label}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
       <Testimonials />
     </>
   );

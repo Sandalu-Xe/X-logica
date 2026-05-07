@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, useMotionValue, useSpring, useTransform, useScroll } from 'motion/react';
 import { ArrowRight, Play } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Magnetic from './Magnetic';
 import { useMobile } from '../hooks/useMobile';
 
@@ -137,9 +138,9 @@ export default function Hero() {
               </button>
             </Magnetic>
             <Magnetic strength={0.2}>
-              <button className="w-full sm:w-auto bg-white text-premium-black border border-gray-200 px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-gray-50 transition-all active:scale-95">
+              <Link to="/projects" className="w-full sm:w-auto bg-white text-premium-black border border-gray-200 px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-gray-50 transition-all active:scale-95">
                 <Play size={20} fill="currentColor" /> View Showcase
-              </button>
+              </Link>
             </Magnetic>
           </motion.div>
         </motion.div>

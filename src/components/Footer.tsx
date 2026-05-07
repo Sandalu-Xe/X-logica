@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Twitter, Linkedin, Github, Instagram, ArrowRight, ChevronDown } from 'lucide-react';
+import { Twitter, Linkedin, Github, Instagram, ArrowRight, ChevronDown, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
 
@@ -8,7 +8,7 @@ const footerLinks = {
   Company: [
     { name: 'About Us', to: '/about' },
     { name: 'Careers', to: '/careers' },
-    { name: 'Our Works', to: '/blog' },
+    { name: 'Projects', to: '/projects' },
   ],
   Services: [
     { name: 'Premium Websites', to: '/solutions' },
@@ -46,6 +46,13 @@ export default function Footer() {
               Empowering businesses with premium website development, web applications, UI/UX design, and AI solutions like custom chatbots.
             </p>
             <div className="flex items-center gap-4">
+              <a
+                href="mailto:info.xlogica@gmail.com"
+                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/5 transition-colors text-gray-400 hover:text-white"
+                title="Email Us"
+              >
+                <Mail size={20} />
+              </a>
               {[Twitter, Linkedin, Github, Instagram].map((Icon, index) => (
                 <a
                   key={index}

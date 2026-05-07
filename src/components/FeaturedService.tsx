@@ -20,13 +20,13 @@ export default function FeaturedProduct() {
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ once: false, margin: "-100px" }}
           >
-            <span className="text-xs font-bold tracking-widest text-accent-violet uppercase mb-6 block">Featured Product</span>
+            <span className="text-xs font-bold tracking-widest text-accent-violet uppercase mb-6 block">Featured Service</span>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-premium-black mb-8 leading-tight">
-              Xlogica - Nexus Dashboard: <br /> Insight at Your Fingertips
+              Xlogica - Nexus Insights: <br /> Expert Digital Solutions
             </h2>
             <p className="text-lg text-gray-500 mb-10 leading-relaxed">
-              Our flagship product provides a unified platform for managing your entire digital ecosystem. 
-              Built with performance and security at its core, Nexus Dashboard helps you make data-driven decisions faster.
+              Our flagship service provides a unified platform for managing your entire digital ecosystem. 
+              Built with performance and strategy at its core, Nexus Insights helps you make data-driven decisions faster.
             </p>
             
             <ul className="space-y-4 mb-10">
