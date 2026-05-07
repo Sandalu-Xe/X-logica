@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowLeft, User, Mail, Phone, Link as LinkIcon, FileText, Send, CheckCircle2, Upload } from 'lucide-react';
+import { ArrowLeft, User, Mail, Phone, Link as LinkIcon, FileText, Send, CheckCircle2, Upload, Loader2, AlertCircle } from 'lucide-react';
 import Magnetic from '../components/Magnetic';
 
 const containerVariants = {
@@ -27,20 +27,44 @@ const itemVariants = {
   },
 };
 
+type FormStatus = 'idle' | 'loading' | 'success' | 'error';
+
 export default function ApplyPage() {
   const { role } = useParams<{ role: string }>();
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [status, setStatus] = useState<FormStatus>('idle');
+  const [errorMsg, setErrorMsg] = useState('');
   const [fileName, setFileName] = useState<string | null>(null);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitted(true);
-  };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
       setFileName(file.name);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('loading');
+    setErrorMsg('');
+
+    try {
+      const formData = new FormData(e.currentTarget);
+      const res = await fetch('/api/apply', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const result = await res.json();
+
+      if (res.ok && result.success) {
+        setStatus('success');
+      } else {
+        setStatus('error');
+        setErrorMsg(result.message || 'Something went wrong. Please try again.');
+      }
+    } catch {
+      setStatus('error');
+      setErrorMsg('Network error. Please check your connection and try again.');
     }
   };
 
@@ -58,8 +82,8 @@ export default function ApplyPage() {
           animate={{ opacity: 1, x: 0 }}
           className="mb-12"
         >
-          <Link 
-            to="/careers" 
+          <Link
+            to="/careers"
             className="inline-flex items-center gap-2 text-sm font-bold text-gray-500 hover:text-accent-blue transition-colors group"
           >
             <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> Back to Careers
@@ -67,7 +91,7 @@ export default function ApplyPage() {
         </motion.div>
 
         <AnimatePresence mode="wait">
-          {!isSubmitted ? (
+          {status !== 'success' ? (
             <motion.div
               key="form"
               variants={containerVariants}
@@ -88,14 +112,14 @@ export default function ApplyPage() {
                 </p>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 variants={itemVariants}
                 className="bg-premium-white border border-gray-100 rounded-[40px] p-8 md:p-12 shadow-2xl shadow-black/5"
               >
-                <form action="https://formspree.io/f/info.xlogica@gmail.com" method="POST" encType="multipart/form-data" className="space-y-8">
+                <form onSubmit={handleSubmit} encType="multipart/form-data" className="space-y-8">
                   {/* Hidden field to identify the role */}
                   <input type="hidden" name="position" value={decodeURIComponent(role || 'General Application')} />
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="space-y-2">
                       <label className="text-sm font-bold text-premium-black flex items-center gap-2 px-1">
@@ -190,13 +214,30 @@ export default function ApplyPage() {
                     </div>
                   </div>
 
+                  {/* Error Message */}
+                  {status === 'error' && (
+                    <div className="flex items-start gap-3 bg-red-50 border border-red-200 rounded-2xl px-5 py-4 text-sm text-red-600">
+                      <AlertCircle size={16} className="shrink-0 mt-0.5" />
+                      <span>{errorMsg}</span>
+                    </div>
+                  )}
+
                   <div className="pt-4">
                     <Magnetic strength={0.1}>
-                      <button 
+                      <button
                         type="submit"
-                        className="w-full bg-premium-black text-white py-5 rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-gray-800 transition-all active:scale-95 shadow-xl shadow-black/10 group"
+                        disabled={status === 'loading'}
+                        className="w-full bg-premium-black text-white py-5 rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-gray-800 transition-all active:scale-95 shadow-xl shadow-black/10 group disabled:opacity-60 disabled:cursor-not-allowed"
                       >
-                        Submit Application <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                        {status === 'loading' ? (
+                          <>
+                            <Loader2 size={18} className="animate-spin" /> Submitting…
+                          </>
+                        ) : (
+                          <>
+                            Submit Application <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                          </>
+                        )}
                       </button>
                     </Magnetic>
                   </div>
@@ -215,7 +256,7 @@ export default function ApplyPage() {
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-premium-black mb-4">Application Received!</h2>
               <p className="text-lg text-gray-500 max-w-md mx-auto mb-10 leading-relaxed">
-                Thank you for applying for the {decodeURIComponent(role || 'position')}. Our recruiting team will review your application and get back to you soon.
+                Thank you for applying for the <strong>{decodeURIComponent(role || 'position')}</strong>. Our recruiting team will review your application and CV, then get back to you soon.
               </p>
               <Link to="/careers">
                 <Magnetic strength={0.2}>
