@@ -2,7 +2,7 @@ import Hero from '../components/Hero';
 import TrustedBy from '../components/TrustedBy';
 import Stats from '../components/Stats';
 import Services from '../components/Services';
-import FeaturedProduct from '../components/FeaturedProduct';
+import FeaturedService from '../components/FeaturedService';
 import Testimonials from '../components/Testimonials';
 import CTA from '../components/CTA';
 
@@ -12,7 +12,7 @@ export default function HomePage() {
       <Hero />
       <TrustedBy />
       <Services />
-      <FeaturedProduct />
+      <FeaturedService />
       <Stats />
       <Testimonials />
       <CTA />

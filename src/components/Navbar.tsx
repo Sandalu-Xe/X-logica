@@ -6,7 +6,7 @@ import Magnetic from './Magnetic';
 import Logo from './Logo';
 
 const navLinks = [
-  { name: 'Products', to: '/products' },
+  { name: 'Services', to: '/services' },
   { name: 'Solutions', to: '/solutions' },
   { name: 'About', to: '/about' },
   { name: 'Our Works', to: '/blog' },

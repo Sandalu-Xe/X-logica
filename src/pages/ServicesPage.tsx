@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Check, ArrowRight, Layers, Shield, Zap, BarChart3 } from 'lucide-react';
+import { Check, ArrowRight, Globe, Layout, Bot, PenTool, Smartphone, Lightbulb } from 'lucide-react';
 import Magnetic from '../components/Magnetic';
 
 const containerVariants = {
@@ -33,38 +33,52 @@ const features = [
   'Mobile-first responsive design for all devices',
 ];
 
-const products = [
+const services = [
   {
-    icon: <Layers className="w-7 h-7" />,
-    title: 'Xlogica Insights',
-    description: 'A unified platform for managing your entire digital ecosystem with real-time analytics and powerful reporting.',
+    icon: <Globe className="w-7 h-7" />,
+    title: 'Premium Website Development',
+    description: 'Custom, high-performance websites built with modern technologies to elevate your digital presence and drive conversions.',
     color: 'bg-blue-50 text-blue-600',
-    tag: 'Flagship',
+    tag: 'Web',
   },
   {
-    icon: <Shield className="w-7 h-7" />,
-    title: 'SecureVault',
-    description: 'Enterprise-grade security management with advanced threat detection and compliance monitoring.',
-    color: 'bg-green-50 text-green-600',
-    tag: 'Security',
+    icon: <Layout className="w-7 h-7" />,
+    title: 'Web Application Development',
+    description: 'Scalable and secure web applications tailored to streamline your business operations and provide exceptional user experiences.',
+    color: 'bg-indigo-50 text-indigo-600',
+    tag: 'Apps',
   },
   {
-    icon: <Zap className="w-7 h-7" />,
-    title: 'FlowEngine',
-    description: 'Intelligent workflow automation platform that streamlines operations and eliminates bottlenecks.',
+    icon: <Bot className="w-7 h-7" />,
+    title: 'AI Solutions & Chatbots',
+    description: 'Intelligent AI integrations and custom chatbots to automate workflows, enhance customer support, and unlock new insights.',
     color: 'bg-purple-50 text-purple-600',
-    tag: 'Automation',
+    tag: 'AI',
   },
   {
-    icon: <BarChart3 className="w-7 h-7" />,
-    title: 'InsightPro',
-    description: 'AI-powered business intelligence tool that transforms raw data into actionable growth strategies.',
+    icon: <PenTool className="w-7 h-7" />,
+    title: 'UI/UX Design Services',
+    description: 'User-centric design solutions that combine beautiful aesthetics with intuitive navigation to delight your audience.',
+    color: 'bg-pink-50 text-pink-600',
+    tag: 'Design',
+  },
+  {
+    icon: <Smartphone className="w-7 h-7" />,
+    title: 'Mobile App Development',
+    description: 'Native and cross-platform mobile applications designed to perform seamlessly across iOS and Android devices.',
+    color: 'bg-green-50 text-green-600',
+    tag: 'Mobile',
+  },
+  {
+    icon: <Lightbulb className="w-7 h-7" />,
+    title: 'IT Consulting',
+    description: 'Expert strategic guidance to help you navigate digital transformation and optimize your technology infrastructure.',
     color: 'bg-orange-50 text-orange-600',
-    tag: 'Analytics',
+    tag: 'Consulting',
   },
 ];
 
-export default function ProductsPage() {
+export default function ServicesPage() {
   return (
     <>
       {/* Page Hero */}
@@ -87,7 +101,7 @@ export default function ProductsPage() {
               variants={itemVariants}
               className="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-accent-violet uppercase bg-accent-violet/5 rounded-full border border-accent-violet/10"
             >
-              Our Products
+              Our Services
             </motion.span>
             <motion.h1
               variants={itemVariants}
@@ -100,14 +114,14 @@ export default function ProductsPage() {
               variants={itemVariants}
               className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl"
             >
-              Explore our suite of premium software products designed to accelerate growth,
+              Explore our suite of premium software services designed to accelerate growth,
               enhance security, and streamline operations for forward-thinking enterprises.
             </motion.p>
           </motion.div>
         </div>
       </section>
 
-      {/* Products Grid */}
+      {/* Services Grid */}
       <section className="py-24 md:py-32 bg-premium-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
@@ -115,24 +129,24 @@ export default function ProductsPage() {
             whileInView="visible"
             viewport={{ once: false, margin: "-100px" }}
             variants={containerVariants}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {products.map((product, index) => (
+            {services.map((service, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
                 className="group p-10 bg-white border border-gray-100 rounded-3xl hover:shadow-2xl hover:shadow-black/5 hover:-translate-y-1 transition-all duration-500 relative overflow-hidden"
               >
                 <div className="flex items-start justify-between mb-8">
-                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${product.color}`}>
-                    {product.icon}
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${service.color}`}>
+                    {service.icon}
                   </div>
                   <span className="text-[10px] font-bold tracking-widest uppercase text-accent-blue bg-accent-blue/5 px-3 py-1 rounded-full border border-accent-blue/10">
-                    {product.tag}
+                    {service.tag}
                   </span>
                 </div>
-                <h3 className="text-2xl font-bold text-premium-black mb-4">{product.title}</h3>
-                <p className="text-gray-500 leading-relaxed mb-8">{product.description}</p>
+                <h3 className="text-2xl font-bold text-premium-black mb-4">{service.title}</h3>
+                <p className="text-gray-500 leading-relaxed mb-8">{service.description}</p>
                 <a href="#" className="inline-flex items-center gap-2 text-sm font-bold text-premium-black group-hover:text-accent-blue transition-colors">
                   Learn More <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </a>
@@ -152,13 +166,13 @@ export default function ProductsPage() {
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               viewport={{ once: false, margin: "-100px" }}
             >
-              <span className="text-xs font-bold tracking-widest text-accent-violet uppercase mb-6 block">Featured Product</span>
+              <span className="text-xs font-bold tracking-widest text-accent-violet uppercase mb-6 block">Featured Service</span>
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-premium-black mb-8 leading-tight">
-                Xlogica Insights: <br /> Insight at Your Fingertips
+                Xlogica - Nexus Dashboard: <br /> Insight at Your Fingertips
               </h2>
               <p className="text-lg text-gray-500 mb-10 leading-relaxed">
-                Our flagship product provides a unified platform for managing your entire digital ecosystem.
-                Built with performance and security at its core, Xlogica Insights helps you make data-driven decisions faster.
+                Our flagship service provides a unified platform for managing your entire digital ecosystem.
+                Built with performance and security at its core, Nexus Dashboard helps you make data-driven decisions faster.
               </p>
 
               <ul className="space-y-4 mb-10">

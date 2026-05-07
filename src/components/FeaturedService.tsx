@@ -22,7 +22,7 @@ export default function FeaturedProduct() {
           >
             <span className="text-xs font-bold tracking-widest text-accent-violet uppercase mb-6 block">Featured Product</span>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-premium-black mb-8 leading-tight">
-              Nexus Dashboard: <br /> Insight at Your Fingertips
+              Xlogica - Nexus Dashboard: <br /> Insight at Your Fingertips
             </h2>
             <p className="text-lg text-gray-500 mb-10 leading-relaxed">
               Our flagship product provides a unified platform for managing your entire digital ecosystem. 
