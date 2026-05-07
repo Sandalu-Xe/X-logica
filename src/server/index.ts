@@ -1,5 +1,6 @@
 import 'dotenv/config'; // ← must be first — loads .env into process.env
 import express from 'express';
+import cors from 'cors';
 import multer from 'multer';
 import nodemailer from 'nodemailer';
 import path from 'path';
@@ -9,7 +10,26 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = process.env.SERVER_PORT || 3001;
+const PORT = process.env.PORT || process.env.SERVER_PORT || 3001;
+
+// ─── CORS ─────────────────────────────────────────────────────────────────────
+// Allow requests from local dev + any Vercel deployment of x-logica
+app.use(
+  cors({
+    origin: [
+      'http://localhost:3000',
+      'http://localhost:5173',
+      /^https:\/\/.*\.vercel\.app$/, // any vercel preview URL
+      process.env.FRONTEND_URL || '',  // production URL set in Railway vars
+    ].filter(Boolean),
+    methods: ['POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type'],
+  })
+);
+
+// ─── Body parsers (must be before routes) ────────────────────────────────────
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // ─── Multer: store uploaded files in memory ─────────────────────────────────
 const upload = multer({
@@ -33,8 +53,7 @@ function createTransporter() {
 
   if (!user || !pass) {
     throw new Error(
-      'Missing GMAIL_USER or GMAIL_APP_PASSWORD environment variables. ' +
-        'Please set them in your .env file.'
+      'Missing GMAIL_USER or GMAIL_APP_PASSWORD environment variables.'
     );
   }
 
@@ -43,6 +62,11 @@ function createTransporter() {
     auth: { user, pass },
   });
 }
+
+// ─── Health check ─────────────────────────────────────────────────────────────
+app.get('/', (_req, res) => {
+  res.json({ status: 'ok', service: 'X-Logica API Server' });
+});
 
 // ─── POST /api/apply — Job application with optional CV attachment ────────────
 app.post('/api/apply', upload.single('cv'), async (req, res) => {
@@ -61,7 +85,6 @@ app.post('/api/apply', upload.single('cv'), async (req, res) => {
             <h1 style="color: #ffffff; margin: 0; font-size: 22px;">New Job Application</h1>
             <p style="color: #888; margin: 8px 0 0;">X-Logica Careers Portal</p>
           </div>
-
           <div style="background: #ffffff; padding: 24px; border-radius: 10px; border: 1px solid #e5e7eb;">
             <table style="width: 100%; border-collapse: collapse;">
               <tr>
@@ -84,50 +107,34 @@ app.post('/api/apply', upload.single('cv'), async (req, res) => {
                 <td style="padding: 12px 0; border-bottom: 1px solid #f0f0f0; font-weight: bold; color: #374151;">Portfolio</td>
                 <td style="padding: 12px 0; border-bottom: 1px solid #f0f0f0; color: #111827;">${portfolio ? `<a href="${portfolio}" style="color: #2563eb;">${portfolio}</a>` : '—'}</td>
               </tr>
-              ${
-                message
-                  ? `<tr>
+              ${message ? `<tr>
                 <td style="padding: 12px 0; font-weight: bold; color: #374151; vertical-align: top;">Cover Letter</td>
                 <td style="padding: 12px 0; color: #111827; line-height: 1.6;">${message}</td>
-              </tr>`
-                  : ''
-              }
+              </tr>` : ''}
             </table>
           </div>
-
-          ${
-            req.file
-              ? `<p style="color: #6b7280; font-size: 13px; margin-top: 16px; text-align: center;">📎 CV attached: <strong>${req.file.originalname}</strong></p>`
-              : `<p style="color: #6b7280; font-size: 13px; margin-top: 16px; text-align: center;">No CV attached</p>`
+          ${req.file
+            ? `<p style="color: #6b7280; font-size: 13px; margin-top: 16px; text-align: center;">📎 CV attached: <strong>${req.file.originalname}</strong></p>`
+            : `<p style="color: #6b7280; font-size: 13px; margin-top: 16px; text-align: center;">No CV attached</p>`
           }
-
           <p style="color: #9ca3af; font-size: 12px; text-align: center; margin-top: 20px;">Sent via X-Logica Careers Portal</p>
         </div>
       `,
       attachments: req.file
-        ? [
-            {
-              filename: req.file.originalname,
-              content: req.file.buffer,
-              contentType: req.file.mimetype,
-            },
-          ]
+        ? [{ filename: req.file.originalname, content: req.file.buffer, contentType: req.file.mimetype }]
         : [],
     };
 
     await transporter.sendMail(mailOptions);
     res.status(200).json({ success: true, message: 'Application submitted successfully!' });
   } catch (err: unknown) {
-    console.error('[/api/apply] Error sending email:', err);
+    console.error('[/api/apply] Error:', err);
     const message = err instanceof Error ? err.message : 'Unknown error';
     res.status(500).json({ success: false, message: `Failed to send application: ${message}` });
   }
 });
 
 // ─── POST /api/contact — General contact form ────────────────────────────────
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
 app.post('/api/contact', async (req, res) => {
   try {
     const { name, email, message } = req.body;
@@ -144,7 +151,6 @@ app.post('/api/contact', async (req, res) => {
             <h1 style="color: #ffffff; margin: 0; font-size: 22px;">New Contact Message</h1>
             <p style="color: #888; margin: 8px 0 0;">X-Logica Website</p>
           </div>
-
           <div style="background: #ffffff; padding: 24px; border-radius: 10px; border: 1px solid #e5e7eb;">
             <table style="width: 100%; border-collapse: collapse;">
               <tr>
@@ -161,7 +167,6 @@ app.post('/api/contact', async (req, res) => {
               </tr>
             </table>
           </div>
-
           <p style="color: #9ca3af; font-size: 12px; text-align: center; margin-top: 20px;">Sent via X-Logica Website Contact Form</p>
         </div>
       `,
@@ -170,7 +175,7 @@ app.post('/api/contact', async (req, res) => {
     await transporter.sendMail(mailOptions);
     res.status(200).json({ success: true, message: 'Message sent successfully!' });
   } catch (err: unknown) {
-    console.error('[/api/contact] Error sending email:', err);
+    console.error('[/api/contact] Error:', err);
     const message = err instanceof Error ? err.message : 'Unknown error';
     res.status(500).json({ success: false, message: `Failed to send message: ${message}` });
   }
