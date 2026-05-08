@@ -52,10 +52,12 @@ export default function ContactForm({
       }
     } catch (err: unknown) {
       setStatus('error');
+      console.error('Contact Form Error:', err);
       if (err instanceof Error && err.name === 'AbortError') {
         setErrorMsg('Request timed out. The server is taking too long to respond.');
       } else {
-        setErrorMsg('Network error. Please check your connection and try again.');
+        const detail = err instanceof Error ? `: ${err.message}` : '';
+        setErrorMsg(`Network error${detail}. Please check your connection and try again.`);
       }
     }
   };

@@ -21,7 +21,9 @@ app.use(
   cors({
     origin: [
       'http://localhost:3000',
+      'http://127.0.0.1:3000',
       'http://localhost:5173',
+      'http://127.0.0.1:5173',
       /^https:\/\/.*\.vercel\.app$/, // any vercel preview URL
       process.env.FRONTEND_URL || '',  // production URL set in Railway vars
     ].filter(Boolean),

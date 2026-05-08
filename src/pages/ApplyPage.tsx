@@ -70,10 +70,12 @@ export default function ApplyPage() {
       }
     } catch (err: unknown) {
       setStatus('error');
+      console.error('Application Form Error:', err);
       if (err instanceof Error && err.name === 'AbortError') {
         setErrorMsg('Request timed out. The server is taking too long to respond (possibly due to a large file).');
       } else {
-        setErrorMsg('Network error. Please check your connection and try again.');
+        const detail = err instanceof Error ? `: ${err.message}` : '';
+        setErrorMsg(`Network error${detail}. Please check your connection and try again.`);
       }
     }
   };

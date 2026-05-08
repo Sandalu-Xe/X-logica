@@ -22,7 +22,7 @@ export default defineConfig(({mode}) => {
       proxy: {
         // Forward API requests to the Express backend
         '/api': {
-          target: `http://localhost:${process.env.SERVER_PORT || 3001}`,
+          target: `http://127.0.0.1:${process.env.SERVER_PORT || 3001}`,
           changeOrigin: true,
         },
       },
