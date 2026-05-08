@@ -48,13 +48,18 @@ export default function ApplyPage() {
     setErrorMsg('');
 
     try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 second timeout for applications (file upload)
+
       const formData = new FormData(e.currentTarget);
       const API_URL = import.meta.env.VITE_API_URL || '';
       const res = await fetch(`${API_URL}/api/apply`, {
         method: 'POST',
         body: formData,
+        signal: controller.signal,
       });
 
+      clearTimeout(timeoutId);
       const result = await res.json();
 
       if (res.ok && result.success) {
@@ -63,9 +68,13 @@ export default function ApplyPage() {
         setStatus('error');
         setErrorMsg(result.message || 'Something went wrong. Please try again.');
       }
-    } catch {
+    } catch (err: unknown) {
       setStatus('error');
-      setErrorMsg('Network error. Please check your connection and try again.');
+      if (err instanceof Error && err.name === 'AbortError') {
+        setErrorMsg('Request timed out. The server is taking too long to respond (possibly due to a large file).');
+      } else {
+        setErrorMsg('Network error. Please check your connection and try again.');
+      }
     }
   };
 

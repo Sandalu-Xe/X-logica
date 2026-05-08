@@ -29,13 +29,18 @@ export default function ContactForm({
     };
 
     try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+
       const API_URL = import.meta.env.VITE_API_URL || '';
       const res = await fetch(`${API_URL}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
+        signal: controller.signal,
       });
 
+      clearTimeout(timeoutId);
       const result = await res.json();
 
       if (res.ok && result.success) {
@@ -45,9 +50,13 @@ export default function ContactForm({
         setStatus('error');
         setErrorMsg(result.message || 'Something went wrong. Please try again.');
       }
-    } catch {
+    } catch (err: unknown) {
       setStatus('error');
-      setErrorMsg('Network error. Please check your connection and try again.');
+      if (err instanceof Error && err.name === 'AbortError') {
+        setErrorMsg('Request timed out. The server is taking too long to respond.');
+      } else {
+        setErrorMsg('Network error. Please check your connection and try again.');
+      }
     }
   };
 
