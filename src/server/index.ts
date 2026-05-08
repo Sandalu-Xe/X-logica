@@ -25,7 +25,7 @@ app.use(
       'http://localhost:5173',
       'http://127.0.0.1:5173',
       /^https:\/\/.*\.vercel\.app$/, // any vercel preview URL
-      process.env.FRONTEND_URL || '',  // production URL set in Railway vars
+      process.env.FRONTEND_URL || 'https://x-logica-six.vercel.app',  // production URL
     ].filter(Boolean),
     methods: ['POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type'],
@@ -188,6 +188,12 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`✅  X-Logica API server running on http://localhost:${PORT}`);
+// ─── Catch-all for 404s ──────────────────────────────────────────────────────
+app.use((req, res) => {
+  console.warn(`⚠️  404 Not Found: ${req.method} ${req.url}`);
+  res.status(404).json({ success: false, message: `Route ${req.url} not found on server.` });
+});
+
+app.listen(Number(PORT), '127.0.0.1', () => {
+  console.log(`✅  X-Logica API server running on http://127.0.0.1:${PORT}`);
 });
