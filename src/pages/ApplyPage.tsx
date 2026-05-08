@@ -52,7 +52,8 @@ export default function ApplyPage() {
       const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 second timeout for applications (file upload)
 
       const formData = new FormData(e.currentTarget);
-      const API_URL = import.meta.env.VITE_API_URL || '';
+      // Use environment variable if available, otherwise fallback to production Railway URL
+      const API_URL = import.meta.env.VITE_API_URL || 'https://x-logica-server-production.up.railway.app';
       const res = await fetch(`${API_URL}/api/apply`, {
         method: 'POST',
         body: formData,

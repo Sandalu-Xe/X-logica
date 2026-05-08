@@ -32,7 +32,8 @@ export default function ContactForm({
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
 
-      const API_URL = import.meta.env.VITE_API_URL || '';
+      // Use environment variable if available, otherwise fallback to production Railway URL
+      const API_URL = import.meta.env.VITE_API_URL || 'https://x-logica-server-production.up.railway.app';
       const res = await fetch(`${API_URL}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
