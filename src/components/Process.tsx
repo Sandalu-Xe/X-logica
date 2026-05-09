@@ -66,7 +66,7 @@ export default function Process() {
           variants={containerVariants}
           className="text-center mb-24"
         >
-          <motion.span variants={itemVariants} className="text-[10px] font-bold tracking-[0.3em] text-accent-blue uppercase mb-4 block opacity-60">Human-Centric Strategy</motion.span>
+          <motion.span variants={itemVariants} className="text-2xl font-hand text-accent-blue mb-4 block">Human-Centric Strategy</motion.span>
           <motion.h2 variants={itemVariants} className="text-4xl md:text-6xl font-bold tracking-tight text-premium-black mb-8">
             Our Proven Process for Success
           </motion.h2>

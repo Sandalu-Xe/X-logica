@@ -3,12 +3,12 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import Logo from './Logo';
-import { 
-  HandDrawnTwitter, 
-  HandDrawnLinkedin, 
-  HandDrawnGithub, 
-  HandDrawnInstagram, 
-  HandDrawnMail 
+import {
+  HandDrawnTwitter,
+  HandDrawnLinkedin,
+  HandDrawnGithub,
+  HandDrawnInstagram,
+  HandDrawnMail
 } from './HandDrawnIcons';
 
 const footerLinks = {
@@ -82,14 +82,14 @@ export default function Footer() {
 
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title} className="border-b border-white/10 md:border-none py-5 md:py-0">
-              <div 
+              <div
                 onClick={() => setOpenSection(openSection === title ? null : title)}
                 className="flex items-center justify-between cursor-pointer md:cursor-default"
               >
                 <h4 className="text-sm font-bold tracking-widest uppercase text-gray-400 mb-0 md:mb-8">{title}</h4>
-                <ChevronDown 
-                  size={16} 
-                  className={`text-gray-400 md:hidden transition-transform duration-300 ${openSection === title ? 'rotate-180' : ''}`} 
+                <ChevronDown
+                  size={16}
+                  className={`text-gray-400 md:hidden transition-transform duration-300 ${openSection === title ? 'rotate-180' : ''}`}
                 />
               </div>
               <div className={`overflow-hidden transition-all duration-300 md:!max-h-none md:!opacity-100 md:!mt-0 ${openSection === title ? 'max-h-[400px] opacity-100 mt-6' : 'max-h-0 opacity-0'}`}>
@@ -120,13 +120,13 @@ export default function Footer() {
         >
           <p className="text-gray-500 text-sm leading-relaxed">
             © {new Date().getFullYear()} Xlogica Software & AI Solutions. All rights reserved. <br className="md:hidden" />
-            <span className="hidden md:inline"> | </span>
-            Websites design & developed by Sandalu
+            <span className="hidden md:inline">  </span>
+
           </p>
-          <div className="flex items-center gap-8 text-sm text-gray-500">
-            <Link to="/" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link to="/" className="hover:text-white transition-colors">Terms of Service</Link>
-            <Link to="/" className="hover:text-white transition-colors">Cookie Settings</Link>
+          <div className="flex flex-col items-center md:items-end gap-2">
+            <div className="font-hand text-2xl text-gray-400 ">
+              Websites design & developed by <span className="text-accent-violet">Sandalu</span> for the digital world
+            </div>
           </div>
         </motion.div>
       </div>
