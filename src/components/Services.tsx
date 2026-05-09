@@ -1,37 +1,45 @@
 import React from 'react';
 import { motion, useMotionValue, useMotionTemplate } from 'motion/react';
-import { Globe, Code, Cpu, Layout, ArrowRight, Smartphone } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { 
+  OrganicGlobe, 
+  OrganicBrowser, 
+  OrganicRobot, 
+  OrganicDesign, 
+  OrganicMobile,
+  HandDrawnFilter 
+} from './HandDrawnIcons';
 
 const services = [
   {
-    icon: <Globe className="w-6 h-6" />,
+    icon: <OrganicGlobe className="w-8 h-8" />,
     title: 'Premium Website Development',
     description: 'Stunning, high-performance websites tailored to elevate your brand presence and drive conversions.',
-    color: 'bg-blue-50 text-blue-600',
+    color: 'bg-[#F2F4F1] text-[#2C3E2C]', // Realistic Sage
   },
   {
-    icon: <Code className="w-6 h-6" />,
+    icon: <OrganicBrowser className="w-8 h-8" />,
     title: 'Web Application Development',
     description: 'Robust, scalable, and secure web applications built to streamline your business operations.',
-    color: 'bg-purple-50 text-purple-600',
+    color: 'bg-[#F8F2ED] text-[#5D4037]', // Realistic Terracotta
   },
   {
-    icon: <Cpu className="w-6 h-6" />,
+    icon: <OrganicRobot className="w-8 h-8" />,
     title: 'AI Solutions & Chatbots',
     description: 'Intelligent AI-driven products, including custom chatbots, to automate tasks and enhance customer experience.',
-    color: 'bg-green-50 text-green-600',
+    color: 'bg-[#EEF6FC] text-[#263238]', // Realistic Soft Blue
   },
   {
-    icon: <Layout className="w-6 h-6" />,
+    icon: <OrganicDesign className="w-8 h-8" />,
     title: 'UI/UX Design Services',
     description: 'Intuitive and engaging user interfaces designed to provide seamless and memorable user experiences.',
-    color: 'bg-orange-50 text-orange-600',
+    color: 'bg-[#F9F4FA] text-[#4A148C]', // Realistic Soft Purple
   },
   {
-    icon: <Smartphone className="w-6 h-6" />,
+    icon: <OrganicMobile className="w-8 h-8" />,
     title: 'Mobile App Development',
     description: 'High-performance, cross-platform mobile applications built seamlessly with Flutter and React Native.',
-    color: 'bg-teal-50 text-teal-600',
+    color: 'bg-[#EDF7F6] text-[#004D40]', // Realistic Soft Teal
   },
 ];
 
@@ -40,18 +48,18 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.15,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
+      duration: 1,
       ease: [0.22, 1, 0.36, 1] as const,
     },
   },
@@ -71,29 +79,46 @@ function ServiceCard({ service, index }: { service: any; index: number; key?: Re
     <motion.div
       variants={itemVariants}
       onMouseMove={handleMouseMove}
-      className="group p-8 bg-white border border-gray-100 rounded-2xl hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden"
+      className="group p-10 bg-white border border-gray-100 rounded-[2.5rem] hover:shadow-[0_32px_64px_-12px_rgba(0,0,0,0.06)] transition-all duration-700 relative overflow-hidden"
     >
       <motion.div
-        className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition duration-300 group-hover:opacity-100"
+        className="pointer-events-none absolute -inset-px rounded-[2.5rem] opacity-0 transition duration-700 group-hover:opacity-100"
         style={{
           background: useMotionTemplate`
             radial-gradient(
-              650px circle at ${mouseX}px ${mouseY}px,
-              rgba(37, 99, 235, 0.06),
+              800px circle at ${mouseX}px ${mouseY}px,
+              rgba(0, 0, 0, 0.02),
               transparent 80%
             )
           `,
         } as any}
       />
-      <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 relative z-10 ${service.color}`}>
+      
+      {/* Organic Icon Background - Marker Style */}
+      <motion.div 
+        whileHover={{ 
+          scale: 1.1,
+          rotate: [0, -3, 3, 0],
+        }}
+        className={`w-16 h-16 flex items-center justify-center mb-10 relative z-10 transition-all duration-1000 ${service.color}`}
+        style={{ 
+          borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
+          boxShadow: "inset 0 0 20px rgba(0,0,0,0.02)"
+        }}
+      >
         {service.icon}
-      </div>
-      <h3 className="text-xl font-bold text-premium-black mb-4 relative z-10">{service.title}</h3>
-      <p className="text-gray-500 text-sm leading-relaxed mb-6 relative z-10">
+      </motion.div>
+
+      <h3 className="text-2xl font-bold text-premium-black mb-4 relative z-10 group-hover:text-accent-blue transition-colors duration-500 font-sans">
+        {service.title}
+      </h3>
+      <p className="text-gray-500 text-base leading-relaxed mb-10 relative z-10 font-medium">
         {service.description}
       </p>
-      <a href="#" className="inline-flex items-center gap-2 text-sm font-bold text-premium-black group-hover:text-accent-blue transition-colors relative z-10">
-        Learn More <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+      
+      <a href="#" className="inline-flex items-center gap-3 text-sm font-bold text-premium-black group-hover:text-accent-blue transition-all relative z-10">
+        <span className="underline underline-offset-8 decoration-gray-200 group-hover:decoration-accent-blue transition-colors">Explore Solution</span>
+        <ArrowRight size={18} className="translate-x-0 group-hover:translate-x-2 transition-transform duration-500" />
       </a>
     </motion.div>
   );
@@ -101,32 +126,45 @@ function ServiceCard({ service, index }: { service: any; index: number; key?: Re
 
 export default function Services() {
   return (
-    <section id="solutions" className="py-24 md:py-32 bg-premium-white">
+    <section id="solutions" className="py-24 md:py-32 bg-premium-white relative">
+      <HandDrawnFilter />
       <div className="max-w-7xl mx-auto px-6">
         <motion.div 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
-          className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
+          className="flex flex-col lg:flex-row lg:items-end justify-between mb-24 gap-10"
         >
-          <div className="max-w-2xl">
-            <motion.span variants={itemVariants} className="text-xs font-bold tracking-widest text-accent-blue uppercase mb-4 block">Our Expertise</motion.span>
-            <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold tracking-tight text-premium-black">
-              Comprehensive Solutions for <br /> Digital Transformation
+          <div className="max-w-3xl">
+            <motion.span variants={itemVariants} className="text-[10px] font-bold tracking-[0.3em] text-accent-blue uppercase mb-6 block opacity-60">Human-Centric Studio</motion.span>
+            <motion.h2 variants={itemVariants} className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-premium-black leading-[1.1]">
+              Built by Humans, <br /> 
+              <span className="text-accent-blue italic font-serif relative">
+                for Humans.
+                <motion.svg 
+                  viewBox="0 0 200 20" 
+                  className="absolute -bottom-2 left-0 w-full h-3 text-accent-blue/30"
+                  initial={{ pathLength: 0 }}
+                  whileInView={{ pathLength: 1 }}
+                  transition={{ duration: 1.5, delay: 1 }}
+                >
+                  <path d="M5,15 Q50,5 100,15 T195,15" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+                </motion.svg>
+              </span>
             </motion.h2>
           </div>
-          <motion.p variants={itemVariants} className="text-gray-500 max-w-sm">
-            We combine technical excellence with business strategy to deliver products that make a real impact.
+          <motion.p variants={itemVariants} className="text-gray-400 max-w-sm text-xl leading-relaxed font-serif italic border-l border-gray-200 pl-8">
+            "Software should feel like it was made by a person who cares about the details."
           </motion.p>
         </motion.div>
 
         <motion.div 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
         >
           {services.map((service, index) => (
             <ServiceCard key={index} service={service} index={index} />
