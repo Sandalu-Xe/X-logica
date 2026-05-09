@@ -57,32 +57,31 @@ export default function FeaturedProduct() {
           </motion.div>
           
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, x: 40 }}
-            whileInView={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            viewport={{ once: false, margin: "-100px" }}
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: false }}
             className="relative"
           >
-            <div className="absolute -inset-4 bg-accent-blue/5 rounded-[40px] blur-3xl -z-10" />
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-100 bg-white p-2">
+            <div className="absolute -inset-8 bg-[#E5E7E0]/30 rounded-[60px] blur-3xl -z-10" />
+            <div className="relative rounded-[40px] overflow-hidden border border-[#2C3E2C]/5 bg-[#FAF9F6] p-4 md:p-8 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.05)]">
               <img 
-                src="/images/premium-dashboard.png" 
-                alt="Nexus Dashboard Interface" 
-                className="w-full h-auto rounded-2xl"
+                src="/images/featured-illustration.png" 
+                alt="Human-Centric Data Interface" 
+                className="w-full h-auto rounded-[32px] pointer-events-none select-none"
               />
-              
-              {/* Overlay Card */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
                 viewport={{ once: false }}
-                className="absolute bottom-6 right-6 lg:-right-6 bg-white/95 backdrop-blur-lg p-5 md:p-6 rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-white/60 min-w-[220px] md:min-w-[240px] z-10 hidden sm:block"
+                className="absolute bottom-6 right-6 lg:-right-6 bg-white/95 backdrop-blur-lg p-6 rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-[#2C3E2C]/5 min-w-[240px] z-10 hidden sm:block"
+                style={{ borderRadius: "24px 8px 24px 8px" } as React.CSSProperties}
               >
-                <div className="text-sm font-bold text-gray-500 mb-2 uppercase tracking-wider">Total Revenue</div>
-                <div className="text-3xl font-bold text-premium-black mb-4">$1,240,500</div>
-                <div className="flex items-center gap-2 text-sm text-green-600 font-bold bg-green-50 w-fit px-3 py-1 rounded-full">
-                  <ArrowRight size={14} className="-rotate-45" /> +15.4% this month
+                <div className="text-[10px] font-bold text-[#2C3E2C]/60 mb-2 uppercase tracking-[0.2em]">Platform Growth</div>
+                <div className="text-3xl font-bold text-premium-black mb-4">$1.2M+</div>
+                <div className="flex items-center gap-2 text-xs text-[#2C3E2C] font-bold bg-[#E5E7E0] w-fit px-3 py-1 rounded-full">
+                   +15.4% <span className="opacity-50">this month</span>
                 </div>
               </motion.div>
             </div>

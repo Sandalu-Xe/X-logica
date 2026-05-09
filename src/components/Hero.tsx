@@ -117,12 +117,6 @@ export default function Hero() {
           initial="hidden"
           animate="visible"
         >
-          <motion.span 
-            variants={itemVariants}
-            className="inline-block px-4 py-1.5 mb-8 text-[10px] font-bold tracking-[0.3em] text-[#2C3E2C] uppercase bg-[#E5E7E0] rounded-full border border-[#2C3E2C]/5"
-          >
-            Crafting Digital Excellence
-          </motion.span>
           <div className="relative inline-block">
             <motion.h1 
               className="text-5xl md:text-8xl font-bold tracking-tight text-premium-black mb-8 leading-[1.05]"
