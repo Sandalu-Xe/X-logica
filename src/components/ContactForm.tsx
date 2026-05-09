@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Mail, User, MessageSquare, ArrowRight, CheckCircle2, Loader2, AlertCircle } from 'lucide-react';
+import axios from 'axios';
 
 interface ContactFormProps {
   title?: React.ReactNode;
@@ -29,37 +30,33 @@ export default function ContactForm({
     };
 
     try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 30000); // 30s timeout (Render free tier cold starts)
-
       // In local dev Vite proxy intercepts /api → Render server (no CORS).
       // In production (Vercel) VITE_API_URL is set → full URL used directly.
       const API_URL = import.meta.env.VITE_API_URL ?? '';
-      const res = await fetch(`${API_URL}/api/contact`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-        signal: controller.signal,
+      
+      const response = await axios.post(`${API_URL}/api/contact`, data, {
+        timeout: 60000, // 60s timeout to handle Render cold starts
+        headers: { 'Content-Type': 'application/json' }
       });
 
-      clearTimeout(timeoutId);
-      const result = await res.json();
-
-      if (res.ok && result.success) {
+      if (response.data && response.data.success) {
         setStatus('success');
         formRef.current?.reset();
       } else {
         setStatus('error');
-        setErrorMsg(result.message || 'Something went wrong. Please try again.');
+        setErrorMsg(response.data.message || 'Something went wrong. Please try again.');
       }
-    } catch (err: unknown) {
+    } catch (err: any) {
       setStatus('error');
       console.error('Contact Form Error:', err);
-      if (err instanceof Error && err.name === 'AbortError') {
+      
+      if (err.code === 'ECONNABORTED' || err.message?.includes('timeout')) {
         setErrorMsg('Request timed out. The server may be starting up — please try again in a moment.');
+      } else if (err.response) {
+        // Server responded with an error
+        setErrorMsg(err.response.data?.message || `Server error: ${err.response.status}`);
       } else {
-        const detail = err instanceof Error ? `: ${err.message}` : '';
-        setErrorMsg(`Network error${detail}. Please check your connection and try again.`);
+        setErrorMsg(`Network error: ${err.message}. Please check your connection.`);
       }
     }
   };

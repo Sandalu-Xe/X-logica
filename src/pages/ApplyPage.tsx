@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowLeft, User, Mail, Phone, Link as LinkIcon, FileText, Send, CheckCircle2, Upload, Loader2, AlertCircle } from 'lucide-react';
+import axios from 'axios';
 import Magnetic from '../components/Magnetic';
 
 const containerVariants = {
@@ -48,36 +49,32 @@ export default function ApplyPage() {
     setErrorMsg('');
 
     try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 40000); // 40s timeout (Render cold start + file upload)
-
       const formData = new FormData(e.currentTarget);
       // In local dev Vite proxy intercepts /api → Render server (no CORS).
       // In production (Vercel) VITE_API_URL is set → full URL used directly.
       const API_URL = import.meta.env.VITE_API_URL ?? '';
-      const res = await fetch(`${API_URL}/api/apply`, {
-        method: 'POST',
-        body: formData,
-        signal: controller.signal,
+      
+      const response = await axios.post(`${API_URL}/api/apply`, formData, {
+        timeout: 60000 // 60s timeout (Render cold start + file upload)
       });
 
-      clearTimeout(timeoutId);
-      const result = await res.json();
-
-      if (res.ok && result.success) {
+      if (response.data && response.data.success) {
         setStatus('success');
       } else {
         setStatus('error');
-        setErrorMsg(result.message || 'Something went wrong. Please try again.');
+        setErrorMsg(response.data.message || 'Something went wrong. Please try again.');
       }
-    } catch (err: unknown) {
+    } catch (err: any) {
       setStatus('error');
       console.error('Application Form Error:', err);
-      if (err instanceof Error && err.name === 'AbortError') {
+      
+      if (err.code === 'ECONNABORTED' || err.message?.includes('timeout')) {
         setErrorMsg('Request timed out. The server may be starting up — please wait a moment and try again.');
+      } else if (err.response) {
+        // Server responded with an error
+        setErrorMsg(err.response.data?.message || `Server error: ${err.response.status}`);
       } else {
-        const detail = err instanceof Error ? `: ${err.message}` : '';
-        setErrorMsg(`Network error${detail}. Please check your connection and try again.`);
+        setErrorMsg(`Network error: ${err.message}. Please check your connection and try again.`);
       }
     }
   };
