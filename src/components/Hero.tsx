@@ -41,8 +41,26 @@ const wordVariants = {
   }),
 };
 
+const Scribble = ({ className = "" }: { className?: string }) => (
+  <motion.svg 
+    viewBox="0 0 100 20" 
+    className={`absolute pointer-events-none ${className}`}
+    initial={{ pathLength: 0, opacity: 0 }}
+    whileInView={{ pathLength: 1, opacity: 0.3 }}
+    transition={{ duration: 1.5, delay: 1 }}
+  >
+    <motion.path 
+      d="M5,15 Q25,5 45,15 T85,15" 
+      fill="none" 
+      stroke="currentColor" 
+      strokeWidth="2" 
+      strokeLinecap="round"
+    />
+  </motion.svg>
+);
+
 export default function Hero() {
-  const headline = "Premium Software & AI Solutions";
+  const headline = "Human-Centric Software & AI Solutions";
   const words = headline.split(" ");
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -51,12 +69,12 @@ export default function Hero() {
   const mouseXSpring = useSpring(x);
   const mouseYSpring = useSpring(y);
 
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["5deg", "-5deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-5deg", "5deg"]);
 
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
-  const y2 = useTransform(scrollY, [0, 500], [0, -150]);
+  const y1 = useTransform(scrollY, [0, 500], [0, 100]);
+  const y2 = useTransform(scrollY, [0, 500], [0, -80]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (isMobile) return;
@@ -77,79 +95,82 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative pt-32 pb-20 md:pt-56 md:pb-32 overflow-hidden bg-white">
+    <section className="relative pt-32 pb-20 md:pt-56 md:pb-32 overflow-hidden bg-[#FAF9F6]">
       {/* Background Elements */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
         <motion.div 
           style={{ y: isMobile ? 0 : y1 }}
-          className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-accent-blue/5 rounded-full blur-[120px] will-change-transform" 
+          className="absolute top-[-5%] left-[-5%] w-[45%] h-[45%] bg-[#E5E7E0]/40 rounded-full blur-[100px] will-change-transform" 
         />
         <motion.div 
           style={{ y: isMobile ? 0 : y2 }}
-          className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-accent-violet/5 rounded-full blur-[120px] will-change-transform" 
+          className="absolute bottom-[5%] right-[-5%] w-[45%] h-[45%] bg-[#F2E8E4]/40 rounded-full blur-[100px] will-change-transform" 
         />
-        <div className="absolute top-0 left-0 w-full h-full opacity-[0.02]" 
-             style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+        <div className="absolute top-0 left-0 w-full h-full opacity-[0.03]" 
+             style={{ backgroundImage: 'radial-gradient(#2C3E2C 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div 
-          className="max-w-3xl mx-auto text-center"
+          className="max-w-4xl mx-auto text-center mb-16"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
           <motion.span 
             variants={itemVariants}
-            className="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-accent-blue uppercase bg-accent-blue/5 rounded-full border border-accent-blue/10"
+            className="inline-block px-4 py-1.5 mb-8 text-[10px] font-bold tracking-[0.3em] text-[#2C3E2C] uppercase bg-[#E5E7E0] rounded-full border border-[#2C3E2C]/5"
           >
-            Software & AI Solutions
+            Crafting Digital Excellence
           </motion.span>
-          <motion.h1 
-            className="text-4xl md:text-7xl font-bold tracking-tight text-premium-black mb-8 leading-[1.1]"
-          >
-            {words.map((word, i) => (
-              <motion.span
-                key={i}
-                custom={i}
-                variants={wordVariants}
-                initial="hidden"
-                animate="visible"
-                className={`inline-block mr-[0.2em] ${word === "Scales" ? "text-accent-blue" : ""}`}
-              >
-                {word}
-              </motion.span>
-            ))}
-          </motion.h1>
+          <div className="relative inline-block">
+            <motion.h1 
+              className="text-5xl md:text-8xl font-bold tracking-tight text-premium-black mb-8 leading-[1.05]"
+            >
+              {words.map((word, i) => (
+                <motion.span
+                  key={i}
+                  custom={i}
+                  variants={wordVariants}
+                  initial="hidden"
+                  animate="visible"
+                  className={`inline-block mr-[0.2em] ${word === "AI" ? "text-[#5D4037]" : ""}`}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </motion.h1>
+            <Scribble className="bottom-0 left-1/4 w-1/2 text-[#5D4037]" />
+          </div>
           <motion.p 
             variants={itemVariants}
-            className="text-base md:text-xl text-gray-500 mb-10 leading-relaxed max-w-2xl mx-auto"
+            className="text-lg md:text-2xl text-gray-500 mb-12 leading-relaxed max-w-3xl mx-auto font-medium"
           >
-            Xlogica Software & AI Solutions empowers businesses with premium website development, robust web applications, intuitive UI/UX design, and intelligent AI solutions like custom chatbots.
+            We blend technical precision with a human touch to build websites, web applications, and AI solutions that feel as natural as they are powerful.
           </motion.p>
           
           <motion.div 
             variants={itemVariants}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
-            <Magnetic strength={0.2}>
-              <button className="w-full sm:w-auto bg-premium-black text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-gray-800 transition-all active:scale-95 group shadow-lg shadow-black/10">
-                Get Started Now <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            <Magnetic strength={0.1}>
+              <button className="w-full sm:w-auto bg-[#2C3E2C] text-white px-10 py-5 rounded-2xl font-bold flex items-center justify-center gap-3 hover:bg-[#1A261A] transition-all active:scale-95 group shadow-xl shadow-black/5">
+                Start a Conversation <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </button>
             </Magnetic>
-            <Magnetic strength={0.2}>
-              <Link to="/projects" className="w-full sm:w-auto bg-white text-premium-black border border-gray-200 px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-gray-50 transition-all active:scale-95">
-                <Play size={20} fill="currentColor" /> View Showcase
+            <Magnetic strength={0.1}>
+              <Link to="/projects" className="w-full sm:w-auto bg-white text-[#2C3E2C] border border-[#2C3E2C]/10 px-10 py-5 rounded-2xl font-bold flex items-center justify-center gap-3 hover:bg-gray-50 transition-all active:scale-95">
+                View Our Work
               </Link>
             </Magnetic>
           </motion.div>
         </motion.div>
 
-        {/* Hero Image / Dashboard Mockup with 3D Tilt */}
+        {/* Hero Illustration with 3D Tilt */}
         <motion.div
-          initial={{ opacity: 0, y: 40, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.5, delay: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           style={!isMobile ? {
@@ -157,59 +178,37 @@ export default function Hero() {
             rotateY,
             transformStyle: "preserve-3d",
           } : {} as any}
-          className="mt-16 md:mt-24 relative perspective-1000"
+          className="relative perspective-2000 max-w-5xl mx-auto"
         >
-          <div className="relative mx-auto max-w-5xl rounded-2xl overflow-hidden border border-gray-200 shadow-2xl bg-white will-change-transform"
-               style={!isMobile ? { transform: "translateZ(50px)" } : {}}>
-            <div className="flex items-center gap-2 px-4 py-3 bg-gray-50 border-b border-gray-200">
-              <div className="w-3 h-3 rounded-full bg-red-400" />
-              <div className="w-3 h-3 rounded-full bg-yellow-400" />
-              <div className="w-3 h-3 rounded-full bg-green-400" />
-            </div>
-            <img 
-              src="/images/premium-dashboard.png" 
-              alt="Xlogica Dashboard" 
-              className="w-full h-auto"
+          <div className="relative rounded-[40px] overflow-hidden bg-[#FAF9F6] border border-[#2C3E2C]/5 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.08)] p-4 md:p-8">
+            <motion.img 
+              src="/images/hero-illustration.png" 
+              alt="Xlogica Human-Centric Illustration" 
+              className="w-full h-auto rounded-[32px] pointer-events-none select-none"
               loading="eager"
               decoding="async"
+              style={!isMobile ? { transform: "translateZ(30px)" } : {} as any}
             />
           </div>
           
-          {/* Floating Elements with higher translateZ */}
+          {/* Subtle Organic Floating Elements */}
           {!isMobile && (
             <>
               <motion.div 
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                style={{ transform: "translateZ(100px)" } as any}
-                className="absolute -top-10 -right-10 hidden lg:block bg-white p-6 rounded-2xl shadow-xl border border-gray-100 max-w-[200px]"
+                animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                style={{ transform: "translateZ(80px)" } as any}
+                className="absolute -top-12 -right-12 hidden lg:block"
               >
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
-                    <ArrowRight size={20} className="-rotate-45" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-gray-400 font-medium tracking-wider uppercase">Growth</div>
-                    <div className="text-lg font-bold text-premium-black">+124%</div>
-                  </div>
-                </div>
+                <div className="w-24 h-24 bg-[#F2E8E4] rounded-full blur-2xl opacity-60" />
               </motion.div>
-
               <motion.div 
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                style={{ transform: "translateZ(100px)" } as any}
-                className="absolute -bottom-10 -left-10 hidden lg:block bg-white p-6 rounded-2xl shadow-xl border border-gray-100 max-w-[200px]"
+                animate={{ y: [0, 15, 0], rotate: [0, -5, 0] }}
+                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                style={{ transform: "translateZ(60px)" } as any}
+                className="absolute -bottom-12 -left-12 hidden lg:block"
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-accent-blue/10 flex items-center justify-center text-accent-blue">
-                    <div className="w-5 h-5 bg-accent-blue rounded-sm rotate-45" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-gray-400 font-medium tracking-wider uppercase">Active Users</div>
-                    <div className="text-lg font-bold text-premium-black">12.5k</div>
-                  </div>
-                </div>
+                <div className="w-32 h-32 bg-[#E5E7E0] rounded-full blur-2xl opacity-60" />
               </motion.div>
             </>
           )}
