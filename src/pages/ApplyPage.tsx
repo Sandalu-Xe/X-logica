@@ -50,9 +50,11 @@ export default function ApplyPage() {
 
     try {
       const formData = new FormData(e.currentTarget);
-      // In local dev Vite proxy intercepts /api → Render server (no CORS).
-      // In production (Vercel) VITE_API_URL is set → full URL used directly.
-      const API_URL = import.meta.env.VITE_API_URL ?? '';
+      // Normalize API URL to handle trailing slashes and ensure it points to the correct server
+      let API_URL = import.meta.env.VITE_API_URL || 'https://x-logica-server.onrender.com';
+      if (API_URL.endsWith('/')) {
+        API_URL = API_URL.slice(0, -1);
+      }
       
       const response = await axios.post(`${API_URL}/api/apply`, formData, {
         timeout: 60000 // 60s timeout (Render cold start + file upload)
