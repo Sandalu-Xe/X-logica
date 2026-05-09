@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, useMotionValue, useMotionTemplate } from 'motion/react';
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { 
   OrganicGlobe, 
@@ -104,7 +105,7 @@ function ServiceCard({ service, index }: { service: any; index: number; key?: Re
         style={{ 
           borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
           boxShadow: "inset 0 0 20px rgba(0,0,0,0.02)"
-        }}
+        } as React.CSSProperties}
       >
         {service.icon}
       </motion.div>
@@ -116,10 +117,10 @@ function ServiceCard({ service, index }: { service: any; index: number; key?: Re
         {service.description}
       </p>
       
-      <a href="#" className="inline-flex items-center gap-3 text-sm font-bold text-premium-black group-hover:text-accent-blue transition-all relative z-10">
+      <Link to="/services" className="inline-flex items-center gap-3 text-sm font-bold text-premium-black group-hover:text-accent-blue transition-all relative z-10">
         <span className="underline underline-offset-8 decoration-gray-200 group-hover:decoration-accent-blue transition-colors">Explore Solution</span>
         <ArrowRight size={18} className="translate-x-0 group-hover:translate-x-2 transition-transform duration-500" />
-      </a>
+      </Link>
     </motion.div>
   );
 }

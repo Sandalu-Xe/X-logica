@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 import { Check, ArrowRight } from 'lucide-react';
 
 const features = [
@@ -47,15 +48,12 @@ export default function FeaturedProduct() {
               ))}
             </ul>
             
-            <motion.button 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 1 }}
-              viewport={{ once: false }}
-              className="bg-premium-black text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-gray-800 transition-all active:scale-95 group"
+            <Link 
+              to="/solutions"
+              className="bg-premium-black text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-gray-800 transition-all active:scale-95 group w-fit"
             >
               See it in Action <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-            </motion.button>
+            </Link>
           </motion.div>
           
           <motion.div
@@ -68,7 +66,7 @@ export default function FeaturedProduct() {
             <div className="absolute -inset-4 bg-accent-blue/5 rounded-[40px] blur-3xl -z-10" />
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-100 bg-white p-2">
               <img 
-                src="/images/dashboard-mockup.png" 
+                src="/images/premium-dashboard.png" 
                 alt="Nexus Dashboard Interface" 
                 className="w-full h-auto rounded-2xl"
               />

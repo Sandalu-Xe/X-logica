@@ -167,10 +167,9 @@ export default function Hero() {
               <div className="w-3 h-3 rounded-full bg-green-400" />
             </div>
             <img 
-              src="https://picsum.photos/seed/dashboard/1200/800" 
+              src="/images/premium-dashboard.png" 
               alt="Xlogica Dashboard" 
               className="w-full h-auto"
-              referrerPolicy="no-referrer"
               loading="eager"
               decoding="async"
             />

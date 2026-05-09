@@ -1,8 +1,15 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Twitter, Linkedin, Github, Instagram, ArrowRight, ChevronDown, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 import Logo from './Logo';
+import { 
+  HandDrawnTwitter, 
+  HandDrawnLinkedin, 
+  HandDrawnGithub, 
+  HandDrawnInstagram, 
+  HandDrawnMail 
+} from './HandDrawnIcons';
 
 const footerLinks = {
   Company: [
@@ -24,6 +31,13 @@ const footerLinks = {
     { name: 'Terms of Service', to: '/' },
   ],
 };
+
+const socialLinks = [
+  { Icon: HandDrawnTwitter, href: "#", title: "Twitter" },
+  { Icon: HandDrawnLinkedin, href: "#", title: "LinkedIn" },
+  { Icon: HandDrawnGithub, href: "#", title: "GitHub" },
+  { Icon: HandDrawnInstagram, href: "#", title: "Instagram" },
+];
 
 export default function Footer() {
   const [openSection, setOpenSection] = useState<string | null>(null);
@@ -48,18 +62,19 @@ export default function Footer() {
             <div className="flex items-center gap-4">
               <a
                 href="mailto:info.xlogica@gmail.com"
-                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/5 transition-colors text-gray-400 hover:text-white"
+                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/5 transition-all duration-300 text-gray-400 hover:text-white"
                 title="Email Us"
               >
-                <Mail size={20} />
+                <HandDrawnMail />
               </a>
-              {[Twitter, Linkedin, Github, Instagram].map((Icon, index) => (
+              {socialLinks.map(({ Icon, href, title }, index) => (
                 <a
                   key={index}
-                  href="#"
-                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/5 transition-colors text-gray-400 hover:text-white"
+                  href={href}
+                  title={title}
+                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/5 transition-all duration-300 text-gray-400 hover:text-white"
                 >
-                  <Icon size={20} />
+                  <Icon />
                 </a>
               ))}
             </div>
