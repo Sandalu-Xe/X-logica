@@ -135,6 +135,14 @@ export default function Hero() {
               ))}
             </motion.h1>
             <Scribble className="bottom-0 left-1/4 w-1/2 text-[#5D4037]" />
+            <motion.div 
+              initial={{ opacity: 0, rotate: -12, scale: 0.8 }}
+              whileInView={{ opacity: 0.8, rotate: -12, scale: 1 }}
+              transition={{ duration: 0.8, delay: 1.5 }}
+              className="absolute -top-8 -right-8 md:-right-16 font-hand text-2xl md:text-3xl text-[#5D4037] hidden sm:block"
+            >
+              Designed for People
+            </motion.div>
           </div>
           <motion.p 
             variants={itemVariants}
