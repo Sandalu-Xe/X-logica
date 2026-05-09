@@ -125,7 +125,7 @@ export default function Footer() {
           </p>
           <div className="flex flex-col items-center md:items-end gap-2">
             <div className="font-hand text-2xl text-gray-400 ">
-              Websites design & developed by <span className="text-accent-violet">Sandalu</span> for the digital world
+              Websites design & developed by <span className="text-blue-500">Sandalu</span> for the digital world
             </div>
           </div>
         </motion.div>

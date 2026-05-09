@@ -36,7 +36,7 @@ export default function ContactForm({
       if (API_URL.endsWith('/')) {
         API_URL = API_URL.slice(0, -1);
       }
-      
+
       const response = await axios.post(`${API_URL}/api/contact`, data, {
         timeout: 60000, // 60s timeout to handle Render cold starts
         headers: { 'Content-Type': 'application/json' }
@@ -52,7 +52,7 @@ export default function ContactForm({
     } catch (err: any) {
       setStatus('error');
       console.error('Contact Form Error:', err);
-      
+
       if (err.code === 'ECONNABORTED' || err.message?.includes('timeout')) {
         setErrorMsg('Request timed out. The server may be starting up — please try again in a moment.');
       } else if (err.response) {
@@ -71,22 +71,22 @@ export default function ContactForm({
           {title}
         </h2>
         <p className="text-lg text-gray-400 mb-10 leading-relaxed max-w-md">{subtitle}</p>
-          <div className="flex flex-col sm:flex-row items-center gap-4 relative">
-            <button className="w-full sm:w-auto bg-white text-premium-black px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-gray-100 transition-all active:scale-95 group">
-              Get Started <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button className="w-full sm:w-auto bg-transparent text-white border border-white/20 px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-white/5 transition-all active:scale-95">
-              Book a Demo
-            </button>
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 0.7, x: 0 }}
-              transition={{ delay: 0.5 }}
-              className="absolute -bottom-10 left-0 font-hand text-2xl text-accent-blue rotate-[-2deg] hidden md:block"
-            >
-              Let's build something great.
-            </motion.div>
-          </div>
+        <div className="flex flex-col sm:flex-row items-center gap-4 relative">
+          <button className="w-full sm:w-auto bg-white text-premium-black px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-gray-100 transition-all active:scale-95 group">
+            Get Started <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+          </button>
+          <button className="w-full sm:w-auto bg-transparent text-white border border-white/20 px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-white/5 transition-all active:scale-95">
+            Book a Demo
+          </button>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 0.7, x: 0 }}
+            transition={{ delay: 0.5 }}
+            className="absolute -bottom-15 left-0 font-hand text-3xl text-white rotate  hidden md:block"
+          >
+            Let's build something great.
+          </motion.div>
+        </div>
       </div>
 
       <div className="bg-white/5 backdrop-blur-md border border-white/10 p-10 rounded-[32px]">
