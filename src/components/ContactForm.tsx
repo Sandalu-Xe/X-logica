@@ -32,8 +32,9 @@ export default function ContactForm({
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 30000); // 30s timeout (Render free tier cold starts)
 
-      // Use environment variable if available, otherwise fallback to Render production URL
-      const API_URL = import.meta.env.VITE_API_URL || 'https://x-logica-server.onrender.com';
+      // In local dev Vite proxy intercepts /api → Render server (no CORS).
+      // In production (Vercel) VITE_API_URL is set → full URL used directly.
+      const API_URL = import.meta.env.VITE_API_URL ?? '';
       const res = await fetch(`${API_URL}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

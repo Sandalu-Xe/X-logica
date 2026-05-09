@@ -52,8 +52,9 @@ export default function ApplyPage() {
       const timeoutId = setTimeout(() => controller.abort(), 40000); // 40s timeout (Render cold start + file upload)
 
       const formData = new FormData(e.currentTarget);
-      // Use environment variable if available, otherwise fallback to Render production URL
-      const API_URL = import.meta.env.VITE_API_URL || 'https://x-logica-server.onrender.com';
+      // In local dev Vite proxy intercepts /api → Render server (no CORS).
+      // In production (Vercel) VITE_API_URL is set → full URL used directly.
+      const API_URL = import.meta.env.VITE_API_URL ?? '';
       const res = await fetch(`${API_URL}/api/apply`, {
         method: 'POST',
         body: formData,
