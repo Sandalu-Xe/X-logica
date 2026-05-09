@@ -252,3 +252,66 @@ export const HandDrawnInstagram = ({ className = "w-5 h-5" }: IconProps) => (
     <motion.line x1="17.5" y1="6.5" x2="17.51" y2="6.5" variants={draw} custom={3} />
   </motion.svg>
 );
+
+export const HandDrawnDiscovery = ({ className = "w-7 h-7" }: IconProps) => (
+  <motion.svg 
+    viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" 
+    className={className}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    style={{ filter: "url(#pencilTexture)" } as React.CSSProperties}
+    {...wiggle}
+  >
+    <motion.path d="M11,19 C6.5,19 3,15.5 3,11 C3,6.5 6.5,3 11,3 C15.5,3 19,6.5 19,11 C19,13 18.5,15 17,16.5" variants={draw} custom={1} />
+    <motion.path d="M21,21 L16,16" variants={draw} custom={2} />
+    <motion.path d="M8,11 C8,9 10,8 11,8" variants={draw} custom={3} />
+  </motion.svg>
+);
+
+export const HandDrawnDesign = ({ className = "w-7 h-7" }: IconProps) => (
+  <motion.svg 
+    viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" 
+    className={className}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    style={{ filter: "url(#pencilTexture)" } as React.CSSProperties}
+    {...wiggle}
+  >
+    <motion.path d="M12,19 L19,12 L22,15 L15,22 Z" variants={draw} custom={1} />
+    <motion.path d="M18,13 L16.5,5.5 L2,2 L5.5,16.5 L13,18 Z" variants={draw} custom={2} />
+    <motion.path d="M2,2 L22,22" variants={draw} custom={3} />
+  </motion.svg>
+);
+
+export const HandDrawnDev = ({ className = "w-7 h-7" }: IconProps) => (
+  <motion.svg 
+    viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" 
+    className={className}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    style={{ filter: "url(#pencilTexture)" } as React.CSSProperties}
+    {...wiggle}
+  >
+    <motion.path d="M16 18l6-6-6-6" variants={draw} custom={1} />
+    <motion.path d="M8 6l-6 6 6 6" variants={draw} custom={2} />
+  </motion.svg>
+);
+
+export const HandDrawnLaunch = ({ className = "w-7 h-7" }: IconProps) => (
+  <motion.svg 
+    viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" 
+    className={className}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    style={{ filter: "url(#pencilTexture)" } as React.CSSProperties}
+    {...wiggle}
+  >
+    <motion.path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" variants={draw} custom={1} />
+    <motion.path d="M12 15l-3.5 3.5L7 17l4-4M9 13l-4 4 1.5 1.5L10 15" variants={draw} custom={2} />
+    <motion.path d="M2 22l7-7M9 13c0-3.5 1-6 3-8s4.5-3 8-3c0 3.5-1 6-3 8s-4.5 3-8 3z" variants={draw} custom={3} />
+  </motion.svg>
+);

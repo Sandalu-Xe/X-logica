@@ -1,30 +1,35 @@
 import { motion } from 'motion/react';
-import { Search, PenTool, Code, Rocket } from 'lucide-react';
+import { 
+  HandDrawnDiscovery, 
+  HandDrawnDesign, 
+  HandDrawnDev, 
+  HandDrawnLaunch 
+} from './HandDrawnIcons';
 
 const steps = [
   {
-    icon: <Search className="w-8 h-8" />,
+    icon: <HandDrawnDiscovery className="w-10 h-10" />,
     title: 'Discovery',
     description: 'We dive deep into your business goals, user needs, and market landscape to define the perfect strategy.',
-    color: 'bg-blue-50 text-blue-600',
+    color: 'bg-[#F2F4F1] text-[#2C3E2C]', // Realistic Sage
   },
   {
-    icon: <PenTool className="w-8 h-8" />,
+    icon: <HandDrawnDesign className="w-10 h-10" />,
     title: 'Design',
     description: 'Our designers craft intuitive, high-fidelity interfaces that prioritize user experience and brand identity.',
-    color: 'bg-purple-50 text-purple-600',
+    color: 'bg-[#F9F4FA] text-[#4A148C]', // Realistic Soft Purple
   },
   {
-    icon: <Code className="w-8 h-8" />,
+    icon: <HandDrawnDev className="w-10 h-10" />,
     title: 'Development',
     description: 'Using agile methodologies, our engineers build robust, scalable code that brings your vision to life.',
-    color: 'bg-green-50 text-green-600',
+    color: 'bg-[#EDF7F6] text-[#004D40]', // Realistic Soft Teal
   },
   {
-    icon: <Rocket className="w-8 h-8" />,
+    icon: <HandDrawnLaunch className="w-10 h-10" />,
     title: 'Launch',
     description: 'We ensure a smooth deployment and provide ongoing support to help your product grow and evolve.',
-    color: 'bg-orange-50 text-orange-600',
+    color: 'bg-[#F8F2ED] text-[#5D4037]', // Realistic Terracotta
   },
 ];
 
@@ -33,7 +38,7 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.2,
     },
   },
 };
@@ -44,7 +49,7 @@ const itemVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.8,
+      duration: 1,
       ease: [0.22, 1, 0.36, 1] as const,
     },
   },
@@ -52,20 +57,20 @@ const itemVariants = {
 
 export default function Process() {
   return (
-    <section id="about" className="py-24 md:py-32 bg-premium-white">
+    <section id="about" className="py-24 md:py-32 bg-premium-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
-          className="text-center mb-20"
+          className="text-center mb-24"
         >
-          <motion.span variants={itemVariants} className="text-xs font-bold tracking-widest text-accent-blue uppercase mb-4 block">How We Work</motion.span>
-          <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold tracking-tight text-premium-black mb-6">
+          <motion.span variants={itemVariants} className="text-[10px] font-bold tracking-[0.3em] text-accent-blue uppercase mb-4 block opacity-60">Human-Centric Strategy</motion.span>
+          <motion.h2 variants={itemVariants} className="text-4xl md:text-6xl font-bold tracking-tight text-premium-black mb-8">
             Our Proven Process for Success
           </motion.h2>
-          <motion.p variants={itemVariants} className="text-gray-500 max-w-2xl mx-auto leading-relaxed">
+          <motion.p variants={itemVariants} className="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed font-medium">
             We follow a structured, collaborative approach to ensure every project is delivered on time, 
             within budget, and beyond expectations.
           </motion.p>
@@ -74,12 +79,12 @@ export default function Process() {
         <motion.div 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 relative"
         >
           {/* Connecting Line (Desktop) */}
-          <div className="absolute top-1/4 left-0 right-0 h-0.5 bg-gray-200 hidden lg:block -z-10" />
+          <div className="absolute top-[40px] left-0 right-0 h-0.5 bg-gray-100 hidden lg:block -z-10 opacity-50" />
           
           {steps.map((step, index) => (
             <motion.div
@@ -87,14 +92,28 @@ export default function Process() {
               variants={itemVariants}
               className="flex flex-col items-center text-center group"
             >
-              <div className={`w-20 h-20 rounded-3xl flex items-center justify-center mb-8 relative z-10 transition-transform duration-300 group-hover:scale-110 shadow-lg shadow-black/5 ${step.color}`}>
-                {step.icon}
-                <div className="absolute -top-2 -right-2 w-8 h-8 bg-white rounded-full border border-gray-100 flex items-center justify-center text-sm font-bold text-premium-black shadow-sm">
+              <div className="relative mb-10">
+                <motion.div 
+                  whileHover={{ 
+                    scale: 1.1,
+                    rotate: [0, -3, 3, 0],
+                  }}
+                  className={`w-20 h-20 flex items-center justify-center relative z-10 transition-all duration-1000 ${step.color}`}
+                  style={{ 
+                    borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
+                    boxShadow: "inset 0 0 20px rgba(0,0,0,0.02)"
+                  } as React.CSSProperties}
+                >
+                  {step.icon}
+                </motion.div>
+                
+                <div className="absolute -top-3 -right-3 w-8 h-8 bg-white rounded-full border border-gray-100 flex items-center justify-center text-xs font-bold text-premium-black shadow-lg z-20">
                   {index + 1}
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-premium-black mb-4">{step.title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">
+              
+              <h3 className="text-2xl font-bold text-premium-black mb-4 group-hover:text-accent-blue transition-colors duration-500">{step.title}</h3>
+              <p className="text-gray-500 text-sm leading-relaxed font-medium">
                 {step.description}
               </p>
             </motion.div>
