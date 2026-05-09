@@ -30,10 +30,10 @@ export default function ContactForm({
 
     try {
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+      const timeoutId = setTimeout(() => controller.abort(), 30000); // 30s timeout (Render free tier cold starts)
 
-      // Use environment variable if available, otherwise fallback to production Railway URL
-      const API_URL = import.meta.env.VITE_API_URL || 'https://x-logica-server-production.up.railway.app';
+      // Use environment variable if available, otherwise fallback to Render production URL
+      const API_URL = import.meta.env.VITE_API_URL || 'https://x-logica-server.onrender.com';
       const res = await fetch(`${API_URL}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -55,7 +55,7 @@ export default function ContactForm({
       setStatus('error');
       console.error('Contact Form Error:', err);
       if (err instanceof Error && err.name === 'AbortError') {
-        setErrorMsg('Request timed out. The server is taking too long to respond.');
+        setErrorMsg('Request timed out. The server may be starting up — please try again in a moment.');
       } else {
         const detail = err instanceof Error ? `: ${err.message}` : '';
         setErrorMsg(`Network error${detail}. Please check your connection and try again.`);

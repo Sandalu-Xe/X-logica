@@ -49,11 +49,11 @@ export default function ApplyPage() {
 
     try {
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 second timeout for applications (file upload)
+      const timeoutId = setTimeout(() => controller.abort(), 40000); // 40s timeout (Render cold start + file upload)
 
       const formData = new FormData(e.currentTarget);
-      // Use environment variable if available, otherwise fallback to production Railway URL
-      const API_URL = import.meta.env.VITE_API_URL || 'https://x-logica-server-production.up.railway.app';
+      // Use environment variable if available, otherwise fallback to Render production URL
+      const API_URL = import.meta.env.VITE_API_URL || 'https://x-logica-server.onrender.com';
       const res = await fetch(`${API_URL}/api/apply`, {
         method: 'POST',
         body: formData,
@@ -73,7 +73,7 @@ export default function ApplyPage() {
       setStatus('error');
       console.error('Application Form Error:', err);
       if (err instanceof Error && err.name === 'AbortError') {
-        setErrorMsg('Request timed out. The server is taking too long to respond (possibly due to a large file).');
+        setErrorMsg('Request timed out. The server may be starting up — please wait a moment and try again.');
       } else {
         const detail = err instanceof Error ? `: ${err.message}` : '';
         setErrorMsg(`Network error${detail}. Please check your connection and try again.`);
