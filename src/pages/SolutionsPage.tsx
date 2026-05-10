@@ -67,8 +67,8 @@ export default function SolutionsPage() {
         title={<>Comprehensive <span className="text-accent-blue">Solutions</span> for Digital Transformation</>}
         description="We combine technical excellence with business strategy to deliver products that make a real impact on your bottom line."
         blobs={[
-          { position: 'top-[-10%] left-[-10%] w-[40%] h-[40%]', color: 'bg-accent-blue/5' },
-          { position: 'bottom-[-10%] right-[-10%] w-[40%] h-[40%]', color: 'bg-accent-violet/5' },
+          { position: 'top-[-10%] left-[-10%] w-[40%] h-[40%]', color: 'bg-accent-blue/15' },
+          { position: 'bottom-[-10%] right-[-10%] w-[40%] h-[40%]', color: 'bg-accent-violet/15' },
         ]}
       />
 

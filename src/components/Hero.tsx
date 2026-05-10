@@ -100,11 +100,11 @@ export default function Hero() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
         <motion.div 
           style={{ y: isMobile ? 0 : y1 }}
-          className="absolute top-[-5%] left-[-5%] w-[45%] h-[45%] bg-[#E5E7E0]/40 rounded-full blur-[100px] will-change-transform" 
+          className="absolute top-[-5%] left-[-5%] w-[45%] h-[45%] bg-accent-blue/15 rounded-full blur-[120px] will-change-transform" 
         />
         <motion.div 
           style={{ y: isMobile ? 0 : y2 }}
-          className="absolute bottom-[5%] right-[-5%] w-[45%] h-[45%] bg-[#F2E8E4]/40 rounded-full blur-[100px] will-change-transform" 
+          className="absolute bottom-[5%] right-[-5%] w-[45%] h-[45%] bg-accent-violet/15 rounded-full blur-[120px] will-change-transform" 
         />
         <div className="absolute top-0 left-0 w-full h-full opacity-[0.03]" 
              style={{ backgroundImage: 'radial-gradient(#2C3E2C 1px, transparent 1px)', backgroundSize: '60px 60px' }} />

@@ -85,8 +85,8 @@ export default function ApplyPage() {
     <div className="min-h-screen bg-white pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
-        <div className="absolute top-[-10%] right-[10%] w-[40%] h-[40%] bg-accent-blue/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[-10%] left-[10%] w-[35%] h-[35%] bg-accent-violet/5 rounded-full blur-[120px]" />
+        <div className="absolute top-[-10%] right-[10%] w-[40%] h-[40%] bg-accent-blue/15 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[-10%] left-[10%] w-[35%] h-[35%] bg-accent-violet/15 rounded-full blur-[120px]" />
       </div>
 
       <div className="max-w-4xl mx-auto px-6 relative z-10">

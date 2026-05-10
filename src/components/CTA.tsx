@@ -7,8 +7,8 @@ export default function CTA() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="bg-premium-black rounded-[48px] p-12 md:p-24 relative overflow-hidden">
           {/* Background Decoration */}
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-accent-blue/10 blur-[120px] -z-10" />
-          <div className="absolute bottom-0 left-0 w-1/2 h-full bg-accent-violet/10 blur-[120px] -z-10" />
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-accent-blue/20 blur-[120px] -z-10" />
+          <div className="absolute bottom-0 left-0 w-1/2 h-full bg-accent-violet/20 blur-[120px] -z-10" />
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}

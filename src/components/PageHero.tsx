@@ -11,8 +11,8 @@ interface PageHeroProps {
 }
 
 const defaultBlobs = [
-  { position: 'top-[-10%] right-[10%] w-[40%] h-[40%]', color: 'bg-accent-blue/5' },
-  { position: 'bottom-[-10%] left-[10%] w-[35%] h-[35%]', color: 'bg-accent-violet/5' },
+  { position: 'top-[-10%] right-[10%] w-[40%] h-[40%]', color: 'bg-accent-blue/15' },
+  { position: 'bottom-[-10%] left-[10%] w-[35%] h-[35%]', color: 'bg-accent-violet/15' },
 ];
 
 export default function PageHero({

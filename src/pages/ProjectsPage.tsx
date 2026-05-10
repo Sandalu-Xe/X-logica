@@ -15,8 +15,8 @@ export default function ProjectsPage() {
         title={<>Featured Portfolio &{' '}<span className="text-accent-blue">Success</span> Stories</>}
         description="Explore how we've helped leading companies across industries achieve their digital transformation goals with measurable impact and lasting results."
         blobs={[
-          { position: 'top-[-10%] right-[10%] w-[40%] h-[40%]', color: 'bg-accent-blue/5' },
-          { position: 'bottom-[-10%] left-[10%] w-[35%] h-[35%]', color: 'bg-accent-violet/5' },
+          { position: 'top-[-10%] right-[10%] w-[40%] h-[40%]', color: 'bg-accent-blue/15' },
+          { position: 'bottom-[-10%] left-[10%] w-[35%] h-[35%]', color: 'bg-accent-violet/15' },
         ]}
       />
 

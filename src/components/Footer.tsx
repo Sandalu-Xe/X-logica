@@ -43,7 +43,7 @@ export default function Footer() {
   const [openSection, setOpenSection] = useState<string | null>(null);
 
   return (
-    <footer className="bg-premium-black text-white pt-24 pb-12 overflow-hidden">
+    <footer className="bg-black text-white pt-24 pb-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
