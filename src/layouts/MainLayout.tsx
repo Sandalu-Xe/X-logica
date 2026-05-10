@@ -22,7 +22,7 @@ export default function MainLayout() {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen bg-premium-white selection:bg-accent-sage/10 selection:text-accent-sage overflow-x-hidden w-full relative bg-grain">
+    <div className="min-h-screen bg-premium-white selection:bg-accent-sage/10 selection:text-accent-sage overflow-x-hidden w-full relative">
       <AnimatePresence mode="wait">
         {isLoading && <Preloader key="preloader" />}
       </AnimatePresence>

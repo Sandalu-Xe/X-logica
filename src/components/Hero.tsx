@@ -95,19 +95,11 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative pt-32 pb-20 md:pt-56 md:pb-32 overflow-hidden bg-[#FAF9F6]">
+    <section className="relative pt-32 pb-20 md:pt-56 md:pb-32 overflow-hidden bg-white">
       {/* Background Elements */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
-        <motion.div 
-          style={{ y: isMobile ? 0 : y1 }}
-          className="absolute top-[-5%] left-[-5%] w-[45%] h-[45%] bg-accent-blue/15 rounded-full blur-[120px] will-change-transform" 
-        />
-        <motion.div 
-          style={{ y: isMobile ? 0 : y2 }}
-          className="absolute bottom-[5%] right-[-5%] w-[45%] h-[45%] bg-accent-violet/15 rounded-full blur-[120px] will-change-transform" 
-        />
-        <div className="absolute top-0 left-0 w-full h-full opacity-[0.03]" 
-             style={{ backgroundImage: 'radial-gradient(#2C3E2C 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+
+
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -182,7 +174,7 @@ export default function Hero() {
           } : {} as any}
           className="relative perspective-2000 max-w-5xl mx-auto"
         >
-          <div className="relative rounded-[40px] overflow-hidden bg-[#FAF9F6] border border-[#2C3E2C]/5 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.08)] p-4 md:p-8">
+          <div className="relative rounded-[40px] overflow-hidden bg-white border border-[#2C3E2C]/5 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.08)] p-4 md:p-8">
             <motion.img 
               src="/images/hero-illustration.png" 
               alt="Xlogica Human-Centric Illustration" 

@@ -64,7 +64,7 @@ export default function FeaturedProduct() {
             className="relative"
           >
             <div className="absolute -inset-8 bg-[#E5E7E0]/30 rounded-[60px] blur-3xl -z-10" />
-            <div className="relative rounded-[40px] overflow-hidden border border-[#2C3E2C]/5 bg-[#FAF9F6] p-4 md:p-8 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.05)]">
+            <div className="relative rounded-[40px] overflow-hidden border border-[#2C3E2C]/5 bg-white p-4 md:p-8 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.05)]">
               <img 
                 src="/images/featured-illustration.png" 
                 alt="Human-Centric Data Interface" 

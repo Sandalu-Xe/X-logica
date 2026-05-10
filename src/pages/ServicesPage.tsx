@@ -33,10 +33,6 @@ export default function ServicesPage() {
         badgeColor="violet"
         title={<>Powerful Tools for <span className="text-accent-blue">Modern</span> Teams</>}
         description="Explore our suite of premium software services designed to accelerate growth, enhance security, and streamline operations for forward-thinking enterprises."
-        blobs={[
-          { position: 'top-[-10%] right-[-10%] w-[45%] h-[45%]', color: 'bg-accent-violet/15' },
-          { position: 'bottom-[-10%] left-[-10%] w-[35%] h-[35%]', color: 'bg-accent-blue/15' },
-        ]}
       />
 
       {/* Services Grid */}

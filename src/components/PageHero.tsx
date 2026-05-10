@@ -10,10 +10,7 @@ interface PageHeroProps {
   blobs?: Array<{ position: string; color: string }>;
 }
 
-const defaultBlobs = [
-  { position: 'top-[-10%] right-[10%] w-[40%] h-[40%]', color: 'bg-accent-blue/15' },
-  { position: 'bottom-[-10%] left-[10%] w-[35%] h-[35%]', color: 'bg-accent-violet/15' },
-];
+const defaultBlobs: Array<{ position: string; color: string }> = [];
 
 export default function PageHero({
   badge,
@@ -34,10 +31,7 @@ export default function PageHero({
         {blobs.map((blob, i) => (
           <div key={i} className={`absolute ${blob.position} ${blob.color} rounded-full blur-[120px]`} />
         ))}
-        <div
-          className="absolute top-0 left-0 w-full h-full opacity-[0.03]"
-          style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }}
-        />
+
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
