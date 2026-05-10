@@ -38,12 +38,12 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/80 backdrop-blur-md border-b border-gray-100 py-4' : 'bg-transparent py-6'
+        isScrolled ? 'bg-premium-white/80 backdrop-blur-md border-b border-gray-200/50 py-4' : 'bg-transparent py-6'
       }`}
     >
       {/* Scroll Progress Bar */}
       <motion.div
-        className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent-blue origin-left z-50"
+        className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent-sage origin-left z-50"
         style={{ scaleX: scrollYProgress }}
       />
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -59,12 +59,12 @@ export default function Navbar() {
                 to={link.to}
                 className={`text-sm font-medium transition-colors relative group px-2 py-1 ${
                   location.pathname === link.to
-                    ? 'text-accent-blue'
-                    : 'text-gray-600 hover:text-accent-blue'
+                    ? 'text-accent-sage'
+                    : 'text-gray-600 hover:text-accent-sage'
                 }`}
               >
                 {link.name}
-                <span className={`absolute -bottom-1 left-0 h-0.5 bg-accent-blue transition-all duration-300 ${
+                <span className={`absolute -bottom-1 left-0 h-0.5 bg-accent-sage transition-all duration-300 ${
                   location.pathname === link.to ? 'w-full' : 'w-0 group-hover:w-full'
                 }`} />
               </Link>
@@ -105,15 +105,15 @@ export default function Navbar() {
                   to={link.to}
                   className={`text-lg font-medium ${
                     location.pathname === link.to
-                      ? 'text-accent-blue'
-                      : 'text-gray-800 hover:text-accent-blue'
+                      ? 'text-accent-sage'
+                      : 'text-gray-800 hover:text-accent-sage'
                   }`}
                 >
                   {link.name}
                 </Link>
               ))}
               <hr className="border-gray-100 my-2" />
-              <Link to="/careers" className="bg-accent-blue text-white w-full py-3 rounded-lg font-semibold flex items-center justify-center gap-2">
+              <Link to="/careers" className="bg-premium-black text-white w-full py-3 rounded-lg font-semibold flex items-center justify-center gap-2">
                 Get Started <ArrowRight size={18} />
               </Link>
             </div>

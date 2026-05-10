@@ -16,31 +16,31 @@ const services = [
     icon: <OrganicGlobe className="w-8 h-8" />,
     title: 'Premium Website Development',
     description: 'Stunning, high-performance websites tailored to elevate your brand presence and drive conversions.',
-    color: 'bg-[#F2F4F1] text-[#2C3E2C]', // Realistic Sage
+    color: 'bg-[#F2F4F1] text-[#2C3E2C]', // Sage
   },
   {
     icon: <OrganicBrowser className="w-8 h-8" />,
     title: 'Web Application Development',
     description: 'Robust, scalable, and secure web applications built to streamline your business operations.',
-    color: 'bg-[#F8F2ED] text-[#5D4037]', // Realistic Terracotta
+    color: 'bg-[#F8F2ED] text-[#5D4037]', // Terracotta
   },
   {
     icon: <OrganicRobot className="w-8 h-8" />,
     title: 'AI Solutions & Chatbots',
     description: 'Intelligent AI-driven products, including custom chatbots, to automate tasks and enhance customer experience.',
-    color: 'bg-[#EEF6FC] text-[#263238]', // Realistic Soft Blue
+    color: 'bg-[#EDF2F6] text-[#2A4E6B]', // Muted Blue
   },
   {
     icon: <OrganicDesign className="w-8 h-8" />,
     title: 'UI/UX Design Services',
     description: 'Intuitive and engaging user interfaces designed to provide seamless and memorable user experiences.',
-    color: 'bg-[#F9F4FA] text-[#4A148C]', // Realistic Soft Purple
+    color: 'bg-[#F4F1F5] text-[#4A2C4A]', // Muted Plum
   },
   {
     icon: <OrganicMobile className="w-8 h-8" />,
     title: 'Mobile App Development',
     description: 'High-performance, cross-platform mobile applications built seamlessly with Flutter and React Native.',
-    color: 'bg-[#EDF7F6] text-[#004D40]', // Realistic Soft Teal
+    color: 'bg-[#F1F6F4] text-[#2C4A3E]', // Muted Teal
   },
 ];
 
@@ -110,15 +110,15 @@ function ServiceCard({ service, index }: { service: any; index: number; key?: Re
         {service.icon}
       </motion.div>
 
-      <h3 className="text-2xl font-bold text-premium-black mb-4 relative z-10 group-hover:text-accent-blue transition-colors duration-500 font-sans">
+      <h3 className="text-2xl font-bold text-premium-black mb-4 relative z-10 group-hover:text-accent-sage transition-colors duration-500 font-serif">
         {service.title}
       </h3>
-      <p className="text-gray-500 text-base leading-relaxed mb-10 relative z-10 font-medium">
+      <p className="text-gray-600 text-base leading-relaxed mb-10 relative z-10 font-sans font-normal">
         {service.description}
       </p>
       
-      <Link to="/services" className="inline-flex items-center gap-3 text-sm font-bold text-premium-black group-hover:text-accent-blue transition-all relative z-10">
-        <span className="underline underline-offset-8 decoration-gray-200 group-hover:decoration-accent-blue transition-colors">Explore Solution</span>
+      <Link to="/services" className="inline-flex items-center gap-3 text-sm font-bold text-premium-black group-hover:text-accent-sage transition-all relative z-10">
+        <span className="underline underline-offset-8 decoration-gray-300 group-hover:decoration-accent-sage transition-colors">Explore Solution</span>
         <ArrowRight size={18} className="translate-x-0 group-hover:translate-x-2 transition-transform duration-500" />
       </Link>
     </motion.div>
@@ -127,7 +127,7 @@ function ServiceCard({ service, index }: { service: any; index: number; key?: Re
 
 export default function Services() {
   return (
-    <section id="solutions" className="py-24 md:py-32 bg-premium-white relative">
+    <section id="solutions" className="py-24 md:py-32 bg-premium-white relative bg-grain">
       <HandDrawnFilter />
       <div className="max-w-7xl mx-auto px-6">
         <motion.div 
@@ -138,10 +138,10 @@ export default function Services() {
           className="flex flex-col lg:flex-row lg:items-end justify-between mb-24 gap-10"
         >
           <div className="max-w-3xl">
-            <motion.span variants={itemVariants} className="text-[10px] font-bold tracking-[0.3em] text-accent-blue uppercase mb-6 block opacity-60">Human-Centric Studio</motion.span>
-            <motion.h2 variants={itemVariants} className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-premium-black leading-[1.1]">
+            <motion.span variants={itemVariants} className="text-[10px] font-bold tracking-[0.3em] text-accent-sage uppercase mb-6 block opacity-60">Human-Centric Studio</motion.span>
+            <motion.h2 variants={itemVariants} className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-premium-black leading-[1.1] font-serif">
               Built by Humans, <br /> 
-              <span className="text-accent-blue italic font-serif relative">
+              <span className="text-accent-sage italic relative">
                 for Humans.
                 <motion.svg 
                   viewBox="0 0 200 20" 
@@ -155,7 +155,7 @@ export default function Services() {
               </span>
             </motion.h2>
           </div>
-          <motion.p variants={itemVariants} className="text-gray-400 max-w-sm text-xl leading-relaxed font-serif italic border-l border-gray-200 pl-8">
+          <motion.p variants={itemVariants} className="text-gray-500 max-w-sm text-xl leading-relaxed font-serif italic border-l border-gray-300 pl-8">
             "Software should feel like it was made by a person who cares about the details."
           </motion.p>
         </motion.div>

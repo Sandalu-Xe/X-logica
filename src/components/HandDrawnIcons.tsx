@@ -37,8 +37,10 @@ const wiggle = {
 export const HandDrawnFilter = () => (
   <svg style={{ position: 'absolute', width: 0, height: 0 }}>
     <filter id="pencilTexture">
-      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" result="noise" />
-      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" xChannelSelector="R" yChannelSelector="G" />
+      <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="5" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="0.2" result="blur" />
+      <feComposite in="blur" in2="SourceGraphic" operator="over" />
     </filter>
   </svg>
 );
