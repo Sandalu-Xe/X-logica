@@ -10,22 +10,31 @@ import { containerVariants, itemVariants, EASE } from '../lib/animations';
 
 const values = [
   {
-    icon: <Target className="w-7 h-7" />,
+    icon: <Target size={28} strokeWidth={1.5} />,
     title: 'Mission',
     description: 'To empower businesses worldwide with intelligent, scalable web and AI solutions that drive measurable growth and innovation.',
-    color: 'bg-blue-50 text-blue-600',
+    bgColor: 'bg-[#edf2f7]',
+    textColor: 'text-[#1a365d]',
+    blobClass: 'rounded-[40%_60%_40%_60%_/_60%_40%_60%_40%]',
+    hoverClass: 'group-hover:scale-110',
   },
   {
-    icon: <Eye className="w-7 h-7" />,
+    icon: <Eye size={28} strokeWidth={1.5} />,
     title: 'Vision',
     description: 'To be the global standard for premium website development, web applications, and AI solutions, setting benchmarks in quality, reliability, and client satisfaction.',
-    color: 'bg-purple-50 text-purple-600',
+    bgColor: 'bg-[#f9f3ef]',
+    textColor: 'text-[#5c3d2e]',
+    blobClass: 'rounded-[65%_35%_76%_24%_/_47%_70%_30%_53%]',
+    hoverClass: 'group-hover:-rotate-12',
   },
   {
-    icon: <Heart className="w-7 h-7" />,
+    icon: <Heart size={28} strokeWidth={1.5} />,
     title: 'Values',
     description: 'We believe in transparency, continuous innovation, and building lasting partnerships with our clients through excellence.',
-    color: 'bg-green-50 text-green-600',
+    bgColor: 'bg-[#f0f4f1]',
+    textColor: 'text-[#2d4a3e]',
+    blobClass: 'rounded-[24%_76%_35%_65%_/_53%_30%_70%_47%]',
+    hoverClass: 'group-hover:rotate-12',
   },
 ];
 
@@ -86,8 +95,8 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, margin: '-100px' }} variants={containerVariants} className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {values.map((val, i) => (
-              <motion.div key={i} variants={itemVariants} className="p-10 bg-white border border-gray-100 rounded-3xl hover:shadow-2xl hover:shadow-black/5 transition-all duration-500 group">
-                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-8 ${val.color} group-hover:scale-110 transition-transform duration-300`}>
+              <motion.div key={i} variants={itemVariants} className="p-10 bg-white border border-gray-100 rounded-[32px] hover:shadow-2xl hover:shadow-black/5 transition-all duration-500 group">
+                <div className={`w-16 h-16 flex items-center justify-center mb-8 ${val.bgColor} ${val.textColor} ${val.blobClass} ${val.hoverClass} transition-transform duration-500`}>
                   {val.icon}
                 </div>
                 <h3 className="text-2xl font-bold text-premium-black mb-4">{val.title}</h3>
