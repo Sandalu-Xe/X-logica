@@ -5,11 +5,11 @@ import { processSteps } from '../data/process';
 import { containerVariants, itemVariants, EASE } from '../lib/animations';
 
 const services = [
-  { icon: <Globe size={28} strokeWidth={1.5} />, title: 'Premium Website Development', description: 'Stunning, high-performance websites tailored to elevate your brand presence and drive conversions.', color: 'bg-blue-50 text-blue-600' },
-  { icon: <Code size={28} strokeWidth={1.5} />, title: 'Web Application Development', description: 'Robust, scalable, and secure web applications built to streamline your business operations.', color: 'bg-purple-50 text-purple-600' },
-  { icon: <Cpu size={28} strokeWidth={1.5} />, title: 'AI Solutions & Chatbots', description: 'Intelligent AI-driven products, including custom chatbots, to automate tasks and enhance customer experience.', color: 'bg-green-50 text-green-600' },
-  { icon: <Layout size={28} strokeWidth={1.5} />, title: 'UI/UX Design Services', description: 'Intuitive and engaging user interfaces designed to provide seamless and memorable user experiences.', color: 'bg-orange-50 text-orange-600' },
-  { icon: <Smartphone size={28} strokeWidth={1.5} />, title: 'Mobile App Development', description: 'High-performance, cross-platform mobile applications built seamlessly with modern technologies.', color: 'bg-teal-50 text-teal-600' },
+  { icon: <Globe size={28} strokeWidth={1.5} />, title: 'Premium Website Development', description: 'Stunning, high-performance websites tailored to elevate your brand presence and drive conversions.', color: 'bg-white text-blue-600 border border-gray-100' },
+  { icon: <Code size={28} strokeWidth={1.5} />, title: 'Web Application Development', description: 'Robust, scalable, and secure web applications built to streamline your business operations.', color: 'bg-white text-purple-600 border border-gray-100' },
+  { icon: <Cpu size={28} strokeWidth={1.5} />, title: 'AI Solutions & Chatbots', description: 'Intelligent AI-driven products, including custom chatbots, to automate tasks and enhance customer experience.', color: 'bg-white text-green-600 border border-gray-100' },
+  { icon: <Layout size={28} strokeWidth={1.5} />, title: 'UI/UX Design Services', description: 'Intuitive and engaging user interfaces designed to provide seamless and memorable user experiences.', color: 'bg-white text-orange-600 border border-gray-100' },
+  { icon: <Smartphone size={28} strokeWidth={1.5} />, title: 'Mobile App Development', description: 'High-performance, cross-platform mobile applications built seamlessly with modern technologies.', color: 'bg-white text-teal-600 border border-gray-100' },
 ];
 
 export default function SolutionsPage() {
@@ -19,10 +19,11 @@ export default function SolutionsPage() {
         badge="Our Solutions"
         title={<>Comprehensive <span className="text-accent-blue">Solutions</span> for Digital Transformation</>}
         description="We combine technical excellence with business strategy to deliver products that make a real impact on your bottom line."
+        image="/images/solutions-illustration.png"
       />
 
       {/* Services Grid */}
-      <section className="py-24 md:py-32 bg-premium-white">
+      <section className="py-24 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div 
             initial="hidden" 

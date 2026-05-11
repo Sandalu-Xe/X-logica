@@ -14,14 +14,11 @@ export default function ProjectsPage() {
         badge="Our Projects"
         title={<>Featured Portfolio &{' '}<span className="text-accent-blue">Success</span> Stories</>}
         description="Explore how we've helped leading companies across industries achieve their digital transformation goals with measurable impact and lasting results."
-        blobs={[
-          { position: 'top-[-10%] right-[10%] w-[40%] h-[40%]', color: 'bg-accent-blue/15' },
-          { position: 'bottom-[-10%] left-[10%] w-[35%] h-[35%]', color: 'bg-accent-violet/15' },
-        ]}
+        image="/images/projects-illustration.png"
       />
 
       {/* Projects Grid */}
-      <section className="py-24 md:py-32 bg-premium-white">
+      <section className="py-24 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial="hidden"

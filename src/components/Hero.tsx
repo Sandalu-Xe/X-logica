@@ -98,8 +98,6 @@ export default function Hero() {
     <section className="relative pt-32 pb-20 md:pt-56 md:pb-32 overflow-hidden bg-white">
       {/* Background Elements */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
-
-
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -185,27 +183,6 @@ export default function Hero() {
             />
           </div>
 
-          {/* Subtle Organic Floating Elements */}
-          {!isMobile && (
-            <>
-              <motion.div
-                animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                style={{ transform: "translateZ(80px)" } as any}
-                className="absolute -top-12 -right-12 hidden lg:block"
-              >
-                <div className="w-24 h-24 bg-[#F2E8E4] rounded-full blur-2xl opacity-60" />
-              </motion.div>
-              <motion.div
-                animate={{ y: [0, 15, 0], rotate: [0, -5, 0] }}
-                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                style={{ transform: "translateZ(60px)" } as any}
-                className="absolute -bottom-12 -left-12 hidden lg:block"
-              >
-                <div className="w-32 h-32 bg-[#E5E7E0] rounded-full blur-2xl opacity-60" />
-              </motion.div>
-            </>
-          )}
         </motion.div>
       </div>
     </section>

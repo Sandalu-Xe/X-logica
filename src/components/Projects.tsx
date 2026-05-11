@@ -7,7 +7,7 @@ import { containerVariants, itemVariants } from '../lib/animations';
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 md:py-32 bg-premium-white">
+    <section id="projects" className="py-24 md:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial="hidden"

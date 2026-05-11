@@ -19,7 +19,7 @@ const services = [
     icon: <Globe size={28} strokeWidth={1.5} />, 
     title: 'Premium Website Development', 
     description: 'Custom, high-performance websites built with modern technologies to elevate your digital presence and drive conversions.', 
-    color: 'bg-[#f0f4f1] text-[#2d4a3e]', 
+    color: 'bg-white text-blue-600 border border-gray-100', 
     tag: 'Web',
     blob: 'rounded-[24%_76%_35%_65%_/_53%_30%_70%_47%]',
     hover: 'group-hover:rotate-12'
@@ -28,7 +28,7 @@ const services = [
     icon: <Layout size={28} strokeWidth={1.5} />, 
     title: 'Web Application Development', 
     description: 'Scalable and secure web applications tailored to streamline your business operations and provide exceptional user experiences.', 
-    color: 'bg-[#f9f3ef] text-[#5c3d2e]', 
+    color: 'bg-white text-purple-600 border border-gray-100', 
     tag: 'Apps',
     blob: 'rounded-[65%_35%_76%_24%_/_47%_70%_30%_53%]',
     hover: 'group-hover:-rotate-12'
@@ -37,7 +37,7 @@ const services = [
     icon: <Bot size={28} strokeWidth={1.5} />, 
     title: 'AI Solutions & Chatbots', 
     description: 'Intelligent AI integrations and custom chatbots to automate workflows, enhance customer support, and unlock new insights.', 
-    color: 'bg-[#edf2f7] text-[#1a365d]', 
+    color: 'bg-white text-green-600 border border-gray-100', 
     tag: 'AI',
     blob: 'rounded-[40%_60%_40%_60%_/_60%_40%_60%_40%]',
     hover: 'group-hover:scale-110'
@@ -46,7 +46,7 @@ const services = [
     icon: <PenTool size={28} strokeWidth={1.5} />, 
     title: 'UI/UX Design Services', 
     description: 'User-centric design solutions that combine beautiful aesthetics with intuitive navigation to delight your audience.', 
-    color: 'bg-[#f5f3ff] text-[#7c3aed]', 
+    color: 'bg-white text-violet-600 border border-gray-100', 
     tag: 'Design',
     blob: 'rounded-[30%_70%_70%_30%_/_50%_50%_50%_50%]',
     hover: 'group-hover:rotate-6'
@@ -55,7 +55,7 @@ const services = [
     icon: <Smartphone size={28} strokeWidth={1.5} />, 
     title: 'Mobile App Development', 
     description: 'Native and cross-platform mobile applications designed to perform seamlessly across iOS and Android devices.', 
-    color: 'bg-[#f1f6f4] text-[#2c4a3e]', 
+    color: 'bg-white text-teal-600 border border-gray-100', 
     tag: 'Mobile',
     blob: 'rounded-[50%_50%_30%_70%_/_70%_30%_50%_50%]',
     hover: 'group-hover:scale-110'
@@ -64,7 +64,7 @@ const services = [
     icon: <Lightbulb size={28} strokeWidth={1.5} />, 
     title: 'IT Consulting', 
     description: 'Expert strategic guidance to help you navigate digital transformation and optimize your technology infrastructure.', 
-    color: 'bg-[#fff7ed] text-[#ea580c]', 
+    color: 'bg-white text-orange-600 border border-gray-100', 
     tag: 'Consulting',
     blob: 'rounded-[70%_30%_50%_50%_/_50%_50%_70%_30%]',
     hover: 'group-hover:-rotate-6'
@@ -84,7 +84,7 @@ export default function ServicesPage() {
       />
 
       {/* Services Grid */}
-      <section className="py-24 md:py-32 bg-premium-white">
+      <section className="py-24 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial="hidden" whileInView="visible"

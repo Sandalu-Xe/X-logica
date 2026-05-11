@@ -13,7 +13,7 @@ const values = [
     icon: <Target size={28} strokeWidth={1.5} />,
     title: 'Mission',
     description: 'To empower businesses worldwide with intelligent, scalable web and AI solutions that drive measurable growth and innovation.',
-    bgColor: 'bg-[#edf2f7]',
+    bgColor: 'bg-white border border-gray-100',
     textColor: 'text-[#1a365d]',
     blobClass: 'rounded-[40%_60%_40%_60%_/_60%_40%_60%_40%]',
     hoverClass: 'group-hover:scale-110',
@@ -22,7 +22,7 @@ const values = [
     icon: <Eye size={28} strokeWidth={1.5} />,
     title: 'Vision',
     description: 'To be the global standard for premium website development, web applications, and AI solutions, setting benchmarks in quality, reliability, and client satisfaction.',
-    bgColor: 'bg-[#f9f3ef]',
+    bgColor: 'bg-white border border-gray-100',
     textColor: 'text-[#5c3d2e]',
     blobClass: 'rounded-[65%_35%_76%_24%_/_47%_70%_30%_53%]',
     hoverClass: 'group-hover:-rotate-12',
@@ -31,7 +31,7 @@ const values = [
     icon: <Heart size={28} strokeWidth={1.5} />,
     title: 'Values',
     description: 'We believe in transparency, continuous innovation, and building lasting partnerships with our clients through excellence.',
-    bgColor: 'bg-[#f0f4f1]',
+    bgColor: 'bg-white border border-gray-100',
     textColor: 'text-[#2d4a3e]',
     blobClass: 'rounded-[24%_76%_35%_65%_/_53%_30%_70%_47%]',
     hoverClass: 'group-hover:rotate-12',
@@ -87,7 +87,6 @@ export default function AboutPage() {
         centered
         title={<>Building the <span className="text-accent-blue">Future</span> of Web & AI Solutions</>}
         description="We're a team of passionate engineers, designers, and strategists dedicated to crafting exceptional web, UI/UX, and AI solutions that help businesses thrive in the digital age."
-        blobs={[{ position: 'top-[-10%] left-[20%] w-[50%] h-[50%]', color: 'bg-accent-blue/5' }]}
       />
 
       {/* Brand Illustration Section */}
@@ -110,7 +109,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission, Vision, Values */}
-      <section className="py-24 md:py-32 bg-premium-white">
+      <section className="py-24 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, margin: '-100px' }} variants={containerVariants} className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {values.map((val, i) => (
@@ -171,7 +170,7 @@ export default function AboutPage() {
       </section>
 
       {/* Stats */}
-      <section className="py-20 md:py-24 bg-premium-white border-y border-gray-100">
+      <section className="py-20 md:py-24 bg-white border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 md:gap-20">
             {stats.map((stat, i) => (

@@ -36,10 +36,7 @@ export default function CareersPage() {
         centered
         title={<>Build Your <span className="text-accent-blue">Career</span> With Us</>}
         description="Join a world-class team of engineers, designers, and strategists working on challenging problems that impact millions of users worldwide."
-        blobs={[
-          { position: 'top-[-10%] left-[5%] w-[40%] h-[40%]', color: 'bg-accent-violet/15' },
-          { position: 'bottom-[-10%] right-[5%] w-[40%] h-[40%]', color: 'bg-accent-blue/15' },
-        ]}
+        image="/images/careers-illustration.png"
       />
       
       {/* Brand Illustration Section */}
@@ -62,7 +59,7 @@ export default function CareersPage() {
       </section>
 
       {/* Perks Grid */}
-      <section className="py-24 md:py-32 bg-premium-white">
+      <section className="py-24 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial="hidden" whileInView="visible"
@@ -119,7 +116,7 @@ export default function CareersPage() {
               <motion.div
                 key={i}
                 variants={itemVariants}
-                className="group flex flex-col md:flex-row md:items-center justify-between p-6 md:p-8 bg-premium-white border border-gray-100 rounded-2xl hover:shadow-xl hover:shadow-black/5 hover:border-accent-blue/20 transition-all duration-300"
+                className="group flex flex-col md:flex-row md:items-center justify-between p-6 md:p-8 bg-white border border-gray-100 rounded-2xl hover:shadow-xl hover:shadow-black/5 hover:border-accent-blue/20 transition-all duration-300"
               >
                 <div className="mb-4 md:mb-0">
                   <h3 className="text-xl font-bold text-premium-black group-hover:text-accent-blue transition-colors mb-2">{position.title}</h3>
@@ -143,7 +140,7 @@ export default function CareersPage() {
       </section>
 
       {/* Contact CTA */}
-      <section className="py-24 md:py-32 bg-premium-white overflow-hidden">
+      <section className="py-24 md:py-32 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="bg-premium-black rounded-[48px] p-12 md:p-24 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-1/2 h-full bg-accent-blue/20 blur-[120px] -z-10" />

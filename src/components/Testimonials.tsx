@@ -76,7 +76,7 @@ export default function Testimonials() {
             {[...testimonials, ...testimonials].map((testimonial, index) => (
               <div
                 key={index}
-                className="w-[320px] md:w-[400px] shrink-0 p-8 md:p-10 bg-premium-white border border-gray-100 rounded-3xl relative group hover:shadow-2xl hover:shadow-black/5 transition-all duration-500 flex flex-col justify-between"
+                className="w-[320px] md:w-[400px] shrink-0 p-8 md:p-10 bg-white border border-gray-100 rounded-3xl relative group hover:shadow-2xl hover:shadow-black/5 transition-all duration-500 flex flex-col justify-between"
               >
                 <Quote className="absolute top-8 right-8 w-10 h-10 text-accent-blue/10 group-hover:text-accent-blue/20 transition-colors" />
                 

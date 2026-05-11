@@ -38,12 +38,12 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-premium-white/80 backdrop-blur-md border-b border-gray-200/50 py-4' : 'bg-transparent py-6'
+        isScrolled ? 'bg-white border-b border-gray-200 py-4' : 'bg-white py-6'
       }`}
     >
       {/* Scroll Progress Bar */}
       <motion.div
-        className="absolute bottom-0 left-0 right-0 h-[2px] bg-accent-sage origin-left z-50"
+        className="absolute bottom-0 left-0 right-0 h-[2px] bg-black origin-left z-50"
         style={{ scaleX: scrollYProgress }}
       />
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -59,12 +59,12 @@ export default function Navbar() {
                 to={link.to}
                 className={`text-sm font-medium transition-colors relative group px-2 py-1 ${
                   location.pathname === link.to
-                    ? 'text-accent-sage'
-                    : 'text-gray-600 hover:text-accent-sage'
+                    ? 'text-black'
+                    : 'text-gray-600 hover:text-black'
                 }`}
               >
                 {link.name}
-                <span className={`absolute -bottom-1 left-0 h-0.5 bg-accent-sage transition-all duration-300 ${
+                <span className={`absolute -bottom-1 left-0 h-0.5 bg-black transition-all duration-300 ${
                   location.pathname === link.to ? 'w-full' : 'w-0 group-hover:w-full'
                 }`} />
               </Link>
@@ -74,7 +74,7 @@ export default function Navbar() {
 
         <div className="hidden md:block">
           <Magnetic strength={0.15}>
-            <Link to="/careers" className="bg-premium-black text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-gray-800 transition-all active:scale-95 inline-block">
+            <Link to="/careers" className="bg-black text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-gray-800 transition-all active:scale-95 inline-block">
               Book a Demo
             </Link>
           </Magnetic>
@@ -111,8 +111,8 @@ export default function Navbar() {
                     to={link.to}
                     className={`text-2xl font-bold tracking-tight transition-colors ${
                       location.pathname === link.to
-                        ? 'text-accent-blue'
-                        : 'text-premium-black hover:text-accent-blue'
+                        ? 'text-accent-sage'
+                        : 'text-premium-black hover:text-accent-sage'
                     }`}
                   >
                     {link.name}

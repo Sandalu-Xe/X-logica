@@ -16,7 +16,7 @@ const services = [
     icon: <OrganicGlobe className="w-8 h-8" />,
     title: 'Premium Website Development',
     description: 'Stunning, high-performance websites tailored to elevate your brand presence and drive conversions.',
-    color: 'bg-[#f0f4f1] text-[#2d4a3e]',
+    color: 'bg-white text-blue-600 border border-gray-100',
     blob: 'rounded-[24%_76%_35%_65%_/_53%_30%_70%_47%]',
     hover: 'group-hover:rotate-12'
   },
@@ -24,7 +24,7 @@ const services = [
     icon: <OrganicBrowser className="w-8 h-8" />,
     title: 'Web Application Development',
     description: 'Robust, scalable, and secure web applications built to streamline your business operations.',
-    color: 'bg-[#f9f3ef] text-[#5c3d2e]',
+    color: 'bg-white text-purple-600 border border-gray-100',
     blob: 'rounded-[65%_35%_76%_24%_/_47%_70%_30%_53%]',
     hover: 'group-hover:-rotate-12'
   },
@@ -32,7 +32,7 @@ const services = [
     icon: <OrganicRobot className="w-8 h-8" />,
     title: 'AI Solutions & Chatbots',
     description: 'Intelligent AI-driven products, including custom chatbots, to automate tasks and enhance customer experience.',
-    color: 'bg-[#edf2f7] text-[#1a365d]',
+    color: 'bg-white text-green-600 border border-gray-100',
     blob: 'rounded-[40%_60%_40%_60%_/_60%_40%_60%_40%]',
     hover: 'group-hover:scale-110'
   },
@@ -40,7 +40,7 @@ const services = [
     icon: <OrganicDesign className="w-8 h-8" />,
     title: 'UI/UX Design Services',
     description: 'Intuitive and engaging user interfaces designed to provide seamless and memorable user experiences.',
-    color: 'bg-[#f5f3ff] text-[#7c3aed]',
+    color: 'bg-white text-violet-600 border border-gray-100',
     blob: 'rounded-[30%_70%_70%_30%_/_50%_50%_50%_50%]',
     hover: 'group-hover:rotate-6'
   },
@@ -48,7 +48,7 @@ const services = [
     icon: <OrganicMobile className="w-8 h-8" />,
     title: 'Mobile App Development',
     description: 'High-performance, cross-platform mobile applications built seamlessly with Flutter and React Native.',
-    color: 'bg-[#f1f6f4] text-[#2c4a3e]',
+    color: 'bg-white text-teal-600 border border-gray-100',
     blob: 'rounded-[50%_50%_30%_70%_/_70%_30%_50%_50%]',
     hover: 'group-hover:scale-110'
   },
@@ -131,7 +131,7 @@ function ServiceCard({ service, index }: { service: any; index: number; key?: Re
 
 export default function Services() {
   return (
-    <section id="solutions" className="py-24 md:py-32 bg-premium-white relative bg-grain">
+    <section id="solutions" className="py-24 md:py-32 bg-white relative bg-grain">
       <HandDrawnFilter />
       <div className="max-w-7xl mx-auto px-6">
         <motion.div 
@@ -147,15 +147,6 @@ export default function Services() {
               Built by Humans, <br /> 
               <span className="text-accent-sage italic relative">
                 for Humans.
-                <motion.svg 
-                  viewBox="0 0 200 20" 
-                  className="absolute -bottom-2 left-0 w-full h-3 text-accent-blue/30"
-                  initial={{ pathLength: 0 }}
-                  whileInView={{ pathLength: 1 }}
-                  transition={{ duration: 1.5, delay: 1 }}
-                >
-                  <path d="M5,15 Q50,5 100,15 T195,15" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
-                </motion.svg>
               </span>
             </motion.h2>
           </div>
