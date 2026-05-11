@@ -16,31 +16,41 @@ const services = [
     icon: <OrganicGlobe className="w-8 h-8" />,
     title: 'Premium Website Development',
     description: 'Stunning, high-performance websites tailored to elevate your brand presence and drive conversions.',
-    color: 'bg-[#F2F4F1] text-[#2C3E2C]', // Sage
+    color: 'bg-[#f0f4f1] text-[#2d4a3e]',
+    blob: 'rounded-[24%_76%_35%_65%_/_53%_30%_70%_47%]',
+    hover: 'group-hover:rotate-12'
   },
   {
     icon: <OrganicBrowser className="w-8 h-8" />,
     title: 'Web Application Development',
     description: 'Robust, scalable, and secure web applications built to streamline your business operations.',
-    color: 'bg-[#F8F2ED] text-[#5D4037]', // Terracotta
+    color: 'bg-[#f9f3ef] text-[#5c3d2e]',
+    blob: 'rounded-[65%_35%_76%_24%_/_47%_70%_30%_53%]',
+    hover: 'group-hover:-rotate-12'
   },
   {
     icon: <OrganicRobot className="w-8 h-8" />,
     title: 'AI Solutions & Chatbots',
     description: 'Intelligent AI-driven products, including custom chatbots, to automate tasks and enhance customer experience.',
-    color: 'bg-[#EDF2F6] text-[#2A4E6B]', // Muted Blue
+    color: 'bg-[#edf2f7] text-[#1a365d]',
+    blob: 'rounded-[40%_60%_40%_60%_/_60%_40%_60%_40%]',
+    hover: 'group-hover:scale-110'
   },
   {
     icon: <OrganicDesign className="w-8 h-8" />,
     title: 'UI/UX Design Services',
     description: 'Intuitive and engaging user interfaces designed to provide seamless and memorable user experiences.',
-    color: 'bg-[#F4F1F5] text-[#4A2C4A]', // Muted Plum
+    color: 'bg-[#f5f3ff] text-[#7c3aed]',
+    blob: 'rounded-[30%_70%_70%_30%_/_50%_50%_50%_50%]',
+    hover: 'group-hover:rotate-6'
   },
   {
     icon: <OrganicMobile className="w-8 h-8" />,
     title: 'Mobile App Development',
     description: 'High-performance, cross-platform mobile applications built seamlessly with Flutter and React Native.',
-    color: 'bg-[#F1F6F4] text-[#2C4A3E]', // Muted Teal
+    color: 'bg-[#f1f6f4] text-[#2c4a3e]',
+    blob: 'rounded-[50%_50%_30%_70%_/_70%_30%_50%_50%]',
+    hover: 'group-hover:scale-110'
   },
 ];
 
@@ -95,15 +105,9 @@ function ServiceCard({ service, index }: { service: any; index: number; key?: Re
         } as any}
       />
       
-      {/* Organic Icon Background - Marker Style */}
       <motion.div 
-        whileHover={{ 
-          scale: 1.1,
-          rotate: [0, -3, 3, 0],
-        }}
-        className={`w-16 h-16 flex items-center justify-center mb-10 relative z-10 transition-all duration-1000 ${service.color}`}
+        className={`w-16 h-16 flex items-center justify-center mb-10 relative z-10 transition-all duration-1000 ${service.blob} ${service.hover} ${service.color}`}
         style={{ 
-          borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
           boxShadow: "inset 0 0 20px rgba(0,0,0,0.02)"
         } as React.CSSProperties}
       >

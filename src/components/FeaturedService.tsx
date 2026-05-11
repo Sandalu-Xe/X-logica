@@ -21,7 +21,7 @@ export default function FeaturedProduct() {
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ once: false, margin: "-100px" }}
           >
-            <span className="text-2xl font-hand text-accent-blue mb-6 block">Featured Service</span>
+            <span className="text-3xl font-hand text-accent-blue mb-6 block">Featured Service</span>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-premium-black mb-8 leading-tight">
               Xlogica - Nexus Insights: <br /> Expert Digital Solutions
             </h2>

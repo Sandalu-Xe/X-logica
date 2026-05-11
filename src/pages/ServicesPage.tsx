@@ -15,12 +15,60 @@ const features = [
 ];
 
 const services = [
-  { icon: <Globe className="w-7 h-7" />, title: 'Premium Website Development', description: 'Custom, high-performance websites built with modern technologies to elevate your digital presence and drive conversions.', color: 'bg-blue-50 text-blue-600', tag: 'Web' },
-  { icon: <Layout className="w-7 h-7" />, title: 'Web Application Development', description: 'Scalable and secure web applications tailored to streamline your business operations and provide exceptional user experiences.', color: 'bg-indigo-50 text-indigo-600', tag: 'Apps' },
-  { icon: <Bot className="w-7 h-7" />, title: 'AI Solutions & Chatbots', description: 'Intelligent AI integrations and custom chatbots to automate workflows, enhance customer support, and unlock new insights.', color: 'bg-purple-50 text-purple-600', tag: 'AI' },
-  { icon: <PenTool className="w-7 h-7" />, title: 'UI/UX Design Services', description: 'User-centric design solutions that combine beautiful aesthetics with intuitive navigation to delight your audience.', color: 'bg-pink-50 text-pink-600', tag: 'Design' },
-  { icon: <Smartphone className="w-7 h-7" />, title: 'Mobile App Development', description: 'Native and cross-platform mobile applications designed to perform seamlessly across iOS and Android devices.', color: 'bg-green-50 text-green-600', tag: 'Mobile' },
-  { icon: <Lightbulb className="w-7 h-7" />, title: 'IT Consulting', description: 'Expert strategic guidance to help you navigate digital transformation and optimize your technology infrastructure.', color: 'bg-orange-50 text-orange-600', tag: 'Consulting' },
+  { 
+    icon: <Globe size={28} strokeWidth={1.5} />, 
+    title: 'Premium Website Development', 
+    description: 'Custom, high-performance websites built with modern technologies to elevate your digital presence and drive conversions.', 
+    color: 'bg-[#f0f4f1] text-[#2d4a3e]', 
+    tag: 'Web',
+    blob: 'rounded-[24%_76%_35%_65%_/_53%_30%_70%_47%]',
+    hover: 'group-hover:rotate-12'
+  },
+  { 
+    icon: <Layout size={28} strokeWidth={1.5} />, 
+    title: 'Web Application Development', 
+    description: 'Scalable and secure web applications tailored to streamline your business operations and provide exceptional user experiences.', 
+    color: 'bg-[#f9f3ef] text-[#5c3d2e]', 
+    tag: 'Apps',
+    blob: 'rounded-[65%_35%_76%_24%_/_47%_70%_30%_53%]',
+    hover: 'group-hover:-rotate-12'
+  },
+  { 
+    icon: <Bot size={28} strokeWidth={1.5} />, 
+    title: 'AI Solutions & Chatbots', 
+    description: 'Intelligent AI integrations and custom chatbots to automate workflows, enhance customer support, and unlock new insights.', 
+    color: 'bg-[#edf2f7] text-[#1a365d]', 
+    tag: 'AI',
+    blob: 'rounded-[40%_60%_40%_60%_/_60%_40%_60%_40%]',
+    hover: 'group-hover:scale-110'
+  },
+  { 
+    icon: <PenTool size={28} strokeWidth={1.5} />, 
+    title: 'UI/UX Design Services', 
+    description: 'User-centric design solutions that combine beautiful aesthetics with intuitive navigation to delight your audience.', 
+    color: 'bg-[#f5f3ff] text-[#7c3aed]', 
+    tag: 'Design',
+    blob: 'rounded-[30%_70%_70%_30%_/_50%_50%_50%_50%]',
+    hover: 'group-hover:rotate-6'
+  },
+  { 
+    icon: <Smartphone size={28} strokeWidth={1.5} />, 
+    title: 'Mobile App Development', 
+    description: 'Native and cross-platform mobile applications designed to perform seamlessly across iOS and Android devices.', 
+    color: 'bg-[#f1f6f4] text-[#2c4a3e]', 
+    tag: 'Mobile',
+    blob: 'rounded-[50%_50%_30%_70%_/_70%_30%_50%_50%]',
+    hover: 'group-hover:scale-110'
+  },
+  { 
+    icon: <Lightbulb size={28} strokeWidth={1.5} />, 
+    title: 'IT Consulting', 
+    description: 'Expert strategic guidance to help you navigate digital transformation and optimize your technology infrastructure.', 
+    color: 'bg-[#fff7ed] text-[#ea580c]', 
+    tag: 'Consulting',
+    blob: 'rounded-[70%_30%_50%_50%_/_50%_50%_70%_30%]',
+    hover: 'group-hover:-rotate-6'
+  },
 ];
 
 // --- Page ---
@@ -45,9 +93,23 @@ export default function ServicesPage() {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {services.map((service, i) => (
-              <motion.div key={i} variants={itemVariants} className="group p-10 bg-white border border-gray-100 rounded-3xl hover:shadow-2xl hover:shadow-black/5 hover:-translate-y-1 transition-all duration-500 relative overflow-hidden">
+              <motion.div 
+                key={i} 
+                variants={itemVariants} 
+                whileHover={{ y: -8 }}
+                className="group p-10 bg-white border border-gray-100 rounded-[32px] hover:shadow-2xl hover:shadow-black/5 transition-all duration-500 relative overflow-hidden"
+              >
                 <div className="flex items-start justify-between mb-8">
-                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${service.color}`}>{service.icon}</div>
+                  <motion.div 
+                    whileHover={{ 
+                      scale: 1.1,
+                      rotate: service.hover.includes('-') ? -12 : 12 
+                    }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+                    className={`w-16 h-16 flex items-center justify-center ${service.blob} ${service.color} shadow-lg shadow-black/5`}
+                  >
+                    {service.icon}
+                  </motion.div>
                   <span className="text-[10px] font-bold tracking-widest uppercase text-accent-blue bg-accent-blue/5 px-3 py-1 rounded-full border border-accent-blue/10">{service.tag}</span>
                 </div>
                 <h3 className="text-2xl font-bold text-premium-black mb-4">{service.title}</h3>
@@ -71,7 +133,7 @@ export default function ServicesPage() {
               transition={{ duration: 1, ease: EASE }}
               viewport={{ once: false, margin: '-100px' }}
             >
-              <span className="text-xs font-bold tracking-widest text-accent-violet uppercase mb-6 block">Featured Service</span>
+              <span className="text-3xl font-hand text-accent-blue mb-6 block">Featured Service</span>
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-premium-black mb-8 leading-tight">
                 Xlogica - Nexus Dashboard: <br /> Insight at Your Fingertips
               </h2>
