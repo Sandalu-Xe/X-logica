@@ -14,30 +14,29 @@ export default function FeaturedProduct() {
   return (
     <section id="products" className="py-24 md:py-32 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ once: false, margin: "-100px" }}
-            className="text-center"
           >
             <span className="text-3xl font-hand text-accent-blue mb-6 block">Featured Service</span>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-premium-black mb-8 leading-tight">
               Xlogica - Nexus Insights: <br /> Expert Digital Solutions
             </h2>
-            <p className="text-lg text-gray-500 mb-10 leading-relaxed mx-auto max-w-2xl">
+            <p className="text-lg text-gray-500 mb-10 leading-relaxed">
               Our flagship service provides a unified platform for managing your entire digital ecosystem.
               Built with performance and strategy at its core, Nexus Insights helps you make data-driven decisions faster.
             </p>
 
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12 text-left max-w-2xl mx-auto">
+            <ul className="space-y-4 mb-10">
               {features.map((feature, index) => (
                 <motion.li
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                  transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
                   viewport={{ once: false }}
                   className="flex items-center gap-3 text-gray-700 font-medium"
                 >
@@ -49,13 +48,27 @@ export default function FeaturedProduct() {
               ))}
             </ul>
 
-            <div className="flex justify-center">
-              <Link
-                to="/solutions"
-                className="bg-premium-black text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-gray-800 transition-all active:scale-95 group w-fit"
-              >
-                See it in Action <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
+            <Link
+              to="/solutions"
+              className="bg-premium-black text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-gray-800 transition-all active:scale-95 group w-fit"
+            >
+              See it in Action <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: false }}
+            className="relative"
+          >
+            <div className="relative rounded-[40px] overflow-hidden border border-[#2C3E2C]/5 bg-white p-4 md:p-8 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.05)]">
+              <img 
+                src="/images/nexus-dashboard.png" 
+                alt="Human-Centric Data Interface" 
+                className="w-full h-auto rounded-[32px] pointer-events-none select-none"
+              />
             </div>
           </motion.div>
         </div>

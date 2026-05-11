@@ -158,6 +158,32 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
+        {/* Hero Illustration with 3D Tilt */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.5, delay: 0.8, ease: [0.22, 1, 0.36, 1] as const }}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          style={!isMobile ? {
+            rotateX,
+            rotateY,
+            transformStyle: "preserve-3d",
+          } : {} as any}
+          className="relative perspective-2000 max-w-5xl mx-auto"
+        >
+          <div className="relative rounded-[40px] overflow-hidden bg-white border border-[#2C3E2C]/5 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.08)] p-4 md:p-8">
+            <motion.img
+              src="/images/hero-illustration.png"
+              alt="Xlogica Human-Centric Illustration"
+              className="w-full h-auto rounded-[32px] pointer-events-none select-none"
+              loading="eager"
+              decoding="async"
+              style={!isMobile ? { transform: "translateZ(30px)" } : {} as any}
+            />
+          </div>
+
+        </motion.div>
       </div>
     </section>
   );

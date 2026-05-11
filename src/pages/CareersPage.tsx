@@ -32,6 +32,11 @@ export default function CareersPage() {
             viewport={{ once: false }}
             className="relative rounded-[48px] overflow-hidden border border-gray-100 shadow-2xl shadow-black/5"
           >
+            <img
+              src="/images/careers-illustration.png"
+              alt="Team Culture Illustration"
+              className="w-full h-auto rounded-[32px] pointer-events-none select-none"
+            />
           </motion.div>
         </div>
       </section>

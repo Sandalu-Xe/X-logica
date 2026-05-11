@@ -19,6 +19,7 @@ export default function SolutionsPage() {
         badge="Our Solutions"
         title={<>Comprehensive <span className="text-accent-blue">Solutions</span> for Digital Transformation</>}
         description="We combine technical excellence with business strategy to deliver products that make a real impact on your bottom line."
+        image="/images/solutions-illustration.png"
       />
 
       {/* Services Grid */}
