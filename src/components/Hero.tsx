@@ -42,18 +42,18 @@ const wordVariants = {
 };
 
 const Scribble = ({ className = "" }: { className?: string }) => (
-  <motion.svg 
-    viewBox="0 0 100 20" 
+  <motion.svg
+    viewBox="0 0 100 20"
     className={`absolute pointer-events-none ${className}`}
     initial={{ pathLength: 0, opacity: 0 }}
     whileInView={{ pathLength: 1, opacity: 0.3 }}
     transition={{ duration: 1.5, delay: 1 }}
   >
-    <motion.path 
-      d="M5,15 Q25,5 45,15 T85,15" 
-      fill="none" 
-      stroke="currentColor" 
-      strokeWidth="2" 
+    <motion.path
+      d="M5,15 Q25,5 45,15 T85,15"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
       strokeLinecap="round"
     />
   </motion.svg>
@@ -103,15 +103,15 @@ export default function Hero() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <motion.div 
+        <motion.div
           className="max-w-4xl mx-auto text-center mb-16"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
           <div className="relative inline-block">
-            <motion.h1 
-              className="text-5xl md:text-8xl font-bold tracking-tight text-premium-black mb-8 leading-[1.05]"
+            <motion.h1
+              className="text-4xl md:text-8xl font-bold tracking-tight text-premium-black mb-8 leading-[1.05]"
             >
               {words.map((word, i) => (
                 <motion.span
@@ -127,23 +127,23 @@ export default function Hero() {
               ))}
             </motion.h1>
             <Scribble className="bottom-0 left-1/4 w-1/2 text-[#5D4037]" />
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, rotate: -12, scale: 0.8 }}
               whileInView={{ opacity: 0.8, rotate: -12, scale: 1 }}
               transition={{ duration: 0.8, delay: 1.5 }}
-              className="absolute -top-8 -right-8 md:-right-16 font-hand text-2xl md:text-3xl text-black hidden sm:block"
+              className="absolute -top-6 -right-10 md:-top-8 md:-right-16 font-hand text-lg md:text-3xl text-black hidden sm:block"
             >
-              Designed for People
+              Designed for Business
             </motion.div>
           </div>
-          <motion.p 
+          <motion.p
             variants={itemVariants}
             className="text-lg md:text-2xl text-gray-500 mb-12 leading-relaxed max-w-3xl mx-auto font-medium"
           >
             We blend technical precision with a human touch to build websites, web applications, and AI solutions that feel as natural as they are powerful.
           </motion.p>
-          
-          <motion.div 
+
+          <motion.div
             variants={itemVariants}
             className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
@@ -175,20 +175,20 @@ export default function Hero() {
           className="relative perspective-2000 max-w-5xl mx-auto"
         >
           <div className="relative rounded-[40px] overflow-hidden bg-white border border-[#2C3E2C]/5 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.08)] p-4 md:p-8">
-            <motion.img 
-              src="/images/hero-illustration.png" 
-              alt="Xlogica Human-Centric Illustration" 
+            <motion.img
+              src="/images/hero-illustration.png"
+              alt="Xlogica Human-Centric Illustration"
               className="w-full h-auto rounded-[32px] pointer-events-none select-none"
               loading="eager"
               decoding="async"
               style={!isMobile ? { transform: "translateZ(30px)" } : {} as any}
             />
           </div>
-          
+
           {/* Subtle Organic Floating Elements */}
           {!isMobile && (
             <>
-              <motion.div 
+              <motion.div
                 animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                 style={{ transform: "translateZ(80px)" } as any}
@@ -196,7 +196,7 @@ export default function Hero() {
               >
                 <div className="w-24 h-24 bg-[#F2E8E4] rounded-full blur-2xl opacity-60" />
               </motion.div>
-              <motion.div 
+              <motion.div
                 animate={{ y: [0, 15, 0], rotate: [0, -5, 0] }}
                 transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                 style={{ transform: "translateZ(60px)" } as any}

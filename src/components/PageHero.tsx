@@ -50,7 +50,7 @@ export default function PageHero({
 
           <motion.h1
             variants={itemVariants}
-            className="text-5xl md:text-7xl font-bold tracking-tight text-premium-black mb-8 leading-[1.1]"
+            className="text-4xl md:text-7xl font-bold tracking-tight text-premium-black mb-8 leading-[1.1]"
           >
             {title}
           </motion.h1>

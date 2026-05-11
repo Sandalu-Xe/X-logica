@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { motion } from 'motion/react';
 import { Mail, User, MessageSquare, ArrowRight, CheckCircle2, Loader2, AlertCircle } from 'lucide-react';
 import axios from 'axios';
+import { itemVariants } from '../lib/animations';
 
 interface ContactFormProps {
   title?: React.ReactNode;
@@ -67,6 +68,12 @@ export default function ContactForm({
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
       <div>
+        <motion.span 
+          variants={itemVariants} 
+          className="text-3xl font-hand text-accent-blue mb-4 block"
+        >
+          Contact Us
+        </motion.span>
         <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-8 leading-tight">
           {title}
         </h2>
@@ -82,7 +89,7 @@ export default function ContactForm({
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 0.7, x: 0 }}
             transition={{ delay: 0.5 }}
-            className="absolute -bottom-15 left-0 font-hand text-3xl text-white rotate  hidden md:block"
+            className="absolute -bottom-16 left-0 font-hand text-3xl text-white -rotate-6 hidden md:block"
           >
             Let's build something great.
           </motion.div>

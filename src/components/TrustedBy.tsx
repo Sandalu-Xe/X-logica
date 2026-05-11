@@ -18,7 +18,7 @@ export default function TrustedBy() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center text-sm font-bold tracking-widest text-gray-400 uppercase mb-12"
+          className="text-center text-3xl font-hand text-accent-blue mb-12"
         >
           Trusted by leading companies worldwide
         </motion.p>

@@ -56,7 +56,7 @@ export default function Stats() {
               className="flex flex-col items-center text-center"
             >
               <CountUp value={stat.value} suffix={stat.suffix} />
-              <p className="text-sm font-bold tracking-widest text-gray-400 uppercase mt-4">
+              <p className="text-base font-semibold text-gray-500 mt-4">
                 {stat.label}
               </p>
             </motion.div>

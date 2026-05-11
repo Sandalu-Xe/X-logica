@@ -93,29 +93,42 @@ export default function Navbar() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 bg-white border-b border-gray-100 p-6 md:hidden shadow-xl"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute top-full left-0 right-0 bg-white border-b border-gray-100 overflow-hidden md:hidden shadow-2xl"
           >
-            <div className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <Link
+            <div className="p-8 flex flex-col gap-6">
+              {navLinks.map((link, i) => (
+                <motion.div
                   key={link.name}
-                  to={link.to}
-                  className={`text-lg font-medium ${
-                    location.pathname === link.to
-                      ? 'text-accent-sage'
-                      : 'text-gray-800 hover:text-accent-sage'
-                  }`}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.1 }}
                 >
-                  {link.name}
-                </Link>
+                  <Link
+                    to={link.to}
+                    className={`text-2xl font-bold tracking-tight transition-colors ${
+                      location.pathname === link.to
+                        ? 'text-accent-blue'
+                        : 'text-premium-black hover:text-accent-blue'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
               ))}
-              <hr className="border-gray-100 my-2" />
-              <Link to="/careers" className="bg-premium-black text-white w-full py-3 rounded-lg font-semibold flex items-center justify-center gap-2">
-                Get Started <ArrowRight size={18} />
-              </Link>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: navLinks.length * 0.1 }}
+                className="pt-4"
+              >
+                <Link to="/careers" className="bg-premium-black text-white w-full py-4 rounded-xl font-bold flex items-center justify-center gap-3 active:scale-95 transition-all shadow-xl shadow-black/10">
+                  Book a Demo <ArrowRight size={20} />
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         )}
