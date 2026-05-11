@@ -5,6 +5,8 @@ import { ArrowLeft, User, Mail, Phone, Link as LinkIcon, FileText, Send, CheckCi
 import axios from 'axios';
 import Magnetic from '../components/Magnetic';
 
+import { openPositions } from '../data/careers';
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -31,7 +33,10 @@ const itemVariants = {
 type FormStatus = 'idle' | 'loading' | 'success' | 'error';
 
 export default function ApplyPage() {
-  const { role } = useParams<{ role: string }>();
+  const { slug } = useParams<{ slug: string }>();
+  const position = openPositions.find(p => p.slug === slug);
+  const roleName = position ? position.title : 'General Application';
+  
   const [status, setStatus] = useState<FormStatus>('idle');
   const [errorMsg, setErrorMsg] = useState('');
   const [fileName, setFileName] = useState<string | null>(null);
@@ -96,10 +101,10 @@ export default function ApplyPage() {
           className="mb-12"
         >
           <Link
-            to="/careers"
+            to={slug ? `/careers/${slug}` : "/careers"}
             className="inline-flex items-center gap-2 text-sm font-bold text-gray-500 hover:text-accent-blue transition-colors group"
           >
-            <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> Back to Careers
+            <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> Back to {position ? 'Position' : 'Careers'}
           </Link>
         </motion.div>
 
@@ -118,7 +123,7 @@ export default function ApplyPage() {
                 </span>
                 <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-premium-black mb-6 leading-tight">
                   Applying for <br />
-                  <span className="text-accent-blue">{decodeURIComponent(role || 'Position')}</span>
+                  <span className="text-accent-blue">{roleName}</span>
                 </h1>
                 <p className="text-lg text-gray-500 leading-relaxed max-w-2xl">
                   We're excited to learn more about you. Please fill out the form below and attach your CV to get started.
@@ -131,7 +136,7 @@ export default function ApplyPage() {
               >
                 <form onSubmit={handleSubmit} encType="multipart/form-data" className="space-y-8">
                   {/* Hidden field to identify the role */}
-                  <input type="hidden" name="position" value={decodeURIComponent(role || 'General Application')} />
+                  <input type="hidden" name="position" value={roleName} />
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="space-y-2">
@@ -269,7 +274,7 @@ export default function ApplyPage() {
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-premium-black mb-4">Application Received!</h2>
               <p className="text-lg text-gray-500 max-w-md mx-auto mb-10 leading-relaxed">
-                Thank you for applying for the <strong>{decodeURIComponent(role || 'position')}</strong>. Our recruiting team will review your application and CV, then get back to you soon.
+                Thank you for applying for the <strong>{roleName}</strong>. Our recruiting team will review your application and CV, then get back to you soon.
               </p>
               <Link to="/careers">
                 <Magnetic strength={0.2}>

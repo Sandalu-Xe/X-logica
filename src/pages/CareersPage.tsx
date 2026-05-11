@@ -6,24 +6,7 @@ import PageHero from '../components/PageHero';
 import ContactForm from '../components/ContactForm';
 import { containerVariants, itemVariants } from '../lib/animations';
 
-// --- Data ---
-
-const openPositions = [
-  { title: 'Senior Full Stack Engineer', department: 'Engineering', location: 'Remote / San Francisco', type: 'Full-time' },
-  { title: 'Product Designer (UX/UI)', department: 'Design', location: 'Remote / New York', type: 'Full-time' },
-  { title: 'Machine Learning Engineer', department: 'AI & Data', location: 'Remote', type: 'Full-time' },
-  { title: 'DevOps / Cloud Architect', department: 'Infrastructure', location: 'Remote / London', type: 'Full-time' },
-  { title: 'Technical Project Manager', department: 'Operations', location: 'San Francisco', type: 'Full-time' },
-];
-
-const perks = [
-  { emoji: '🌍', title: 'Remote-First', desc: 'Work from anywhere in the world' },
-  { emoji: '📈', title: 'Growth Budget', desc: '$3,000/year for learning & conferences' },
-  { emoji: '🏖️', title: 'Unlimited PTO', desc: 'Take the time you need to recharge' },
-  { emoji: '💰', title: 'Competitive Pay', desc: 'Top-of-market salary + equity' },
-  { emoji: '🏥', title: 'Full Benefits', desc: 'Health, dental, vision & 401(k)' },
-  { emoji: '🎯', title: 'Impactful Work', desc: 'Build products used by millions' },
-];
+import { openPositions, perks } from '../data/careers';
 
 // --- Page ---
 
@@ -38,7 +21,7 @@ export default function CareersPage() {
         description="Join a world-class team of engineers, designers, and strategists working on challenging problems that impact millions of users worldwide."
         image="/images/careers-illustration.png"
       />
-      
+
       {/* Brand Illustration Section */}
       <section className="py-20 bg-white">
         <div className="max-w-5xl mx-auto px-6">
@@ -49,11 +32,6 @@ export default function CareersPage() {
             viewport={{ once: false }}
             className="relative rounded-[48px] overflow-hidden border border-gray-100 shadow-2xl shadow-black/5"
           >
-            <img 
-              src="/images/careers-illustration.png" 
-              alt="Team Culture Illustration" 
-              className="w-full h-auto rounded-[32px] pointer-events-none select-none"
-            />
           </motion.div>
         </div>
       </section>
@@ -112,9 +90,9 @@ export default function CareersPage() {
             variants={containerVariants}
             className="space-y-4"
           >
-            {openPositions.map((position, i) => (
+            {openPositions.map((position) => (
               <motion.div
-                key={i}
+                key={position.id}
                 variants={itemVariants}
                 className="group flex flex-col md:flex-row md:items-center justify-between p-6 md:p-8 bg-white border border-gray-100 rounded-2xl hover:shadow-xl hover:shadow-black/5 hover:border-accent-blue/20 transition-all duration-300"
               >
@@ -126,13 +104,20 @@ export default function CareersPage() {
                     <span className="flex items-center gap-1.5"><Clock size={14} /> {position.type}</span>
                   </div>
                 </div>
-                <Link to={`/apply/${encodeURIComponent(position.title)}`}>
-                  <Magnetic strength={0.15}>
-                    <button className="bg-premium-black text-white px-6 py-3 rounded-xl text-sm font-semibold flex items-center gap-2 hover:bg-gray-800 transition-all active:scale-95 group-hover:bg-accent-blue">
-                      Apply Now <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                    </button>
-                  </Magnetic>
-                </Link>
+                <div className="flex items-center gap-4">
+                  <Link to={`/careers/${position.slug}`} className="hidden sm:block">
+                    <span className="text-sm font-bold text-gray-400 hover:text-accent-blue transition-colors">
+                      View Details
+                    </span>
+                  </Link>
+                  <Link to={`/careers/${position.slug}`}>
+                    <Magnetic strength={0.15}>
+                      <button className="bg-premium-black text-white px-6 py-3 rounded-xl text-sm font-semibold flex items-center gap-2 hover:bg-gray-800 transition-all active:scale-95 group-hover:bg-accent-blue">
+                        Apply Now <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                      </button>
+                    </Magnetic>
+                  </Link>
+                </div>
               </motion.div>
             ))}
           </motion.div>
