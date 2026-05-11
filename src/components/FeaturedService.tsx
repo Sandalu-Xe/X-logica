@@ -65,25 +65,11 @@ export default function FeaturedProduct() {
           >
             <div className="absolute -inset-8 bg-[#E5E7E0]/30 rounded-[60px] blur-3xl -z-10" />
             <div className="relative rounded-[40px] overflow-hidden border border-[#2C3E2C]/5 bg-white p-4 md:p-8 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.05)]">
-              <img
-                src="/images/featured-illustration.png"
-                alt="Human-Centric Data Interface"
+              <img 
+                src="/images/nexus-dashboard.png" 
+                alt="Human-Centric Data Interface" 
                 className="w-full h-auto rounded-[32px] pointer-events-none select-none"
               />
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                viewport={{ once: false }}
-                className="absolute bottom-6 right-6 lg:-right-6 bg-white/95 backdrop-blur-lg p-6 rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] border border-[#2C3E2C]/5 min-w-[240px] z-10 hidden sm:block"
-                style={{ borderRadius: "24px 8px 24px 8px" } as React.CSSProperties}
-              >
-                <div className="text-xl font-hand text-[#2C3E2C]/80 mb-1">Platform Growth</div>
-                <div className="text-3xl font-bold text-premium-black mb-4">$1.2M+</div>
-                <div className="flex items-center gap-2 text-xs text-[#2C3E2C] font-bold bg-[#E5E7E0] w-fit px-3 py-1 rounded-full">
-                  +15.4% <span className="opacity-50">this month</span>
-                </div>
-              </motion.div>
             </div>
           </motion.div>
         </div>

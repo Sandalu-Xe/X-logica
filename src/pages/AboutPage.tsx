@@ -90,6 +90,25 @@ export default function AboutPage() {
         blobs={[{ position: 'top-[-10%] left-[20%] w-[50%] h-[50%]', color: 'bg-accent-blue/5' }]}
       />
 
+      {/* Brand Illustration Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-5xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, ease: EASE }}
+            viewport={{ once: false }}
+            className="relative rounded-[48px] overflow-hidden border border-gray-100 shadow-2xl shadow-black/5"
+          >
+            <img 
+              src="/images/about-illustration.png" 
+              alt="Team Collaboration Illustration" 
+              className="w-full h-auto rounded-[32px] pointer-events-none select-none"
+            />
+          </motion.div>
+        </div>
+      </section>
+
       {/* Mission, Vision, Values */}
       <section className="py-24 md:py-32 bg-premium-white">
         <div className="max-w-7xl mx-auto px-6">

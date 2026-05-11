@@ -43,7 +43,7 @@ export default function PageHero({
         >
           <motion.span
             variants={itemVariants}
-            className={`block mb-4 text-3xl font-hand ${badgeColor === 'blue' ? 'text-accent-blue' : 'text-accent-blue'}`}
+            className={`block mb-4 text-3xl font-hand ${badgeColor === 'violet' ? 'text-accent-violet' : 'text-accent-blue'}`}
           >
             {badge}
           </motion.span>
