@@ -19,7 +19,6 @@ export default function CareersPage() {
         centered
         title={<>Build Your <span className="text-accent-blue">Career</span> With Us</>}
         description="Join a world-class team of engineers, designers, and strategists working on challenging problems that impact millions of users worldwide."
-        image="/images/careers-illustration.png"
       />
 
       {/* Brand Illustration Section */}
