@@ -114,9 +114,6 @@ export default function ApplyPage() {
               exit={{ opacity: 0, y: -20 }}
             >
               <motion.div variants={itemVariants} className="mb-12">
-                <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-accent-blue uppercase bg-gray-50 rounded-full border border-gray-100">
-                  Application Form
-                </span>
                 <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-premium-black mb-6 leading-tight">
                   Applying for <br />
                   <span className="font-hand text-5xl md:text-7xl text-accent-blue inline-block -rotate-0 origin-left mt-4">{roleName}</span>
