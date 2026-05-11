@@ -41,6 +41,25 @@ export default function CareersPage() {
           { position: 'bottom-[-10%] right-[5%] w-[40%] h-[40%]', color: 'bg-accent-blue/15' },
         ]}
       />
+      
+      {/* Brand Illustration Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-5xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: false }}
+            className="relative rounded-[48px] overflow-hidden border border-gray-100 shadow-2xl shadow-black/5"
+          >
+            <img 
+              src="/images/careers-illustration.png" 
+              alt="Team Culture Illustration" 
+              className="w-full h-auto rounded-[32px] pointer-events-none select-none"
+            />
+          </motion.div>
+        </div>
+      </section>
 
       {/* Perks Grid */}
       <section className="py-24 md:py-32 bg-premium-white">
