@@ -51,7 +51,7 @@ export default function CareersPage() {
             variants={containerVariants}
             className="text-center mb-16"
           >
-            <motion.span variants={itemVariants} className="text-xs font-bold tracking-widest text-accent-blue uppercase mb-4 block">Why Xlogica</motion.span>
+            <motion.span variants={itemVariants} className="text-3xl font-hand text-accent-blue mb-4 block">Why Xlogica</motion.span>
             <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold tracking-tight text-premium-black mb-6">Perks & Benefits</motion.h2>
           </motion.div>
 
@@ -82,7 +82,7 @@ export default function CareersPage() {
             className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
           >
             <div className="max-w-2xl">
-              <motion.span variants={itemVariants} className="text-xs font-bold tracking-widest text-accent-blue uppercase mb-4 block">Open Positions</motion.span>
+              <motion.span variants={itemVariants} className="text-3xl font-hand text-accent-blue mb-4 block">Open Positions</motion.span>
               <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold tracking-tight text-premium-black">Find Your Next Role</motion.h2>
             </div>
             <motion.p variants={itemVariants} className="text-gray-500 max-w-sm">

@@ -58,7 +58,7 @@ export default function Testimonials() {
           variants={containerVariants}
           className="text-center mb-20"
         >
-          <motion.span variants={itemVariants} className="text-xs font-bold tracking-widest text-accent-blue uppercase mb-4 block">Testimonials</motion.span>
+          <motion.span variants={itemVariants} className="text-3xl font-hand text-accent-blue mb-4 block">Testimonials</motion.span>
           <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold tracking-tight text-premium-black mb-6">
             What Our Clients Say
           </motion.h2>

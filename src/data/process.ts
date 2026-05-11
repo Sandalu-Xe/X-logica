@@ -10,27 +10,27 @@ export interface ProcessStep {
 
 export const processSteps: ProcessStep[] = [
   {
-    icon: React.createElement(Search, { className: 'w-8 h-8' }),
+    icon: React.createElement(Search, { size: 28, strokeWidth: 1.5 }),
     title: 'Discovery',
     description: 'We dive deep into your business goals, user needs, and market landscape to define the perfect strategy.',
-    color: 'bg-blue-50 text-blue-600',
+    color: 'bg-[#edf2f7] text-[#1a365d]',
   },
   {
-    icon: React.createElement(PenTool, { className: 'w-8 h-8' }),
+    icon: React.createElement(PenTool, { size: 28, strokeWidth: 1.5 }),
     title: 'Design',
     description: 'Our designers craft intuitive, high-fidelity interfaces that prioritize user experience and brand identity.',
-    color: 'bg-purple-50 text-purple-600',
+    color: 'bg-[#f5f3ff] text-[#7c3aed]',
   },
   {
-    icon: React.createElement(Code, { className: 'w-8 h-8' }),
+    icon: React.createElement(Code, { size: 28, strokeWidth: 1.5 }),
     title: 'Development',
     description: 'Using agile methodologies, our engineers build robust, scalable code that brings your vision to life.',
-    color: 'bg-green-50 text-green-600',
+    color: 'bg-[#f0f4f1] text-[#2d4a3e]',
   },
   {
-    icon: React.createElement(Rocket, { className: 'w-8 h-8' }),
+    icon: React.createElement(Rocket, { size: 28, strokeWidth: 1.5 }),
     title: 'Launch',
     description: 'We ensure a smooth deployment and provide ongoing support to help your product grow and evolve.',
-    color: 'bg-orange-50 text-orange-600',
+    color: 'bg-[#fff7ed] text-[#ea580c]',
   },
 ];

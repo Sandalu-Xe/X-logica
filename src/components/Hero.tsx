@@ -131,7 +131,7 @@ export default function Hero() {
               initial={{ opacity: 0, rotate: -12, scale: 0.8 }}
               whileInView={{ opacity: 0.8, rotate: -12, scale: 1 }}
               transition={{ duration: 0.8, delay: 1.5 }}
-              className="absolute -top-8 -right-8 md:-right-16 font-hand text-2xl md:text-3xl text-[#5D4037] hidden sm:block"
+              className="absolute -top-8 -right-8 md:-right-16 font-hand text-2xl md:text-3xl text-black hidden sm:block"
             >
               Designed for People
             </motion.div>

@@ -111,7 +111,7 @@ export default function AboutPage() {
       <section className="py-24 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, margin: '-100px' }} variants={containerVariants} className="text-center mb-20">
-            <motion.span variants={itemVariants} className="text-xs font-bold tracking-widest text-accent-blue uppercase mb-4 block">How We Work</motion.span>
+            <motion.span variants={itemVariants} className="text-3xl font-hand text-accent-blue mb-4 block">How We Work</motion.span>
             <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold tracking-tight text-premium-black mb-6">Our Proven Process for Success</motion.h2>
             <motion.p variants={itemVariants} className="text-gray-500 max-w-2xl mx-auto leading-relaxed">
               We follow a structured, collaborative approach to ensure every project is delivered on time, within budget, and beyond expectations.
@@ -120,18 +120,33 @@ export default function AboutPage() {
 
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, margin: '-100px' }} variants={containerVariants} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative">
             <div className="absolute top-1/4 left-0 right-0 h-0.5 bg-gray-200 hidden lg:block -z-10" />
-            {processSteps.map((step, i) => (
-              <motion.div key={i} variants={itemVariants} className="flex flex-col items-center text-center group">
-                <div className={`w-20 h-20 rounded-3xl flex items-center justify-center mb-8 relative z-10 transition-transform duration-300 group-hover:scale-110 shadow-lg shadow-black/5 ${step.color}`}>
-                  {step.icon}
-                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-white rounded-full border border-gray-100 flex items-center justify-center text-sm font-bold text-premium-black shadow-sm">
-                    {i + 1}
+            {processSteps.map((step, i) => {
+              const blobClasses = [
+                'rounded-[40%_60%_40%_60%_/_60%_40%_60%_40%]',
+                'rounded-[65%_35%_76%_24%_/_47%_70%_30%_53%]',
+                'rounded-[24%_76%_35%_65%_/_53%_30%_70%_47%]',
+                'rounded-[45%_55%_70%_30%_/_30%_70%_45%_55%]'
+              ];
+              const hovers = [
+                'group-hover:scale-110',
+                'group-hover:-rotate-12',
+                'group-hover:rotate-12',
+                'group-hover:scale-110'
+              ];
+
+              return (
+                <motion.div key={i} variants={itemVariants} className="flex flex-col items-center text-center group">
+                  <div className={`w-20 h-20 flex items-center justify-center mb-8 relative z-10 transition-all duration-500 ${blobClasses[i]} ${hovers[i]} shadow-lg shadow-black/5 ${step.color}`}>
+                    {step.icon}
+                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-white rounded-full border border-gray-100 flex items-center justify-center text-sm font-bold text-premium-black shadow-sm">
+                      {i + 1}
+                    </div>
                   </div>
-                </div>
-                <h3 className="text-xl font-bold text-premium-black mb-4">{step.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{step.description}</p>
-              </motion.div>
-            ))}
+                  <h3 className="text-xl font-bold text-premium-black mb-4">{step.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{step.description}</p>
+                </motion.div>
+              );
+            })}
           </motion.div>
         </div>
       </section>
