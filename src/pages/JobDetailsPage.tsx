@@ -57,10 +57,15 @@ export default function JobDetailsPage() {
                 {position.type}
               </span>
             </div>
-            
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-premium-black mb-8 leading-tight">
+
+            <motion.h1
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="text-5xl md:text-7xl font-hand text-premium-black mb-8 leading-tight -rotate-0 origin-left inline-block"
+            >
               {position.title}
-            </h1>
+            </motion.h1>
 
             <div className="flex flex-wrap items-center gap-6 text-gray-500 mb-12">
               <div className="flex items-center gap-2">
@@ -134,9 +139,9 @@ export default function JobDetailsPage() {
                   transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
                   className="mb-12"
                 >
-                  <motion.img 
-                    src={position.image} 
-                    alt={`${position.title} Illustration`} 
+                  <motion.img
+                    src={position.image}
+                    alt={`${position.title} Illustration`}
                     className="w-full h-auto object-contain pointer-events-none select-none scale-125 drop-shadow-sm mix-blend-multiply"
                     animate={{ y: [0, -15, 0] }}
                     transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -144,7 +149,7 @@ export default function JobDetailsPage() {
                 </motion.div>
               )}
 
-              <motion.div 
+              <motion.div
                 variants={itemVariants}
                 className="sticky top-32 p-8 bg-premium-white border border-gray-100 rounded-[32px] shadow-2xl shadow-black/5"
               >
@@ -159,7 +164,7 @@ export default function JobDetailsPage() {
                     </button>
                   </Magnetic>
                 </Link>
-                
+
                 <div className="mt-8 pt-8 border-t border-gray-100">
                   <p className="text-xs text-gray-400 text-center">
                     Share this position with someone who might be a great fit.

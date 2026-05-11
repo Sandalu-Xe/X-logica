@@ -36,7 +36,7 @@ export default function ApplyPage() {
   const { slug } = useParams<{ slug: string }>();
   const position = openPositions.find(p => p.slug === slug);
   const roleName = position ? position.title : 'General Application';
-  
+
   const [status, setStatus] = useState<FormStatus>('idle');
   const [errorMsg, setErrorMsg] = useState('');
   const [fileName, setFileName] = useState<string | null>(null);
@@ -60,7 +60,7 @@ export default function ApplyPage() {
       if (API_URL.endsWith('/')) {
         API_URL = API_URL.slice(0, -1);
       }
-      
+
       const response = await axios.post(`${API_URL}/api/apply`, formData, {
         timeout: 60000 // 60s timeout (Render cold start + file upload)
       });
@@ -74,7 +74,7 @@ export default function ApplyPage() {
     } catch (err: any) {
       setStatus('error');
       console.error('Application Form Error:', err);
-      
+
       if (err.code === 'ECONNABORTED' || err.message?.includes('timeout')) {
         setErrorMsg('Request timed out. The server may be starting up — please wait a moment and try again.');
       } else if (err.response) {
@@ -88,11 +88,7 @@ export default function ApplyPage() {
 
   return (
     <div className="min-h-screen bg-white pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
-        <div className="absolute top-[-10%] right-[10%] w-[40%] h-[40%] bg-accent-blue/15 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[-10%] left-[10%] w-[35%] h-[35%] bg-accent-violet/15 rounded-full blur-[120px]" />
-      </div>
+      {/* Background Elements removed for minimalist style */}
 
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <motion.div
@@ -121,9 +117,9 @@ export default function ApplyPage() {
                 <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-accent-blue uppercase bg-accent-blue/5 rounded-full border border-accent-blue/10">
                   Application Form
                 </span>
-                <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-premium-black mb-6 leading-tight">
+                <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-premium-black mb-6 leading-tight">
                   Applying for <br />
-                  <span className="text-accent-blue">{roleName}</span>
+                  <span className="font-hand text-5xl md:text-7xl text-accent-blue inline-block -rotate- origin-left mt-4">{roleName}</span>
                 </h1>
                 <p className="text-lg text-gray-500 leading-relaxed max-w-2xl">
                   We're excited to learn more about you. Please fill out the form below and attach your CV to get started.
