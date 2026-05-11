@@ -32,7 +32,7 @@ export default function CareersPage() {
     <>
       <PageHero
         badge="Join Our Team"
-        badgeColor="violet"
+        badgeColor="blue"
         centered
         title={<>Build Your <span className="text-accent-blue">Career</span> With Us</>}
         description="Join a world-class team of engineers, designers, and strategists working on challenging problems that impact millions of users worldwide."
