@@ -142,7 +142,7 @@ export default function JobDetailsPage() {
                   <motion.img
                     src={position.image}
                     alt={`${position.title} Illustration`}
-                    className="w-full h-auto object-contain pointer-events-none select-none scale-125 drop-shadow-sm mix-blend-multiply"
+                    className="w-full h-auto object-contain pointer-events-none select-none scale-90 md:scale-125 drop-shadow-sm mix-blend-multiply"
                     animate={{ y: [0, -15, 0] }}
                     transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                   />
