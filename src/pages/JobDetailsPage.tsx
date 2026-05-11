@@ -29,7 +29,7 @@ export default function JobDetailsPage() {
         <div className="absolute bottom-[-10%] left-[10%] w-[35%] h-[35%] bg-accent-violet/10 rounded-full blur-[120px]" />
       </div>
 
-      <div className="max-w-4xl mx-auto px-6 relative z-10">
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -86,6 +86,7 @@ export default function JobDetailsPage() {
             <div className="h-px w-full bg-gray-100 mb-12" />
           </motion.div>
 
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="md:col-span-2 space-y-12">
               <motion.section variants={itemVariants}>
@@ -125,6 +126,24 @@ export default function JobDetailsPage() {
             </div>
 
             <div className="space-y-8">
+              {/* Position Illustration */}
+              {position.image && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+                  className="mb-12"
+                >
+                  <motion.img 
+                    src={position.image} 
+                    alt={`${position.title} Illustration`} 
+                    className="w-full h-auto object-contain pointer-events-none select-none scale-125 drop-shadow-sm mix-blend-multiply"
+                    animate={{ y: [0, -15, 0] }}
+                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                </motion.div>
+              )}
+
               <motion.div 
                 variants={itemVariants}
                 className="sticky top-32 p-8 bg-premium-white border border-gray-100 rounded-[32px] shadow-2xl shadow-black/5"
