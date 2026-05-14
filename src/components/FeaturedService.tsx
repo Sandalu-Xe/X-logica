@@ -21,7 +21,7 @@ export default function FeaturedProduct() {
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ once: false, margin: "-100px" }}
           >
-            <span className="text-3xl font-hand text-accent-blue mb-6 block">Featured Service</span>
+            <span className="text-3xl font-hand text-accent-violet mb-6 block">Featured Service</span>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-premium-black mb-8 leading-tight">
               Xlogica - Nexus Insights: <br /> Expert Digital Solutions
             </h2>
@@ -64,9 +64,9 @@ export default function FeaturedProduct() {
             className="relative"
           >
             <div className="relative rounded-[40px] overflow-hidden border border-[#2C3E2C]/5 bg-white p-4 md:p-8 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.05)]">
-              <img 
-                src="/images/nexus-dashboard.png" 
-                alt="Human-Centric Data Interface" 
+              <img
+                src="/images/nexus-dashboard.png"
+                alt="Human-Centric Data Interface"
                 className="w-full h-auto rounded-[32px] pointer-events-none select-none"
               />
             </div>

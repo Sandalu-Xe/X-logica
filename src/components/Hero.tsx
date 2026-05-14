@@ -118,13 +118,13 @@ export default function Hero() {
                   variants={wordVariants}
                   initial="hidden"
                   animate="visible"
-                  className={`inline-block mr-[0.2em] ${word === "AI" ? "text-[#5D4037]" : ""}`}
+                  className={`inline-block mr-[0.2em] ${word === "AI" ? "text-[#4984cc]" : ""}`}
                 >
                   {word}
                 </motion.span>
               ))}
             </motion.h1>
-            <Scribble className="bottom-0 left-1/4 w-1/2 text-[#5D4037]" />
+            <Scribble className="bottom-0 left-1/4 w-1/2 text-[#4984cc]" />
             <motion.div
               initial={{ opacity: 0, rotate: -12, scale: 0.8 }}
               whileInView={{ opacity: 0.8, rotate: -12, scale: 1 }}
@@ -136,7 +136,7 @@ export default function Hero() {
           </div>
           <motion.p
             variants={itemVariants}
-            className="text-lg md:text-2xl text-gray-500 mb-12 leading-relaxed max-w-3xl mx-auto font-medium"
+            className="text-lg md:text-2xl text-black-500 mb-12 leading-relaxed max-w-3xl mx-auto font-medium"
           >
             We blend technical precision with a human touch to build websites, web applications, and AI solutions that feel as natural as they are powerful.
           </motion.p>
@@ -146,7 +146,7 @@ export default function Hero() {
             className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
             <Magnetic strength={0.1}>
-              <button className="w-full sm:w-auto bg-[#2C3E2C] text-white px-10 py-5 rounded-2xl font-bold flex items-center justify-center gap-3 hover:bg-[#1A261A] transition-all active:scale-95 group shadow-xl shadow-black/5">
+              <button className="w-full sm:w-auto bg-[#1A261A] text-white px-10 py-5 rounded-2xl font-bold flex items-center justify-center gap-3 hover:bg-[#2#5378b0] transition-all active:scale-95 group shadow-xl shadow-black/5">
                 Start a Conversation <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </button>
             </Magnetic>

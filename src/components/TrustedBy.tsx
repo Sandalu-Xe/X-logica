@@ -13,16 +13,16 @@ export default function TrustedBy() {
   return (
     <section className="py-20 bg-white border-y border-gray-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center text-3xl font-hand text-accent-blue mb-12"
+          className="text-center text-3xl font-hand text-accent-violet mb-12"
         >
           Trusted by leading companies worldwide
         </motion.p>
-        
+
         <div className="flex overflow-hidden relative">
           <motion.div
             animate={{ x: ["0%", "-50%"] }}

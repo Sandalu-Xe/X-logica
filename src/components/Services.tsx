@@ -2,13 +2,13 @@ import React from 'react';
 import { motion, useMotionValue, useMotionTemplate } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { 
-  OrganicGlobe, 
-  OrganicBrowser, 
-  OrganicRobot, 
-  OrganicDesign, 
+import {
+  OrganicGlobe,
+  OrganicBrowser,
+  OrganicRobot,
+  OrganicDesign,
   OrganicMobile,
-  HandDrawnFilter 
+  HandDrawnFilter
 } from './HandDrawnIcons';
 
 const services = [
@@ -104,10 +104,10 @@ function ServiceCard({ service, index }: { service: any; index: number; key?: Re
           `,
         } as any}
       />
-      
-      <motion.div 
+
+      <motion.div
         className={`w-16 h-16 flex items-center justify-center mb-10 relative z-10 transition-all duration-1000 ${service.blob} ${service.hover} ${service.color}`}
-        style={{ 
+        style={{
           boxShadow: "inset 0 0 20px rgba(0,0,0,0.02)"
         } as React.CSSProperties}
       >
@@ -120,7 +120,7 @@ function ServiceCard({ service, index }: { service: any; index: number; key?: Re
       <p className="text-gray-600 text-base leading-relaxed mb-10 relative z-10 font-sans font-normal">
         {service.description}
       </p>
-      
+
       <Link to="/services" className="inline-flex items-center gap-3 text-sm font-bold text-premium-black group-hover:text-accent-sage transition-all relative z-10">
         <span className="underline underline-offset-8 decoration-gray-300 group-hover:decoration-accent-sage transition-colors">Explore Solution</span>
         <ArrowRight size={18} className="translate-x-0 group-hover:translate-x-2 transition-transform duration-500" />
@@ -134,7 +134,7 @@ export default function Services() {
     <section id="solutions" className="py-24 md:py-32 bg-white relative bg-grain">
       <HandDrawnFilter />
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -144,8 +144,8 @@ export default function Services() {
           <div className="max-w-3xl">
             <motion.span variants={itemVariants} className="text-[10px] font-bold tracking-[0.3em] text-accent-sage uppercase mb-6 block opacity-60">Human-Centric Studio</motion.span>
             <motion.h2 variants={itemVariants} className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-premium-black leading-[1.1] font-serif">
-              Built by Humans, <br /> 
-              <span className="text-accent-sage italic relative">
+              Built by Humans, <br />
+              <span className="text-accent-blue italic relative">
                 for Humans.
               </span>
             </motion.h2>
@@ -155,7 +155,7 @@ export default function Services() {
           </motion.p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
