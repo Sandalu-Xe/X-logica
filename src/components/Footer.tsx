@@ -7,7 +7,7 @@ import {
   HandDrawnTwitter,
   HandDrawnLinkedin,
   HandDrawnGithub,
-  HandDrawnInstagram,
+  HandDrawnWhatsapp,
   HandDrawnMail
 } from './HandDrawnIcons';
 
@@ -33,10 +33,10 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { Icon: HandDrawnTwitter, href: "#", title: "Twitter" },
-  { Icon: HandDrawnLinkedin, href: "#", title: "LinkedIn" },
-  { Icon: HandDrawnGithub, href: "#", title: "GitHub" },
-  { Icon: HandDrawnInstagram, href: "#", title: "Instagram" },
+  { Icon: HandDrawnTwitter,   href: "https://x.com/ThushanE37321",                      title: "X (Twitter)" },
+  { Icon: HandDrawnLinkedin,  href: "https://www.linkedin.com/company/xlogica/",         title: "LinkedIn"    },
+  { Icon: HandDrawnGithub,    href: "https://github.com/Sandalu-Xe",                    title: "GitHub"      },
+  { Icon: HandDrawnWhatsapp,  href: "https://wa.me/94770037291",                         title: "WhatsApp"    },
 ];
 
 export default function Footer() {
@@ -72,6 +72,8 @@ export default function Footer() {
                   key={index}
                   href={href}
                   title={title}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/5 transition-all duration-300 text-gray-400 hover:text-white"
                 >
                   <Icon />
