@@ -135,10 +135,10 @@ export const openPositions: JobPosition[] = [
 ];
 
 export const perks = [
-  { emoji: '🌍', title: 'Remote-First', desc: 'Work from anywhere in the world' },
-  { emoji: '📈', title: 'Growth Budget', desc: '$3,000/year for learning & conferences' },
-  { emoji: '🏖️', title: 'Unlimited PTO', desc: 'Take the time you need to recharge' },
-  { emoji: '💰', title: 'Competitive Pay', desc: 'Top-of-market salary + equity' },
-  { emoji: '🏥', title: 'Full Benefits', desc: 'Health, dental, vision & 401(k)' },
-  { emoji: '🎯', title: 'Impactful Work', desc: 'Build products used by millions' },
+  { icon: 'remote', title: 'Remote-First', desc: 'Work from anywhere in the world' },
+  { icon: 'growth', title: 'Growth Budget', desc: '$3,000/year for learning & conferences' },
+  { icon: 'pto', title: 'Unlimited PTO', desc: 'Take the time you need to recharge' },
+  { icon: 'pay', title: 'Competitive Pay', desc: 'Top-of-market salary + equity' },
+  { icon: 'benefits', title: 'Full Benefits', desc: 'Health, dental, vision & 401(k)' },
+  { icon: 'impact', title: 'Impactful Work', desc: 'Build products used by millions' },
 ];

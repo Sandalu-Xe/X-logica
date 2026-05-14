@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, MapPin, Briefcase, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -5,8 +6,21 @@ import Magnetic from '../components/Magnetic';
 import PageHero from '../components/PageHero';
 import ContactForm from '../components/ContactForm';
 import { containerVariants, itemVariants } from '../lib/animations';
+import {
+  RemoteFirstIcon, GrowthBudgetIcon, UnlimitedPTOIcon,
+  CompetitivePayIcon, FullBenefitsIcon, ImpactfulWorkIcon,
+} from '../components/PerkIcons';
 
 import { openPositions, perks } from '../data/careers';
+
+const perkIconMap: Record<string, React.FC<{ className?: string }>> = {
+  remote: RemoteFirstIcon,
+  growth: GrowthBudgetIcon,
+  pto: UnlimitedPTOIcon,
+  pay: CompetitivePayIcon,
+  benefits: FullBenefitsIcon,
+  impact: ImpactfulWorkIcon,
+};
 
 // --- Page ---
 
@@ -59,13 +73,22 @@ export default function CareersPage() {
             variants={containerVariants}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
           >
-            {perks.map((perk, i) => (
-              <motion.div key={i} variants={itemVariants} className="p-8 bg-white border border-gray-100 rounded-2xl hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 transition-all duration-300">
-                <div className="text-4xl mb-4">{perk.emoji}</div>
-                <h3 className="text-lg font-bold text-premium-black mb-2">{perk.title}</h3>
-                <p className="text-gray-500 text-sm">{perk.desc}</p>
-              </motion.div>
-            ))}
+            {perks.map((perk, i) => {
+              const Icon = perkIconMap[perk.icon];
+              return (
+                <motion.div
+                  key={i}
+                  variants={itemVariants}
+                  className="group p-8 bg-white border border-gray-100 rounded-2xl hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 transition-all duration-300"
+                >
+                  <div className="w-14 h-14 mb-5 rounded-2xl bg-gray-50 border border-gray-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-sm">
+                    {Icon && <Icon className="w-8 h-8" />}
+                  </div>
+                  <h3 className="text-lg font-bold text-premium-black mb-2">{perk.title}</h3>
+                  <p className="text-gray-500 text-sm">{perk.desc}</p>
+                </motion.div>
+              );
+            })}
           </motion.div>
         </div>
       </section>
