@@ -15,7 +15,7 @@ export default function JobDetailsPage() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">Position Not Found</h1>
-          <Link to="/careers" className="text-accent-blue hover:underline">Back to Careers</Link>
+          <Link to="/careers" className="text-accent-violet hover:underline">Back to Careers</Link>
         </div>
       </div>
     );

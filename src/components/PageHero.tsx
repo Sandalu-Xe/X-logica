@@ -3,7 +3,7 @@ import { containerVariants, itemVariants } from '../lib/animations';
 
 interface PageHeroProps {
   badge: string;
-  badgeColor?: 'blue' | 'violet';
+  badgeColor?: 'violet';
   title: React.ReactNode;
   description: string;
   centered?: boolean;
@@ -15,7 +15,7 @@ const defaultBlobs: Array<{ position: string; color: string }> = [];
 
 export default function PageHero({
   badge,
-  badgeColor = 'blue',
+  badgeColor = 'violet',
   title,
   description,
   centered = false,

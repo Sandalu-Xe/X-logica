@@ -51,14 +51,14 @@ export default function Testimonials() {
   return (
     <section className="py-24 md:py-32 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, margin: "-100px" }}
           variants={containerVariants}
           className="text-center mb-20"
         >
-          <motion.span variants={itemVariants} className="text-3xl font-hand text-accent-blue mb-4 block">Testimonials</motion.span>
+          <motion.span variants={itemVariants} className="text-3xl font-hand text-accent-violet mb-4 block">Testimonials</motion.span>
           <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold tracking-tight text-premium-black mb-6">
             What Our Clients Say
           </motion.h2>
@@ -68,7 +68,7 @@ export default function Testimonials() {
         </motion.div>
 
         <div className="relative w-full overflow-hidden flex" style={{ WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)", maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}>
-          <motion.div 
+          <motion.div
             className="flex gap-8 w-max items-stretch will-change-transform"
             animate={{ x: ["0%", "-50%"] }}
             transition={{ ease: "linear", duration: 40, repeat: Infinity }}
@@ -79,15 +79,15 @@ export default function Testimonials() {
                 className="w-[320px] md:w-[400px] shrink-0 p-8 md:p-10 bg-white border border-gray-100 rounded-3xl relative group hover:shadow-2xl hover:shadow-black/5 transition-all duration-500 flex flex-col justify-between"
               >
                 <Quote className="absolute top-8 right-8 w-10 h-10 text-accent-blue/10 group-hover:text-accent-blue/20 transition-colors" />
-                
+
                 <p className="text-lg text-gray-700 italic leading-relaxed mb-10 relative z-10">
                   "{testimonial.quote}"
                 </p>
-                
+
                 <div className="flex items-center gap-4 mt-auto">
-                  <img 
-                    src={testimonial.avatar} 
-                    alt={testimonial.author} 
+                  <img
+                    src={testimonial.avatar}
+                    alt={testimonial.author}
                     className="w-12 h-12 rounded-full border-2 border-white shadow-md"
                     referrerPolicy="no-referrer"
                     loading="lazy"

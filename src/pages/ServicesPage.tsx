@@ -134,7 +134,7 @@ export default function ServicesPage() {
               transition={{ duration: 1, ease: EASE }}
               viewport={{ once: false, margin: '-100px' }}
             >
-              <span className="text-3xl font-hand text-accent-blue mb-6 block">Featured Service</span>
+              <span className="text-3xl font-hand text-accent-violet mb-6 block">Featured Service</span>
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-premium-black mb-8 leading-tight">
                 Xlogica - Nexus Dashboard: <br /> Insight at Your Fingertips
               </h2>

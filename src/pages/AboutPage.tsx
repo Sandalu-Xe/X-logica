@@ -99,9 +99,9 @@ export default function AboutPage() {
             viewport={{ once: false }}
             className="relative rounded-[48px] overflow-hidden border border-gray-100 shadow-2xl shadow-black/5"
           >
-            <img 
-              src="/images/about-illustration.png" 
-              alt="Team Collaboration Illustration" 
+            <img
+              src="/images/about-illustration.png"
+              alt="Team Collaboration Illustration"
               className="w-full h-auto rounded-[32px] pointer-events-none select-none"
             />
           </motion.div>
@@ -129,7 +129,7 @@ export default function AboutPage() {
       <section className="py-24 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, margin: '-100px' }} variants={containerVariants} className="text-center mb-20">
-            <motion.span variants={itemVariants} className="text-3xl font-hand text-accent-blue mb-4 block">How We Work</motion.span>
+            <motion.span variants={itemVariants} className="text-3xl font-hand text-accent-violet mb-4 block">How We Work</motion.span>
             <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold tracking-tight text-premium-black mb-6">Our Proven Process for Success</motion.h2>
             <motion.p variants={itemVariants} className="text-gray-500 max-w-2xl mx-auto leading-relaxed">
               We follow a structured, collaborative approach to ensure every project is delivered on time, within budget, and beyond expectations.

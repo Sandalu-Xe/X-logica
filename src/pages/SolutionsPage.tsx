@@ -25,11 +25,11 @@ export default function SolutionsPage() {
       {/* Services Grid */}
       <section className="py-24 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div 
-            initial="hidden" 
-            whileInView="visible" 
-            viewport={{ once: true, margin: '-100px' }} 
-            variants={containerVariants} 
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+            variants={containerVariants}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {services.map((service, i) => (
@@ -57,7 +57,7 @@ export default function SolutionsPage() {
       <section className="py-24 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }} variants={containerVariants} className="text-center mb-20">
-            <span className="text-3xl font-hand text-accent-blue mb-4 block">Our Process</span>
+            <span className="text-3xl font-hand text-accent-violet mb-4 block">Our Process</span>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-premium-black mb-6">How We Work</h2>
             <p className="text-gray-500 max-w-2xl mx-auto leading-relaxed">We follow a structured, collaborative approach to ensure success.</p>
           </motion.div>
